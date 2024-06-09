@@ -6,6 +6,12 @@ Initial commit to my aweasome dotfiles configuration made possible to maintain (
 
 Coming soon..! (as I figure out how to do it properly with chezmoi 😂)
 
+## Things to add
+
+- [ ] Add a proper installation guide
+- [ ] Add a proper way to install packages declaratively post installation with an `run_onchange_` prefix script
+- [ ] Make sure the scripts are idempotent and can be run multiple times without breaking anything
+
 ## Thanks to
 
 - [Chezmoi](https://www.chezmoi.io/) for making it possible to maintain my dotfiles configuration in a proper way.

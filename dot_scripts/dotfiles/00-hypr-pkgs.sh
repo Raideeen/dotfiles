@@ -8,7 +8,7 @@
 
 # add packages wanted here
 Extra=(
-
+  python-pywall # Temporary package to be removed after I convert zDyanTB dotfiles to use wallust-git
 )
 
 hypr_package=(

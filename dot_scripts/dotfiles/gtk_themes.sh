@@ -10,7 +10,7 @@ engine=(
 ## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
 
 # Determine the directory where the script is located
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Change the working directory to the parent directory of the script
 PARENT_DIR="$SCRIPT_DIR/.."
@@ -19,8 +19,7 @@ cd "$PARENT_DIR" || exit 1
 source "$(dirname "$(readlink -f "$0")")/Global_functions.sh"
 
 # Set the name of the log file to include the current date and time
-LOG="Install-Logs/install-$(date +%d-%H%M%S)_themes.log"
-
+LOG="$HOME/Install-Logs/install-$(date +%d-%H%M%S)_themes.log"
 
 # installing engine needed for gtk themes
 for PKG1 in "${engine[@]}"; do
@@ -38,7 +37,7 @@ if [ -d "GTK-themes-icons" ]; then
 fi
 
 echo "$NOTE Cloning GTK themes and Icons repository..." 2>&1 | tee -a "$LOG"
-if git clone https://github.com/JaKooLit/GTK-themes-icons.git ; then
+if git clone https://github.com/JaKooLit/GTK-themes-icons.git; then
     cd GTK-themes-icons
     chmod +x auto-extract.sh
     ./auto-extract.sh

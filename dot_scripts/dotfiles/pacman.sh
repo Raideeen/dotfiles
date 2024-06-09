@@ -6,7 +6,7 @@
 source "$(dirname "$(readlink -f "$0")")/Global_functions.sh"
 
 # Set the name of the log file to include the current date and time
-LOG="Install-Logs/install-$(date +%d-%H%M%S)_pacman.log"
+LOG="$HOME/Install-Logs/install-$(date +%d-%H%M%S)_pacman.log"
 
 echo -e "${NOTE} Adding Extra Spice in pacman.conf ... ${RESET}" 2>&1 | tee -a "$LOG"
 pacman_conf="/etc/pacman.conf"

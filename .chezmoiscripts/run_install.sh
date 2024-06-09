@@ -13,6 +13,9 @@ clear
 # Define variables
 script_directory=.scripts/dotfiles # Define the directory where your scripts are located
 
+# Ensuring all in the scripts folder are made executable
+chmod +x $script_directory/*
+
 printf "\n%.0s" {1..3}
 echo "   |  _.   |/  _   _  |  o _|_ "
 echo " \_| (_| o |\ (_) (_) |_ |  |_ "
@@ -82,9 +85,6 @@ execute_script() {
     fi
 }
 
-# Ensuring all in the scripts folder are made executable
-chmod +x install-scripts/*
-sleep 0.5
 # Ensuring base-devel is installed
 execute_script "00-base.sh"
 sleep 0.5

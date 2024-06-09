@@ -73,7 +73,7 @@ USER_NAME="John Doe"
 #!/bin/bash
 
 # Source the variables.sh script
-source "$HOME/dot_scripts/variables.sh"
+source "$HOME/.scripts/variables.sh" # Note that we replaced "_dot" with an actual dot "."
 
 # Print a greeting message
 echo "Hello, $USER_NAME! Welcome to your configured environment."
@@ -90,3 +90,4 @@ echo "Hello, $USER_NAME! Welcome to your configured environment."
 > **Note**: Scripts stored in `.chezmoiscripts` are not copied to the `$HOME` folder after running `chezmoi apply`. They are simply executed directly.
 
 This setup allows you to organize your scripts efficiently, ensuring that only the necessary scripts are executed while others are sourced as needed.
+

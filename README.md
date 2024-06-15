@@ -1,10 +1,14 @@
 # dotfiles
 
-Initial commit to my aweasome dotfiles configuration made possible to maintain (properly) with chezmoi!
+This is a work in progress and I am still figuring out how to properly maintain my dotfiles with chezmoi. I am still learning and I am open to suggestions and feedback. Please feel free to open an issue or a pull request if you have any suggestions or feedback. I would love to hear from you! 😊
 
 ## Installation
 
 Coming soon..! (as I figure out how to do it properly with chezmoi 😂)
+
+## Note
+
+- [Hyprsome](https://github.com/sopa0/hyprsome) is a binary that interacts with Hyprland's Unix socket to make workspaces behave similary to AwesomeWM in a multi-monitor setup. To be usable, the binary has to be placed in `/usr/bin`. This is done automatically in the script by the `move-cargo-binaries.sh` script.
 
 ## Things to add
 

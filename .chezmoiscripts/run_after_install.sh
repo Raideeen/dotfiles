@@ -114,6 +114,9 @@ if [ "$time" == "Y" ]; then
     execute_script "time.sh"
 fi
 
+# Move cargo packages to /usr/bin
+execute_script "move-cargo-binaries.sh"
+
 # Install hyprland
 execute_script "hyprland.sh"
 

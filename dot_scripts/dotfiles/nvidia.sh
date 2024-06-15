@@ -11,6 +11,7 @@ nvidia_pkg=(
   nvidia-utils
   libva
   libva-nvidia-driver-git
+  egl-wayland
 )
 
 ## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##

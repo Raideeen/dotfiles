@@ -1,0 +1,7 @@
+[user]
+	email = raideeen@proton.me
+	name = Adrien Djebar
+[credential]
+	helper = cache --timeout=3600
+[core]
+	editor = nano

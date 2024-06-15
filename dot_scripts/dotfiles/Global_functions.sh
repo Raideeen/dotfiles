@@ -39,6 +39,26 @@ install_package_pacman() {
   fi
 }
 
+# Function to install cargo packages (Rust)
+install_package_cargo() {
+  # Checking if package is already installed
+  if cargo install "$1" &>/dev/null; then
+    echo -e "${OK} $1 is already installed. Skipping..."
+  else
+    # Package not installed
+    echo -e "${NOTE} Installing $1 ..."
+    cargo install "$1" 2>&1 | tee -a "$LOG"
+    # Making sure package is installed
+    if cargo install "$1" &>/dev/null; then
+      echo -e "${OK} $1 was installed."
+    else
+      # Something is missing, exiting to review log
+      echo -e "${ERROR} $1 failed to install. Please check the $LOG. You may need to install manually."
+      exit 1
+    fi
+  fi
+}
+
 ISAUR=$(command -v yay || command -v paru)
 
 # Function for installing packages
@@ -70,6 +90,23 @@ uninstall_package() {
     sudo pacman -Rns --noconfirm "$1" 2>&1 | tee -a "$LOG"
     # Making sure package is uninstalled
     if ! pacman -Qi "$1" &>>/dev/null; then
+      echo -e "\e[1A\e[K${OK} $1 was uninstalled."
+    else
+      # Something went wrong, exiting to review log
+      echo -e "\e[1A\e[K${ERROR} $1 failed to uninstall. Please check the log."
+      exit 1
+    fi
+  fi
+}
+
+uninstall_package_cargo() {
+  # Checking if package is installed
+  if cargo uninstall "$1" &>>/dev/null; then
+    # Package is installed
+    echo -e "${NOTE} Uninstalling $1 ..."
+    cargo uninstall "$1" 2>&1 | tee -a "$LOG"
+    # Making sure package is uninstalled
+    if ! cargo uninstall "$1" &>>/dev/null; then
       echo -e "\e[1A\e[K${OK} $1 was uninstalled."
     else
       # Something went wrong, exiting to review log

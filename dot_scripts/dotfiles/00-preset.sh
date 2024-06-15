@@ -45,6 +45,10 @@ XDPH1="Y"
 #   Options: "Y" or "N"
 blacklist_nouveau="Y"
 
+# - Would you like to change time to local time (not UTC)?
+#   Options: "Y" or "N"
+time="Y"
+
 # ========================
 
 # ========================

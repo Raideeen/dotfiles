@@ -100,11 +100,19 @@ fi
 # Install hyprland packages
 execute_script "00-hypr-pkgs.sh"
 
+# Add paths to PATH for binaries and stuff...
+execute_script "01-add-to-path.sh"
+
 # Install pipewire and pipewire-audio
 execute_script "pipewire.sh"
 
 # Install necessary fonts
 execute_script "fonts.sh"
+
+# Set time to local time (not UTC)
+if [ "$time" == "Y" ]; then
+    execute_script "time.sh"
+fi
 
 # Install hyprland
 execute_script "hyprland.sh"
@@ -145,7 +153,6 @@ fi
 
 if [ "$dots" == "Y" ]; then
     execute_script "dotfiles.sh"
-
 fi
 
 printf "\n${OK} Yey! Installation Completed.\n"

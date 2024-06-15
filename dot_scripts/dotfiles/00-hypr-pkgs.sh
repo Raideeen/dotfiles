@@ -7,8 +7,16 @@
 # and also, ensure that packages are present in AUR and official Arch Repo
 
 # add packages wanted here
-Extra=(
+extra_hypr=(
   python-pywall # Temporary package to be removed after I convert zDyanTB dotfiles to use wallust-git
+  flatpak
+  proton-pass            # My password manager but you can change !
+  visual-studio-code-bin # Yes proprietary ...
+  gnome-keyring          # For VSCode Keyring
+)
+
+extra_cargo=(
+  hyprsome # Make hyprland workspace work similarly to AwesomeWM in a multi-monitor setup
 )
 
 hypr_package=(
@@ -16,8 +24,14 @@ hypr_package=(
   cliphist
   curl
   grim
+  udisk2 # to mount disk
   gvfs
   gvfs-mtp
+  gvfs-smb           # To mount networks
+  gvfs-gphotos2      # To mount disk
+  ntfs-3g            # To mount ntfs disk
+  exfat-utils        # To mount exfat disk
+  gnome-disk-utility # To mount with a GUI all the disk
   hypridle
   hyprlock
   imagemagick
@@ -69,12 +83,19 @@ hypr_package_2=(
   pacman-contrib
   vim
   yt-dlp
+  man-db # For the man pages, obviously!
 )
 
 # List of packages to uninstall as it conflicts with swaync or causing swaync to not function properly
 uninstall=(
   dunst
   mako
+  proton-pass-debug # Conflict with Visual Studio Code
+)
+
+# List of cargo packages to uninstall
+uninstall_cargo=(
+
 )
 
 ## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
@@ -90,10 +111,21 @@ source "$(dirname "$(readlink -f "$0")")/Global_functions.sh"
 # Set the name of the log file to include the current date and time
 LOG="$HOME/Install-Logs/install-$(date +%d-%H%M%S)_hypr-pkgs.log"
 
+# ------------------------------------------------------------------------------------------
+#  _    _                  _                 _   _____           _
+# | |  | |                | |               | | |  __ \         | |
+# | |__| |_   _ _ __  _ __| | __ _ _ __   __| | | |__) |_ _  ___| | ____ _  __ _  ___  ___
+# |  __  | | | | '_ \| '__| |/ _` | '_ \ / _` | |  ___/ _` |/ __| |/ / _` |/ _` |/ _ \/ __|
+# | |  | | |_| | |_) | |  | | (_| | | | | (_| | | |  | (_| | (__|   < (_| | (_| |  __/\__ \
+# |_|  |_|\__, | .__/|_|  |_|\__,_|_| |_|\__,_| |_|   \__,_|\___|_|\_\__,_|\__, |\___||___/
+#          __/ | |                                                          __/ |
+#         |___/|_|                                                         |___/
+# ------------------------------------------------------------------------------------------
 # Installation of main components
+
 printf "\n%s - Installing hyprland packages.... \n" "${NOTE}"
 
-for PKG1 in "${hypr_package[@]}" "${hypr_package_2[@]}" "${Extra[@]}"; do
+for PKG1 in "${hypr_package[@]}" "${hypr_package_2[@]}" "${extra_hypr[@]}"; do
   install_package "$PKG1" 2>&1 | tee -a "$LOG"
   if [ $? -ne 0 ]; then
     echo -e "\e[1A\e[K${ERROR} - $PKG1 Package installation failed, Please check the installation logs"
@@ -107,6 +139,37 @@ for PKG in "${uninstall[@]}"; do
   uninstall_package "$PKG" 2>&1 | tee -a "$LOG"
   if [ $? -ne 0 ]; then
     echo -e "\e[1A\e[K${ERROR} - $PKG uninstallation failed, please check the log"
+    exit 1
+  fi
+done
+
+# ------------------------------------------------------------------------------------------
+#
+#
+#   _____                        _____           _
+#  / ____|                      |  __ \         | |
+# | |     __ _ _ __ __ _  ___   | |__) |_ _  ___| | ____ _  __ _  ___  ___
+# | |    / _` | '__/ _` |/ _ \  |  ___/ _` |/ __| |/ / _` |/ _` |/ _ \/ __|
+# | |___| (_| | | | (_| | (_) | | |  | (_| | (__|   < (_| | (_| |  __/\__ \
+#  \_____\__,_|_|  \__, |\___/  |_|   \__,_|\___|_|\_\__,_|\__, |\___||___/
+#                   __/ |                                   __/ |
+#                  |___/                                   |___/
+# ------------------------------------------------------------------------------------------
+
+printf "\n%s - Installing cargo packages.... \n" "${NOTE}"
+
+for PKG2 in "${extra_cargo[@]}"; do
+  install_package_cargo "$PKG2" 2>&1 | tee -a "$LOG"
+  if [ $? -ne 0 ]; then
+    echo -e "\e[1A\e[K${ERROR} - $PKG2 Package installation failed, Please check the installation logs"
+    exit 1
+  fi
+done
+
+for PKG3 in "${uninstall_cargo[@]}"; do
+  uninstall_package_cargo "$PKG3" 2>&1 | tee -a "$LOG"
+  if [ $? -ne 0 ]; then
+    echo -e "\e[1A\e[K${ERROR} - $PKG3 uninstallation failed, Please check the installation logs"
     exit 1
   fi
 done

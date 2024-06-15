@@ -8,7 +8,7 @@ Coming soon..! (as I figure out how to do it properly with chezmoi 😂)
 
 ## Note
 
-- [Hyprsome](https://github.com/sopa0/hyprsome) is a binary that interacts with Hyprland's Unix socket to make workspaces behave similary to AwesomeWM in a multi-monitor setup. To be usable, the binary has to be placed in `/usr/bin`. This is done automatically in the script by the `move-cargo-binaries.sh` script.
+- [Hyprsome](https://github.com/sopa0/hyprsome) is a binary that interacts with Hyprland's Unix socket to make workspaces behave similary to AwesomeWM in a multi-monitor setup. To be usable, the binary has to be placed in `/usr/bin`. This is done automatically in the script by the `move-cargo-binaries.sh` script. Although, you can configure your multi-monitor setup by just setting specific workspaces for each monitor.
 
 ## Things to add
 

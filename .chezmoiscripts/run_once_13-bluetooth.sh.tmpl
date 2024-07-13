@@ -1,0 +1,36 @@
+{{ if .variables.bluetooth -}}
+#!/bin/bash
+
+echo "14 : run_14-bluetooth.sh"
+
+# Sourcing helper functions and variables
+source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
+
+# 💫 https://github.com/JaKooLit 💫 #
+# Bluetooth Stuff #
+
+blue=(
+    bluez
+    bluez-utils
+    blueman
+)
+
+## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
+
+# Set the name of the log file to include the current date and time
+LOG="$HOME/.dotfiles/logs/install-$(date +%d-%H%M%S)_bluetooth.log"
+
+# Bluetooth
+printf "${NOTE} Installing Bluetooth Packages...\n"
+for BLUE in "${blue[@]}"; do
+    install_package "$BLUE" 2>&1 | tee -a "$LOG"
+    [ $? -ne 0 ] && {
+        echo -e "\e[1A\e[K${ERROR} - $BLUE Package installation failed, Please check the installation logs"
+        exit 1
+    }
+done
+
+printf "${NOTE} Activating Bluetooth Services...\n"
+sudo systemctl enable --now bluetooth.service 2>&1 | tee -a "$LOG"
+
+{{ end }}

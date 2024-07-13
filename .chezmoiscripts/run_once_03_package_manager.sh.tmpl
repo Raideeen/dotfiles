@@ -1,0 +1,161 @@
+#!/bin/bash
+# 💫 https://github.com/JaKooLit 💫 #
+# pacman adding up extra-spices and installating other package managers#
+
+echo "4 : run_04-package_manager.sh"
+
+# Sourcing helper functions and variables
+source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
+
+ISAUR=$(command -v yay || command -v paru)
+
+## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
+
+# Set the name of the log file to include the current date and time
+LOG="$HOME/.dotfiles/logs/install-$(date +%d-%H%M%S)_pacman.log"
+
+# ---------------------------------------
+#  _____
+# |  __ \
+# | |__) |_ _  ___ _ __ ___   __ _ _ __
+# |  ___/ _` |/ __| '_ ` _ \ / _` | '_ \
+# | |  | (_| | (__| | | | | | (_| | | | |
+# |_|   \__,_|\___|_| |_| |_|\__,_|_| |_|
+#
+# ---------------------------------------
+
+echo -e "${NOTE} Adding Extra Spice in pacman.conf ... ${RESET}" 2>&1 | tee -a "$LOG"
+pacman_conf="/etc/pacman.conf"
+
+# Remove comments '#' from specific lines
+lines_to_edit=(
+    "Color"
+    "CheckSpace"
+    "VerbosePkgLists"
+    "ParallelDownloads"
+)
+
+# Uncomment specified lines if they are commented out
+for line in "${lines_to_edit[@]}"; do
+    if grep -q "^#$line" "$pacman_conf"; then
+        sudo sed -i "s/^#$line/$line/" "$pacman_conf"
+        echo -e "${CAT} Uncommented: $line ${RESET}" 2>&1 | tee -a "$LOG"
+    else
+        echo -e "${CAT} $line is already uncommented. ${RESET}" 2>&1 | tee -a "$LOG"
+    fi
+done
+
+# Add "ILoveCandy" below ParallelDownloads if it doesn't exist
+if grep -q "^ParallelDownloads" "$pacman_conf" && ! grep -q "^ILoveCandy" "$pacman_conf"; then
+    sudo sed -i "/^ParallelDownloads/a ILoveCandy" "$pacman_conf"
+    echo -e "${CAT} Added ILoveCandy below ParallelDownloads. ${RESET}" 2>&1 | tee -a "$LOG"
+else
+    echo -e "${CAT} ILoveCandy already exists ${RESET}" 2>&1 | tee -a "$LOG"
+fi
+
+echo -e "${CAT} Pacman.conf spicing up completed ${RESET}" 2>&1 | tee -a "$LOG"
+
+# updating pacman.conf
+sudo pacman -Sy
+
+# ---------------------------------------
+# __     __
+# \ \   / /
+#  \ \_/ /_ _ _   _
+#   \   / _` | | | |
+#    | | (_| | |_| |
+#    |_|\__,_|\__, |
+#              __/ |
+#             |___/
+# ---------------------------------------
+
+{{ if eq .variables.aur_helper "yay" -}}
+echo "yay"
+# Check Existing yay-bin
+if [ -d yay-bin ]; then
+    rm -rf yay-bin 2>&1 | tee -a "$LOG"
+fi
+
+if [ -n "$ISAUR" ]; then
+    printf "\n%s - AUR helper already installed, moving on.\n" "${OK}"
+else
+    printf "\n%s - AUR helper was NOT located\n" "$WARN"
+    printf "\n%s - Installing yay from AUR\n" "${NOTE}"
+    git clone https://aur.archlinux.org/yay-bin.git || {
+        printf "%s - Failed to clone yay from AUR\n" "${ERROR}"
+        exit 1
+    }
+    cd yay-bin || {
+        printf "%s - Failed to enter yay-bin directory\n" "${ERROR}"
+        exit 1
+    }
+    makepkg -si --noconfirm 2>&1 | tee -a "$LOG" || {
+        printf "%s - Failed to install yay from AUR\n" "${ERROR}"
+        exit 1
+    }
+
+    # moving install logs in to Install-Logs folder
+    mv install*.log ../Install-Logs/ || true
+    cd ..
+fi
+
+# Update system before proceeding
+printf "\n%s - Performing a full system update to avoid issues.... \n" "${NOTE}"
+ISAUR=$(command -v yay || command -v paru)
+
+$ISAUR -Syu --noconfirm 2>&1 | tee -a "$LOG" || {
+    printf "%s - Failed to update system\n" "${ERROR}"
+    exit 1
+}
+{{ end }}
+
+# ---------------------------------------
+#  _____
+# |  __ \
+# | |__) |_ _ _ __ _   _
+# |  ___/ _` | '__| | | |
+# | |  | (_| | |  | |_| |
+# |_|   \__,_|_|   \__,_|
+# ---------------------------------------
+
+{{ if eq .variables.aur_helper "paru" -}}
+echo "paru"
+# checking if paru-bin exist and removing if it is
+if [ -d paru-bin ]; then
+    rm -rf paru-bin 2>&1 | tee -a "$LOG"
+fi
+
+if [ -n "$ISAUR" ]; then
+    printf "\n%s - AUR helper already installed, moving on..\n" "${OK}"
+else
+    printf "\n%s - AUR helper was NOT located\n" "$WARN"
+    printf "\n%s - Installing paru from AUR\n" "${NOTE}"
+    git clone https://aur.archlinux.org/paru-bin.git || {
+        printf "%s - Failed to clone paru from AUR\n" "${ERROR}"
+        exit 1
+    }
+    cd paru-bin || {
+        printf "%s - Failed to enter paru-bin directory\n" "${ERROR}"
+        exit 1
+    }
+    makepkg -si --noconfirm 2>&1 | tee -a "$LOG" || {
+        printf "%s - Failed to install paru from AUR\n" "${ERROR}"
+        exit 1
+    }
+
+    # moving install logs in to Install-Logs folder
+    mv install*.log ../Install-Logs/ || true
+    cd ..
+fi
+
+# Update system before proceeding
+printf "\n%s - Performing a full system update to avoid issues.... \n" "${NOTE}"
+ISAUR=$(command -v yay || command -v paru)
+
+$ISAUR -Syu --noconfirm 2>&1 | tee -a "$LOG" || {
+    printf "%s - Failed to update system\n" "${ERROR}"
+    exit 1
+}
+{{ end }}
+
+printf "\n%s - Package Manager setup completed\n" "${OK}"

@@ -2,7 +2,7 @@
 # 💫 https://github.com/JaKooLit 💫 #
 # Pipewire and Pipewire Audio Stuff #
 
-echo "7 : run_07-pipewire.sh"
+echo "${NOTE} - Running 06-pipewire.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
@@ -44,3 +44,5 @@ done
 printf "Activating Pipewire Services...\n"
 systemctl --user enable --now pipewire.socket pipewire-pulse.socket wireplumber.service 2>&1 | tee -a "$LOG"
 systemctl --user enable --now pipewire.service 2>&1 | tee -a "$LOG"
+
+printf "${OK} Pipewire installed successfully\n" | tee -a "$LOG"

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "20 : run_20-end_installation.sh"
-
 printf "\n${OK} Yey! Installation Completed.\n"
 printf "\n"
 sleep 2

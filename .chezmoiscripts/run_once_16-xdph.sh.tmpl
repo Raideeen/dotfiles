@@ -1,7 +1,7 @@
 {{ if .variables.xdph -}}
 #!/bin/bash
 
-echo "17 : run_17-xdph.sh"
+echo "${NOTE} - Running 16-xdph.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
@@ -66,4 +66,5 @@ while true; do
         ;;
     esac
 done
+printf "${OK} XDG-Desktop-Portal-Hyprland Installed Successfully!\n" | tee -a "$LOG"
 {{ end }}

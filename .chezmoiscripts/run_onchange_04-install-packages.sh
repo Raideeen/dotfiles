@@ -2,7 +2,7 @@
 # 💫 https://github.com/JaKooLit 💫 #
 # Hyprland Packages #
 
-echo "5 : run_05-install-packages.sh"
+echo "${NOTE} - Running 04-install-packages.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
@@ -17,6 +17,8 @@ extra_hypr=(
     proton-pass            # My password manager but you can change !
     visual-studio-code-bin # Yes proprietary ...
     gnome-keyring          # For VSCode Keyring
+    mangal                 # Manga reader for Linux
+    zathura                # Nice and minimal PDF reader
 )
 
 extra_cargo=(
@@ -133,7 +135,7 @@ for PKG1 in "${hypr_package[@]}" "${hypr_package_2[@]}" "${extra_hypr[@]}"; do
     fi
 done
 
-# Checking if mako or dunst is installed
+# Checking if mako or dunst is installed for swaync to work properly
 printf "\n%s - Checking if mako or dunst are installed and removing for swaync to work properly \n" "${NOTE}"
 for PKG in "${uninstall[@]}"; do
     uninstall_package "$PKG" 2>&1 | tee -a "$LOG"

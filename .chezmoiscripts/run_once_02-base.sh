@@ -2,7 +2,7 @@
 # 💫 https://github.com/JaKooLit 💫 #
 # base devel #
 
-echo "3 : run_03-base.sh"
+echo "${NOTE} - Running 02-base.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"

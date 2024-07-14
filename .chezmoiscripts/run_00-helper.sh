@@ -4,8 +4,6 @@
 
 set -e
 
-echo "0 : run_00-helper.sh"
-
 ISAUR=$(command -v yay || command -v paru)
 
 # Set some colors for output messages

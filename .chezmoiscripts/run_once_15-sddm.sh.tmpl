@@ -1,7 +1,7 @@
 {{ if .variables.sddm -}}
 #!/bin/bash
 
-echo "16 : run_16-sddm.sh"
+echo "${NOTE} - Running 15-sddm.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
@@ -102,5 +102,5 @@ while [ "$valid_input" != true ]; do
         install_sddm_theme=""
     fi
 done
-
+printf "${OK} SDDM and SDDM theme installed successfully!\n" | tee -a "$LOG"
 {{ end }}

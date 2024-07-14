@@ -1,7 +1,7 @@
 {{ if .variables.gtk_themes -}}
 #!/bin/bash
 
-echo "13 : run_13-gtk_themes.sh"
+echo "${NOTE} - Running 12-gtk_themes.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
@@ -48,5 +48,5 @@ fi
 tar -xf "assets/Bibata-Modern-Ice.tar.xz" -C ~/.icons 2>&1 | tee -a "$LOG"
 echo "$OK Extracted Bibata-Modern-Ice.tar.xz to ~/.icons folder." 2>&1 | tee -a "$LOG"
 
-clear
+printf "${OK} GTK Themes & Icons Installed Successfully!\n" | tee -a "$LOG"
 {{ end }}

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "6 : run_06-add-to-path.sh"
+echo "${NOTE} - Running 05-add-to-path.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"

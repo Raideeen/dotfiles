@@ -1,7 +1,7 @@
 {{ if .variables.thunar -}}
 #!/bin/bash
 
-echo "15 : run_15-thunar.sh"
+echo "${NOTE} - Running 14-thunar.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
@@ -44,4 +44,5 @@ for DIR1 in gtk-3.0 Thunar xfce4; do
     fi
 done
 
+printf "${OK} Thunar Packages Installed Successfully!\n" | tee -a "$LOG"
 {{ end }}

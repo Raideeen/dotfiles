@@ -2,7 +2,7 @@
 # 💫 https://github.com/JaKooLit 💫 #
 # Fonts #
 
-echo "8 : run_08-fonts.sh"
+echo "${NOTE} - Running 07-fonts.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"

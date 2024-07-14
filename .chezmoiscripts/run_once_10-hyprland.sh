@@ -2,7 +2,7 @@
 # 💫 https://github.com/JaKooLit 💫 #
 # Main Hyprland Package #
 
-echo "11 : run_11-hyprland.sh"
+echo "${NOTE} - Running 10-hyprland.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
@@ -35,3 +35,5 @@ for HYPR in "${hypr[@]}"; do
         exit 1
     }
 done
+
+printf "${OK} Hyprland installed successfully\n" | tee -a "$LOG"

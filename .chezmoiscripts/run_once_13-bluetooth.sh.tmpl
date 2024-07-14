@@ -1,7 +1,7 @@
 {{ if .variables.bluetooth -}}
 #!/bin/bash
 
-echo "14 : run_14-bluetooth.sh"
+echo "${NOTE} - Running 13-bluetooth.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
@@ -33,4 +33,5 @@ done
 printf "${NOTE} Activating Bluetooth Services...\n"
 sudo systemctl enable --now bluetooth.service 2>&1 | tee -a "$LOG"
 
+printf "${OK} Bluetooth Services Activated Successfully!\n" | tee -a "$LOG"
 {{ end }}

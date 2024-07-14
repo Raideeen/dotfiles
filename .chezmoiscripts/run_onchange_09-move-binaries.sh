@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "10 : run_10-move-binaries.sh"
+echo "${NOTE} - Running 09-move-binaries.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"

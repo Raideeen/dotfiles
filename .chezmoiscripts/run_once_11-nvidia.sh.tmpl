@@ -2,7 +2,7 @@
 #!/bin/bash
 # 💫 https://github.com/JaKooLit 💫 #
 # # Nvidia Stuffs #
-echo "12 : run_12-nvidia.sh"
+echo "${NOTE} - Running 11-nvidia.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
@@ -103,4 +103,6 @@ if [[ $blacklist_nouveau =~ ^[Yy]$ ]]; then
 else
     printf "${NOTE} Skipping nouveau blacklisting.\n" 2>&1 | tee -a "$LOG"
 fi
+
+printf "${OK} Nvidia setup completed successfully!\n" | tee -a "$LOG"
 {{ end }}

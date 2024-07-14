@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "19 : run_19-InputGroup.sh"
+echo "${NOTE} - Running 18-input_group.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
@@ -48,4 +48,4 @@ while true; do
     fi
 done
 
-# clear
+printf "${OK} Input group setup completed successfully\n" | tee -a "$LOG"

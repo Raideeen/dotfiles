@@ -1,6 +1,6 @@
 {{ if .variables.zsh -}}
 #!/bin/bash
-echo "18 : run_18-zsh.sh"
+echo "${NOTE} - Running 17-zsh.sh"
 
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
@@ -19,6 +19,7 @@ zsh=(
     # Plugins that cannot be installed with zsh-antidote
     thefuck # Allow to autocorrect a command
     bat     # Replace "cat" command with a more modern one
+    tmux
 )
 
 ## WARNING: DO <NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
@@ -90,4 +91,5 @@ if command -v zsh >/dev/null; then
 
 fi
 
+printf "${OK} Zsh Packages Installed Successfully!\n" | tee -a "$LOG"
 {{ end }}

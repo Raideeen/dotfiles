@@ -10,6 +10,6 @@ LOG="$HOME/.dotfiles/logs/install-$(date +%d-%H%M%S)_input.log"
 
 # Creating symlinks to find all the scripts in "hypr" folder while being at the
 # root of the corresponding application
-ln -s "$HOME/.config/waybar/scripts/rose_pine" "$HOME/.config/hypr/scripts/waybar/rose_pine"
+# ln -s "$HOME/.config/waybar/scripts/rose_pine" "$HOME/.config/hypr/scripts/waybar/rose_pine"
 
 printf "${OK} Input group setup completed successfully\n" | tee -a "$LOG"

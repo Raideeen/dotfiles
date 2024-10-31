@@ -9,6 +9,7 @@ source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
 
 base=(
     base-devel
+    git
 )
 # WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
 

@@ -4,8 +4,6 @@
 
 set -e
 
-ISAUR=$(command -v yay || command -v paru)
-
 # Set some colors for output messages
 OK="$(tput setaf 2)[OK]$(tput sgr0)"
 ERROR="$(tput setaf 1)[ERROR]$(tput sgr0)"

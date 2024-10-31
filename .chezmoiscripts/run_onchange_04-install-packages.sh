@@ -4,6 +4,8 @@
 
 echo "${NOTE} - Running 04-install-packages.sh"
 
+ISAUR=$(command -v yay || command -v paru)
+
 # Sourcing helper functions and variables
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
 

@@ -9,13 +9,18 @@ source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
 # zsh and oh my zsh
 
 zsh=(
+    # Base plugin
     zsh
+
     # Plugin manager
     zsh-antidote
+
     # Shell prompt (cannot be installed with zsh-antidote)
     starship
+
     # Better and smarter cd command
     zoxide
+
     # Plugins that cannot be installed with zsh-antidote
     thefuck # Allow to autocorrect a command
     bat     # Replace "cat" command with a more modern one

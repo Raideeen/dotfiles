@@ -45,7 +45,7 @@ for line in "${lines_to_edit[@]}"; do
     fi
 done
 
-# Add "ILoveCandy" below ParallelDownloads if it doesn't exist
+# Add "ILoveCandy" below ParallelDownloads if it doesn't exist (pacman easter egg!)
 if grep -q "^ParallelDownloads" "$pacman_conf" && ! grep -q "^ILoveCandy" "$pacman_conf"; then
     sudo sed -i "/^ParallelDownloads/a ILoveCandy" "$pacman_conf"
     echo -e "${CAT} Added ILoveCandy below ParallelDownloads. ${RESET}" 2>&1 | tee -a "$LOG"
@@ -70,7 +70,8 @@ sudo pacman -Sy
 # ---------------------------------------
 
 {{ if eq .variables.aur_helper "yay" -}}
-echo "yay"
+printf "Yay will be installed as an AUR package manager." "${NOTE}"
+
 # Check Existing yay-bin
 if [ -d yay-bin ]; then
     rm -rf yay-bin 2>&1 | tee -a "$LOG"
@@ -119,7 +120,8 @@ $ISAUR -Syu --noconfirm 2>&1 | tee -a "$LOG" || {
 # ---------------------------------------
 
 {{ if eq .variables.aur_helper "paru" -}}
-echo "paru"
+printf "Paru will be installed as an AUR package manager." "${NOTE}"
+
 # checking if paru-bin exist and removing if it is
 if [ -d paru-bin ]; then
     rm -rf paru-bin 2>&1 | tee -a "$LOG"

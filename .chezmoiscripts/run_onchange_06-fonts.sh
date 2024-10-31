@@ -24,6 +24,7 @@ fonts=(
     ttf-jetbrains-mono-nerd
     ttf-iosevka-nerd
     ttf-nerd-fonts-symbols
+    ttc-iosevka
     apple-fonts
 )
 

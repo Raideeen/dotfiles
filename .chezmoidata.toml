@@ -73,24 +73,8 @@ starship = true
 #   Options: "true" or "false"
 gtk_themes = true
 
-
-# - Do you want to install Thunar file manager?
-#   Options: "true" or "false"
-thunar = true
-
-# -Install & configure SDDM log-in Manager plus (OPTIONAL) SDDM Theme?
+# -Install & configure SDDM log-in manager?
 #   Options: "true" or "false"
 sddm = true
-
-# These are the sub-questions of the above choices
-
-# - SDDM is already installed. Would you like to manually install sddm-git to remove it?
-#   This requires manual intervention.
-#   Options: "Y" or "N"
-manual_install_sddm = "N"
-
-# - OPTIONAL - Would you like to install SDDM themes?
-#   Options: "Y" or "N"
-install_sddm_theme = "N"
 
 # ========================

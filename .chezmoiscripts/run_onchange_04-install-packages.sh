@@ -1,4 +1,3 @@
-#!/bin/bash
 # 💫 https://github.com/JaKooLit 💫 #
 # Hyprland Packages #
 
@@ -12,13 +11,31 @@ source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
 
 # add packages wanted here
 extra_hypr=(
-    python-pywall # Temporary package to be removed after I convert zDyanTB dotfiles to use wallust-git
+    # Image viewer
+    eog # Eye of GNOME, an image viewer for the GNOME Desktop
+
+    # Package management
     flatpak
-    proton-pass            # My password manager but you can change !
+    pacman-contrib # Contributed scripts and tools for pacman systems
+
+    # Password management
+    proton-pass   # My password manager but you can change !
+    gnome-keyring # For VSCode Keyring
+
+    # Development tools
     visual-studio-code-bin # Yes proprietary ...
-    gnome-keyring          # For VSCode Keyring
-    mangal                 # Manga reader for Linux
-    zathura                # Nice and minimal PDF reader
+
+    # Entertainment
+    mangal  # Manga reader for Linux
+    zathura # Nice and minimal PDF reader
+    yt-dlp  # A youtube-dl fork with additional features and fixes
+
+    # Files manager
+    yazi     # Blazingly fast CLI file manager
+    nautilus # Default GNOME file manager
+
+    # Browser
+    firefox
 )
 
 extra_cargo=(
@@ -26,81 +43,83 @@ extra_cargo=(
 )
 
 hypr_package=(
-    aylurs-gtk-shell
-    cliphist
-    curl
-    grim
-    udisk2 # to mount disk
-    gvfs
-    gvfs-mtp
-    gvfs-smb           # To mount networks
-    gvfs-gphotos2      # To mount disk
-    ntfs-3g            # To mount ntfs disk
-    exfat-utils        # To mount exfat disk
-    gnome-disk-utility # To mount with a GUI all the disk
-    hypridle
-    hyprlock
-    hyprpicker
-    imagemagick
-    inxi
-    jq
-    kitty
-    kvantum
-    nano
-    network-manager-applet
-    pamixer
-    pavucontrol
-    pipewire-alsa
-    playerctl
-    polkit-gnome
+    # Hyprland requirements
+    mako         # Notification daemon that can be easily styled!
+    kitty        # Default terminal for Hyprland
+    rofi-wayland # Rofi but wayland
+    qt5-wayland  # Dependency
+    qt6-wayland  # Dependency
+    grim         # To take screenshots
+    polkit-gnome # Authentication agent
+    slurp        # External chooser to select the shared monito
+    swappy       # Post-capture screenshot editing and drawing tool
+
+    # Addons of Hyprland
+    hyprpicker   # Wayland compatible color picker
+    wl-clipboard # Wayland clipboard utilities (dependency for )
+    wlogout      # wlogout is a logout menu for wayland environment
+    waybar       # The famous waybar :sunglasses:
+    swww-git     # Change wallpaper for wayland but with style :)
+
+    # CLI tools
+    curl        # Classic GNU tool for transferring data :)
+    wget2       # GNU Wget2 is the successor of GNU Wget, a file and recursive website downloader
+    imagemagick # Allow to manipulate images through the CLI
+    nano        # Classic nano text editor
+    vim         # Plain-old vim :)
+    neovim-git  # The cooler vim :sunglasses:
+    jq          # Command-line JSON processor
+    man-db      # Utilities for reading man pages
+
+    # Monitoring tools
+    btop      # Resource monitor that shows usage and stats for processor, memory, disks, network and processes
+    nvtop     # An htop like monitoring tool for NVIDIA GPUs
+    fastfetch # Neofetch-like tool for displaying system information
+    inxi      # Full featured system information script (simpler than FastFetch)
+
+    # Music and audio
+    playerctl   # CLI tool to send commands to MPRIS clients (VLC, Spotify...)
+    mpc         # Command-line client for MPD (Music Player Daemon)
+    mpd         # Music Player Daemon, a flexible, powerful, server-side application for playing music
+    pamixer     # CLI tools for managing sound - compatible with pipewire!
+    pwvucontrol # Pipewire volume control - alternative to pavucontrol
+    cava        # Console-based Audio Visualizer for Alsa
+    mpv         # Media player based on MPlayer and mplayer2
+    mpv-mpris   # MPRIS plugin for mpv
+
+    # Customization apps
+    kvantum                # App to style Qt applications
+    nwg-look               # GTK theme switcher for sway and other wlroots-based compositors
+    network-manager-applet # Provide a system-tray button for managing the network
+
+    # Languages
+    go # The Go programming language
+
+    # Files manager dependencies
+    gvfs          # Virtual filesystem implementation for GIO
+    gvfs-afc      # Virtual filesystem implementation for GIO - AFC backend (Apple mobile devices)
+    gcfs-dnssd    # Virtual filesystem implementation for GIO - DNS-SD and WebDAV backend (macOS file sharing)
+    gvfs-gphoto2  # Virtual filesystem implementation for GIO - gphoto2 backend (PTP camera, MTP media player)
+    gvfs-mtp      # Virtual filesystem implementation for GIO - MTP backend (Android, media player)
+    gvfs-nfs      # Virtual filesystem implementation for GIO - NFS backend
+    gvfs-onedrive # Virtual filesystem implementation for GIO - Microsoft OneDrive backend
+    gvfs-smb      # Virtual filesystem implementation for GIO - SMB/CIFS backend (Windows file sharing)
+    gvfs-wsdd     # Virtual filesystem implementation for GIO - Web Services Dynamic Discovery backend (Windows discovery)
+
+    # Libraries
     python-requests
     python-pyquery
-    pyprland
+    yad
     qt5ct
     qt6ct
-    qt6-svg
-    rofi-wayland
-    slurp
-    swappy
-    swaync
-    swww
-    wallust-git
-    waybar
-    wget
-    wl-clipboard
-    wlogout
-    xdg-user-dirs
-    xdg-utils
-    yad
-)
-
-# the following packages can be deleted. however, dotfiles may not work properly
-hypr_package_2=(
-    brightnessctl
-    btop
-    cava
-    eog
-    fastfetch
-    gnome-system-monitor
-    mousepad
-    mpv
-    mpv-mpris
-    nvtop
-    nwg-look
-    pacman-contrib
-    vim
-    yt-dlp
-    man-db          # For the man pages, obviously!
-    go              # For building nwg-dock-hyprland
-    gtk3            # For building nwg-dock-hyprland
-    gtk-layer-shell # For building nwg-dock-hyprland
+    gtk3
+    gtk-layer-shell
 )
 
 # List of packages to uninstall as it conflicts with swaync or causing swaync to not function properly
 uninstall=(
-    dunst
-    mako
-    proton-pass-debug # Conflict with Visual Studio Code
+    proton-pass-debug        # Conflict with Visual Studio Code
+    visual-studio-code-debug # Nuke that shit
 )
 
 # List of cargo packages to uninstall
@@ -127,7 +146,7 @@ LOG="$HOME/.dotfiles/logs/install-$(date +%d-%H%M%S)_hypr-pkgs.log"
 
 printf "\n%s - Installing hyprland packages.... \n" "${NOTE}"
 
-for PKG1 in "${hypr_package[@]}" "${hypr_package_2[@]}" "${extra_hypr[@]}"; do
+for PKG1 in "${hypr_package[@]}" "${extra_hypr[@]}"; do
     install_package "$PKG1" 2>&1 | tee -a "$LOG"
     if [ $? -ne 0 ]; then
         echo -e "\e[1A\e[K${ERROR} - $PKG1 Package installation failed, Please check the installation logs"

@@ -3,7 +3,7 @@
 
 echo "${NOTE} - Running 01-hello.sh"
 
-echo "$(tput setaf 6)Welcome to JaKooLit's Arch-Hyprland (and Raiden d(⌒ー⌒)) Install Script!$(tput sgr0)"
+echo "$(tput setaf 6)Welcome to JaKooLit's Arch-Hyprland (and Raiden d(⌒-⌒)) Install Script!$(tput sgr0)"
 echo
 echo "$(tput setaf 166)ATTENTION: Run a full system update and Reboot first!! (Highly Recommended) $(tput sgr0)"
 echo "$(tput setaf 3)NOTE: For this do "sudo pacman -Syu" and then "sudo reboot" $(tput sgr0)"

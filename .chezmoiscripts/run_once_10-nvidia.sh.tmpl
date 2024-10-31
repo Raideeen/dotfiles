@@ -8,12 +8,12 @@ echo "${NOTE} - Running 11-nvidia.sh"
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
 
 nvidia_pkg=(
-    nvidia-dkms
-    nvidia-settings
-    nvidia-utils
-    libva
-    libva-nvidia-driver-git
-    egl-wayland
+    nvidia-dkms             # Provides the NVIDIA kernel modules built using DKMS (Dynamic Kernel Module Support)
+    nvidia-settings         # Utility to configure NVIDIA graphics driver settings
+    nvidia-utils            # Essential utilities for the NVIDIA driver, including OpenGL libraries
+    libva                   # Video Acceleration (VA) API for Linux, providing access to hardware-accelerated video processing
+    libva-nvidia-driver-git # NVIDIA-specific VA-API driver for hardware-accelerated video decoding
+    egl-wayland             # EGLStream-based Wayland external platform library for NVIDIA drivers
 )
 
 ## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##

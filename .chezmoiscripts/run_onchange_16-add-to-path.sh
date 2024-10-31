@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "${NOTE} - Running 05-add-to-path.sh"
 

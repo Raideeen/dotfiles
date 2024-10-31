@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "${NOTE} - Running 18-input_group.sh"
 

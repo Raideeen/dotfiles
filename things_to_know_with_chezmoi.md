@@ -63,14 +63,14 @@ dot_scripts/
 #### `variables.sh` (stored in `dot_scripts`)
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 USER_NAME="John Doe"
 ```
 
 #### `run_greetings.sh` (stored in `.chezmoiscripts`)
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Source the variables.sh script
 source "$HOME/.scripts/variables.sh" # Note that we replaced "_dot" with an actual dot "."

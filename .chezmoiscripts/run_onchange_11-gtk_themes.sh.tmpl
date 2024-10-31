@@ -1,14 +1,12 @@
 {{ if .variables.gtk_themes -}}
-# !/bin/bash
+#!/usr/bin/env bash
 
 echo "${NOTE} - Running 12-gtk_themes.sh"
 
 # Sourcing helper functions and variables
-
 source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
 
-# 💫 <https://github.com/JaKooLit> 💫 #
-
+# 💫 https://github.com/JaKooLit 💫 #
 # GTK Themes & ICONS and  Sourcing from a different Repo #
 
 engine=(
@@ -16,14 +14,12 @@ engine=(
     gtk-engine-murrine # Enable to change the UI color palette of some pesky GTK 2 themes
 )
 
-## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING ##
+## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
 
 # Set the name of the log file to include the current date and time
-
 LOG="$HOME/.dotfiles/logs/install-$(date +%d-%H%M%S)_themes.log"
 
 # installing engine needed for gtk themes
-
 for PKG1 in "${engine[@]}"; do
     install_package "$PKG1" 2>&1 | tee -a "$LOG"
     if [ $? -ne 0 ]; then
@@ -33,14 +29,13 @@ for PKG1 in "${engine[@]}"; do
 done
 
 # Check if the directory exists and delete it if present
-
 if [ -d "GTK-themes-icons" ]; then
     echo "$NOTE GTK themes and Icons folder exist..deleting..." 2>&1 | tee -a "$LOG"
     rm -rf "GTK-themes-icons" 2>&1 | tee -a "$LOG"
 fi
 
 echo "$NOTE Cloning GTK themes and Icons repository..." 2>&1 | tee -a "$LOG"
-if git clone <https://github.com/JaKooLit/GTK-themes-icons.git>; then
+if git clone https://github.com/JaKooLit/GTK-themes-icons.git; then
     cd GTK-themes-icons
     chmod +x auto-extract.sh
     ./auto-extract.sh

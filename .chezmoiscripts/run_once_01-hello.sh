@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Welcome message
 
 echo "${NOTE} - Running 01-hello.sh"

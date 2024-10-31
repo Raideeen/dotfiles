@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 printf "\n${OK} Yey! Installation Completed.\n"
 printf "\n"

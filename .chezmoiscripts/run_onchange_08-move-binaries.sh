@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "${NOTE} - Running 09-move-binaries.sh"
 

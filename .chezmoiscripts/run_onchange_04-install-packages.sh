@@ -14,6 +14,10 @@ source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
 
 # add packages wanted here
 extra_hypr=(
+    # Desktop App
+    vesktop-bin         # Discord!
+    notion-app-electron # Notion for organizing my life lol
+
     # Image viewer
     eog # Eye of GNOME, an image viewer for the GNOME Desktop
 

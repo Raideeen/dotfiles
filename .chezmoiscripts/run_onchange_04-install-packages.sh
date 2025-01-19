@@ -28,6 +28,9 @@ extra_hypr=(
     # Password management
     proton-pass   # My password manager but you can change !
     gnome-keyring # For VSCode Keyring
+    
+    # Mailing
+    proton-mail
 
     # Development tools
     visual-studio-code-bin # Yes proprietary ...
@@ -67,6 +70,10 @@ hypr_package=(
     wlogout      # wlogout is a logout menu for wayland environment
     waybar       # The famous waybar :sunglasses:
     swww-git     # Change wallpaper for wayland but with style :)
+	
+    # Themes
+    bibata-cursor-git # Bibata cursor ! :)
+    gruvbox-gtk-theme-git # GTK theme using gruvbox, nice!
 
     # CLI tools
     curl        # Classic GNU tool for transferring data :)
@@ -121,6 +128,8 @@ hypr_package=(
     qt6ct
     gtk3
     gtk-layer-shell
+    gtk-engine-murrine
+    gnome-shell
 )
 
 # List of packages to uninstall as it conflicts with swaync or causing swaync to not function properly

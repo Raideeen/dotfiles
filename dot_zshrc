@@ -1,0 +1,34 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+unsetopt beep
+
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/raiden/.zshrc'
+
+autoload -Uz compinit
+compinit
+
+# Function to make chezmoi edit commands more ergonomic
+czed() {
+    # If no argument is provided, open the chezmoi source directory
+    if [ $# -eq 0 ]; then
+        chezmoi edit
+    else
+        # Use zsh's extended globbing to handle paths more elegantly
+        setopt local_options EXTENDED_GLOB
+        chezmoi edit "$@"
+    fi
+}
+
+# Add completion for the czed function
+compdef _chezmoi czed
+
+# Optional: Create a shorter alias that points to the function
+alias cze=czed
+alias nvim=$HOME/.config/hypr/scripts/kitty_nvim.sh
+
+eval "$(zoxide init zsh --cmd cd)"
+eval $(thefuck --alias)

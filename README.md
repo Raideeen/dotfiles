@@ -38,7 +38,7 @@ You can add plugins to your zsh setup using [Antidode](https://getantidote.githu
 
 - [Chezmoi](https://www.chezmoi.io/) for making it possible to maintain my dotfiles configuration in a proper way.
 - [JaKooLi](https://github.com/JaKooLit/Arch-Hyprland/tree/main) for the hyprland installation script that I totally re-used for my own needs (and modified a bit.. I admit! 😊) and also the dotfiles.
-- [zDyanTB](https://github.com/zDyanTB/HyprNova) for the HyprNova dotfiles that I borrowed as a base for my own dotfiles. Many thanks! ✨
+- [AnthonyBAC](https://github.com/AnthonyBAC/rofi-gruv-minmalism?tab=readme-ov-file) for the Rofi theme :)
 - [mooncoffee1](https://github.com/mooncoffee1/MyHyprBackup/tree/main) for the dotfiles that also inspired me heavily to create my own dotfiles. Thank you!
 - [plasmoduck](https://github.com/plasmoduck/hypr-dots/tree/main/dope) for the waybar configuration and this clean look that I totally borrowed for my own setup. Thank you! 🙏
 - [Antidode](https://github.com/mattmc3/antidote) for managing my zsh plugins easily and blazingly fast ([link to documentation](https://getantidote.github.io/))! 🚀

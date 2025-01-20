@@ -132,6 +132,7 @@ hypr_package=(
     gtk-layer-shell
     gtk-engine-murrine
     gnome-shell
+    libfido2 # Allow my yubikey to be used for SSH authentification
 )
 
 # List of packages to uninstall as it conflicts with swaync or causing swaync to not function properly

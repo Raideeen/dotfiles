@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Fetch different variables from all the sources available by chezmoi (see https://www.chezmoi.io/user-guide/templating/ for more information)
-email={{ .email }}                                                 # Fetch from .chezmoi.toml.tmpl the variables created after `chezmoi init` (using templates to prompt the user for the email address)
-example_variable={{ .example_variable }}                           # Fetch from .chezmoi.toml.tmpl by setting hard-coded data
+email={{ chezmoi.config.email }}                                                 # Fetch from .chezmoi.toml.tmpl the variables created after `chezmoi init` (using templates to prompt the user for the email address)
+example_variable={{ chezmoi.config.example_variable }}                           # Fetch from .chezmoi.toml.tmpl by setting hard-coded data
 messageFromChezmoiData={{ .demonstration.messageFromChezmoiData }} # Fetch from .chezmoidata.toml a variable (note that we wrote '.demonstration.NameOfTheVariable' because in .chezmoidata.toml we have a section called [demonstration] where the variable is stored)
 username={{ .chezmoi.username }}                                   # Fetch from chezmoi configuration file and usable by writing .chezmoi.NameOfTheVariable. Check all available variables with `chezmoi data`
 

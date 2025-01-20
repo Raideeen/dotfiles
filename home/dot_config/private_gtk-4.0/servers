@@ -3,12 +3,12 @@
       xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
       xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
 >
-  <bookmark href="smb://192.168.10.88/" added="2024-10-31T23:53:02.217834Z" modified="2024-10-31T23:53:02.217845Z" visited="2024-10-31T23:53:02.217837Z">
+  <bookmark href="smb://192.168.10.88/" added="2025-01-18T16:26:16.889332Z" modified="2025-01-18T16:26:16.889359Z" visited="2025-01-18T16:26:16.889335Z">
     <title>Windows shares on 192.168.10.88</title>
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2024-10-31T23:53:02.217840Z" count="1"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2025-01-18T16:26:16.889354Z" count="1"/>
         </bookmark:applications>
       </metadata>
     </info>

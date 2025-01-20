@@ -1,1 +1,3 @@
 README.md # Obviously ignore the README.md to not deploy it in the home directory :)
+things_to_know_with_chezmoi.md
+run_chezmoi_demonstration.sh.tmpl

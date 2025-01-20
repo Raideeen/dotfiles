@@ -28,7 +28,7 @@ extra_hypr=(
     # Password management
     proton-pass   # My password manager but you can change !
     gnome-keyring # For VSCode Keyring
-    
+
     # Mailing
     proton-mail
 
@@ -70,9 +70,9 @@ hypr_package=(
     wlogout      # wlogout is a logout menu for wayland environment
     waybar       # The famous waybar :sunglasses:
     swww-git     # Change wallpaper for wayland but with style :)
-	
+
     # Themes
-    bibata-cursor-git # Bibata cursor ! :)
+    bibata-cursor-git     # Bibata cursor ! :)
     gruvbox-gtk-theme-git # GTK theme using gruvbox, nice!
 
     # CLI tools
@@ -84,6 +84,7 @@ hypr_package=(
     neovim-git  # The cooler vim :sunglasses:
     jq          # Command-line JSON processor
     man-db      # Utilities for reading man pages
+    age         # Encrypt file using chezmoi
 
     # Monitoring tools
     btop      # Resource monitor that shows usage and stats for processor, memory, disks, network and processes
@@ -119,6 +120,7 @@ hypr_package=(
     gvfs-onedrive # Virtual filesystem implementation for GIO - Microsoft OneDrive backend
     gvfs-smb      # Virtual filesystem implementation for GIO - SMB/CIFS backend (Windows file sharing)
     gvfs-wsdd     # Virtual filesystem implementation for GIO - Web Services Dynamic Discovery backend (Windows discovery)
+    cfis-utils    # Library and tools for package installs and system configuration
 
     # Libraries
     python-requests

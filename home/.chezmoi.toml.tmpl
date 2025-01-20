@@ -1,3 +1,5 @@
+encryption = "age"
+
 # I know it looks like a blob of mess, but actually if you look at the
 # documentation it kind of make sense ! :)
 
@@ -5,7 +7,12 @@
 {{- writeToStdout "For the installation of this dotfiles setup, there is a preset file called .chezmoidata.toml that contains all the variables that will be used to run certain scripts.\n"}}
 {{- writeToStdout "If you mess up the series of question during this initialization or want to change the variables later, you can always use 'chezmoi init'\n\n" -}}
 {{- writeToStdout "See the documentation at https://www.chezmoi.io/reference/ and https://www.chezmoi.io/user-guide/templating/ for more information.\n" -}}
-{{ $email := promptString "Github Email Address" -}}
+{{- $email := "" -}}
+{{- if hasKey . "email" -}}
+{{-   $email = .email -}}
+{{- else -}}
+{{-   $email = promptString "Github Email address" -}}
+{{- end -}}
 {{ $usePreset := promptString "Have you edited the preset file? (yes/no)" -}}
 {{ if eq $usePreset "no" -}}
 {{- writeToStdout "You have not yet edited the preset file. Be sure to edit '.chezmoidata.toml' to add the variables you want to use!\n" -}}
@@ -15,8 +22,10 @@
 {{- writeToStdout "Invalid input. Please enter 'yes' or 'no'." -}}
 {{- end -}}
 
-
 [data]
 email = {{ $email | quote }}
 example_variable = "Im_a_demonstration_variable"
-run_script = true
+
+[age]
+identity = ".config/age/key.txt"
+recipient = "age15nr2qmnz4fqxspfcafpc9pzje70nn7hf6rzt58wdlv7npg0suqnsu8nf57"

@@ -1,0 +1,194 @@
+# Work around to have right prompt in PowerShell
+format = "$all"
+right_format = "$memory_usage$cmd_duration"
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[fill]
+symbol = " "
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+error_symbol = " [✖](bold red) "
+success_symbol =" [❯](bold green)"
+
+[cmd_duration] # Show command duration over 10,000 milliseconds (=10 sec)
+format = " ⌚ [$duration]($style)"
+min_time = 0
+
+[directory]
+read_only = " 🔒"
+format = "🏠 [$path]($style)[$lock_symbol]($lock_style) "
+style = "fg:#56B6C2"
+
+[memory_usage]
+symbol = "🧠 "
+format = "$symbol[${ram}]($style) "
+threshold = -1
+style = "fg:#FF851B"
+disabled = false
+
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style)'
+
+[git_status]
+conflicted = "⚔️ "
+ahead = "🏎️💨 ⇡${count} "
+behind = "🐢 ⇣${count} "
+diverged = " 🏎️💨 ⇡${ahead_count} 🐢 ⇣${behind_count}"
+untracked = "🛤️  ×${count} "
+stashed = "📦 "
+modified = "📝 ×${count} "
+staged = "🗃️ ×${count} "
+renamed = "📛 ×${count} "
+deleted = "🗑️ ×${count} "
+style = "bright-white"
+format = "$all_status$ahead_behind "
+
+[golang]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
+[package]
+symbol = "📦 "
+format = "is [$symbol$version]($style) "
+
+[pijul_channel]
+symbol = " "
+
+[python]
+symbol = "🐍 "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = "🦀 "
+
+[scala]
+symbol = " "
+
+[time]
+time_format = "%T"
+# In VSCode, the "🪴" emoji at the beginning cause duplicate characters.
+# format = "🪴 $time($style) "
+format = "🌱  $time($style)"
+style = "bright-white"
+disabled = false
+
+[username]
+style_user = "bold dimmed blue"
+show_always = false

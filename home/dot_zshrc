@@ -4,7 +4,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 unsetopt beep
 
-# Set emacs mode 
+# Set emacs mode
 bindkey -e
 
 # End of lines configured by zsh-newuser-install
@@ -19,12 +19,12 @@ czed() {
     # If no argument is provided, open the chezmoi source directory
     if [ $# -eq 0 ]; then
         chezmoi edit
-	chezmoi apply
+        chezmoi apply
     else
         # Use zsh's extended globbing to handle paths more elegantly
         setopt local_options EXTENDED_GLOB
         chezmoi edit "$@"
-	chezmoi apply
+        chezmoi apply
     fi
 }
 
@@ -39,6 +39,16 @@ alias nvim=$HOME/.config/hypr/scripts/kitty_nvim.sh
 # Allow `chezmoi edit` to use the previous fix
 export EDITOR="$HOME/.config/hypr/scripts/kitty_nvim.sh"
 
+export PATH=$PATH:$HOME/.config/zsh/.antidote
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
 eval "$(zoxide init zsh --cmd cd)"
 eval $(thefuck --alias)
+
+# Load antidote zsh package manager
+zstyle ':antidote:bundle' file $HOME/.config/antidote/.zsh_plugins.txt
+source $HOME/.config/antidote/antidote.zsh
+antidote load ${ZDOTDIR:-$HOME/.config/antidote}/.zsh_plugins.txt
+
+# Load starship prompt
+eval "$(starship init zsh)"

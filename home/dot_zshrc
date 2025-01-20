@@ -28,7 +28,12 @@ compdef _chezmoi czed
 
 # Optional: Create a shorter alias that points to the function
 alias cze=czed
+
+# Fix for the window padding in kitty.conf that crop in nvim 
 alias nvim=$HOME/.config/hypr/scripts/kitty_nvim.sh
+
+# Allow `chezmoi edit` command to run nvim with the previous fix
+export EDITOR="$HOME/.config/hypr/scripts/kitty_nvim.sh"
 
 eval "$(zoxide init zsh --cmd cd)"
 eval $(thefuck --alias)

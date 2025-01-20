@@ -3,7 +3,7 @@
 echo "${NOTE} - Running 19-create_symlinks.sh"
 
 # Sourcing helper functions and variables
-source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
+source "$HOME/.local/share/chezmoi/home/.chezmoiscripts/run_00-helper.sh"
 
 # Set the name of the log file to include the current date and time
 LOG="$HOME/.dotfiles/logs/install-$(date +%d-%H%M%S)_input.log"

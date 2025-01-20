@@ -7,7 +7,7 @@ echo "${NOTE} - Running 04-install-packages.sh"
 ISAUR=$(command -v yay || command -v paru)
 
 # Sourcing helper functions and variables
-source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
+source "$HOME/.local/share/chezmoi/home/.chezmoiscripts/run_00-helper.sh"
 
 # WARNING! If you remove packages here, dotfiles may not work properly.
 # and also, ensure that packages are present in AUR and official Arch Repo

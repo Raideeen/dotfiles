@@ -3,7 +3,7 @@
 echo "${NOTE} - Running 18-input_group.sh"
 
 # Sourcing helper functions and variables
-source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
+source "$HOME/.local/share/chezmoi/home/.chezmoiscripts/run_00-helper.sh"
 
 # 💫 https://github.com/JaKooLit 💫 #
 # Adding users into input group #

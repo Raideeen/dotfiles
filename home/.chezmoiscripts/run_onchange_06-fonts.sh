@@ -7,7 +7,7 @@ echo "${NOTE} - Running 07-fonts.sh"
 ISAUR=$(command -v yay || command -v paru)
 
 # Sourcing helper functions and variables
-source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
+source "$HOME/.local/share/chezmoi/home/.chezmoiscripts/run_00-helper.sh"
 
 # These fonts are minimun required for pre-configured dots to work. You can add here as required
 # WARNING! If you remove packages here, dotfiles may not work properly.

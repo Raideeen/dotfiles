@@ -3,7 +3,7 @@
 echo "${NOTE} - Running 05-add-to-path.sh"
 
 # Sourcing helper functions and variables
-source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
+source "$HOME/.local/share/chezmoi/home/.chezmoiscripts/run_00-helper.sh"
 
 path_to_add=(
     "$HOME/.cargo/bin"

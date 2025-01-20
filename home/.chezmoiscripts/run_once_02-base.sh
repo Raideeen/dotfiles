@@ -5,7 +5,7 @@
 echo "${NOTE} - Running 02-base.sh"
 
 # Sourcing helper functions and variables
-source "$HOME/.local/share/chezmoi/.chezmoiscripts/run_00-helper.sh"
+source "$HOME/.local/share/chezmoi/home/.chezmoiscripts/run_00-helper.sh"
 
 base=(
     base-devel

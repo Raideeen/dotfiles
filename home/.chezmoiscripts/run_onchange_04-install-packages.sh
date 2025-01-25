@@ -86,6 +86,9 @@ hypr_package=(
     man-db      # Utilities for reading man pages
     age         # Encrypt file using chezmoi
 
+    # Rofi modules
+    rofi-power-menu # Allow to display a power menu with rofi!!
+
     # Monitoring tools
     btop      # Resource monitor that shows usage and stats for processor, memory, disks, network and processes
     nvtop     # An htop like monitoring tool for NVIDIA GPUs
@@ -133,6 +136,7 @@ hypr_package=(
     gtk-engine-murrine
     gnome-shell
     libfido2 # Allow my yubikey to be used for SSH authentification
+    libnotify
 )
 
 # List of packages to uninstall as it conflicts with swaync or causing swaync to not function properly

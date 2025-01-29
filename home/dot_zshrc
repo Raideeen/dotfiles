@@ -1,54 +1,95 @@
-# Lines configured by zsh-newuser-install
+# =============
+# Core Settings
+# =============
+# History
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
+setopt HIST_IGNORE_DUPS   # Don't record duplicated commands
+setopt HIST_REDUCE_BLANKS # Remove unnecessary blanks
+setopt INC_APPEND_HISTORY # Add commands to history immediately
+setopt EXTENDED_HISTORY   # Record command start time
+
+# General
 unsetopt beep
+setopt AUTO_CD       # Allow changing directories without cd
+setopt EXTENDED_GLOB # Extended globbing
+setopt NOTIFY        # Report status of background jobs immediately
+setopt PROMPT_SUBST  # Enable prompt substitution
 
-# Set emacs mode
-bindkey -e
+# =================
+# Key Bindings
+# =================
+bindkey -e                                       # Emacs key bindings
+bindkey '^[[A' history-beginning-search-backward # Up arrow
+bindkey '^[[B' history-beginning-search-forward  # Down arrow
+bindkey '^[[H' beginning-of-line                 # Home key
+bindkey '^[[F' end-of-line                       # End key
+bindkey '^[[3~' delete-char                      # Delete key
 
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/raiden/.zshrc'
+# =================
+# Completion System
+# =================
+zstyle ':completion:*' menu select                        # Enable menu selection
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # Case insensitive completion
+zstyle ':completion:*' special-dirs true                  # Complete special directories
+zstyle ':completion:*' list-colors ''                     # Colored completion
+zstyle ':completion:*' verbose yes                        # Verbose completion messages
+zstyle ':compinstall filename' '/home/raiden/.zshrc'
 
-autoload -Uz compinit
-compinit
+fpath=(~/.config/zsh/completion $fpath)
+autoload -Uz compinit && compinit
 
-# Function to make chezmoi edit commands more ergonomic
+# =================
+# Custom Functions
+# =================
 czed() {
-    # If no argument is provided, open the chezmoi source directory
-    if [ $# -eq 0 ]; then
-        chezmoi edit
-        chezmoi apply
-    else
-        # Use zsh's extended globbing to handle paths more elegantly
-        setopt local_options EXTENDED_GLOB
-        chezmoi edit "$@"
-        chezmoi apply
-    fi
+  if [ $# -eq 0 ]; then
+    chezmoi edit
+    chezmoi apply
+  else
+    setopt local_options EXTENDED_GLOB
+    chezmoi edit "$@"
+    chezmoi apply
+  fi
 }
-
-# Add completion for the czed function
 compdef _chezmoi czed
 
-# Optional: Create a shorter alias that points to the function
+# =================
+# Aliases
+# =================
 alias cze=czed
+alias nvim="$HOME/.config/hypr/scripts/kitty_nvim.sh"
+alias ls='lsd'
+# Additional useful aliases
+alias ll='lsd -l'
+alias la='lsd -la'
+alias grep='grep --color=auto'
+alias mkdir='mkdir -p'
+alias cp='cp -i' # Confirm before overwriting
+alias mv='mv -i' # Confirm before overwriting
+alias rm='rm -i' # Confirm before removing
 
-# Fix for the window padding option set in kitty when going into nvim
-alias nvim=$HOME/.config/hypr/scripts/kitty_nvim.sh
-# Allow `chezmoi edit` to use the previous fix
+# =================
+# Environment
+# =================
 export EDITOR="$HOME/.config/hypr/scripts/kitty_nvim.sh"
+export PATH="$PATH:$HOME/.config/zsh/.antidote:$HOME/.local/bin"
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
-export PATH=$PATH:$HOME/.config/zsh/.antidote
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-
+# =================
+# Tool Integration
+# =================
+# Initialize zoxide (smarter cd)
 eval "$(zoxide init zsh --cmd cd)"
-eval $(thefuck --alias)
 
-# Load antidote zsh package manager
-zstyle ':antidote:bundle' file $HOME/.config/antidote/.zsh_plugins.txt
-source $HOME/.config/antidote/antidote.zsh
-antidote load ${ZDOTDIR:-$HOME/.config/antidote}/.zsh_plugins.txt
+# Initialize thefuck (command correction)
+eval "$(thefuck --alias)"
 
-# Load starship prompt
+# Load antidote package manager
+zstyle ':antidote:bundle' file "$HOME/.config/antidote/.zsh_plugins.txt"
+source "$HOME/.config/antidote/antidote.zsh"
+antidote load "${ZDOTDIR:-$HOME/.config/antidote}/.zsh_plugins.txt"
+
+# Initialize starship prompt (load last to ensure proper prompt initialization)
 eval "$(starship init zsh)"

@@ -12,7 +12,7 @@ aloxaf/fzf-tab  # Remove if you don't use fzf
 belak/zsh-utils path:completion/functions kind:autoload post:compstyle_zshzoo_setup
 
 # Keybindings
-belak/zsh-utils path:editor
+# belak/zsh-utils path:editor
 
 # History
 belak/zsh-utils path:history

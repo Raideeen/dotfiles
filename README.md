@@ -23,10 +23,10 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply Raideeen
 
 - [ ] Add a proper installation guide
 - [x] Add a proper way to install packages declaratively post installation with an `run_onchange_` prefix script
-- [ ] Make sure the scripts are idempotent and can be run multiple times without breaking anything
-- [ ] Create a convenient way to change wallapper
-- [ ] Configure waybar to be pretty and functional
-- [ ] Configure pywall to work with the current setup (rofi, waybar)
+- [x] Make sure the scripts are idempotent and can be run multiple times without breaking anything
+- [x] Configure waybar to be pretty and functional
+- [x] Clipboard manager (cliphist)
+- [x] Screenshot manager (flameshot, hyprshot)
 
 ## How to customize
 

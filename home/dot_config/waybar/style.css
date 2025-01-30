@@ -5,7 +5,7 @@
 
 window#waybar {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: 'Fira Code', 'otf-font-awesome', monospace;
+    font-family: 'FiraCode Nerd Font', 'otf-font-awesome', monospace;
     background-color: #282828;
     /* background-color: transparent; */
     border-bottom: 0px;
@@ -94,9 +94,11 @@ button:hover {
 } */
 
 #idle_inhibitor,
-#cava,
 #scratchpad,
 #mode,
+#cpu,
+#memory,
+#custom-power-menu,
 #window,
 #clock,
 #battery,
@@ -124,10 +126,6 @@ button:hover {
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right>widget:last-child>#workspaces {
     margin-right: 0;
-}
-
-#cava {
-    padding: 0 5px;
 }
 
 #battery.charging,
@@ -163,15 +161,23 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: #d79921;
+    background-color: #a89984;
 }
 
-#load {
+#cpu {
     background-color: #98971a;
+}
+
+#memory {
+    background-color: #d79921;
 }
 
 #clock {
     background-color: #b16286;
+}
+
+#custom-power-menu {
+    padding-right: 20px;
 }
 
 #tray>.passive {

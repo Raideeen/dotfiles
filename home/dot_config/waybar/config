@@ -3,13 +3,13 @@
     {
         // "layer": "top", // Waybar at top layer
         // "position": "bottom", // Waybar position (top|bottom|left|right)
+        "layer": "top",
+        "reload_style_on_change": 1,
+        "position": "top",
         "height": 24, // Waybar height (to be removed for auto height)
-        // "width": 1280, // Waybar width
         "spacing": 4, // Gaps between modules (4px)
-        // Choose the order of the modules
         "modules-left": [
             "hyprland/workspaces",
-            "cava",
             "hyprland/mode",
             "hyprland/scratchpad"
         ],
@@ -19,12 +19,14 @@
         "modules-right": [
             "mpris",
             "idle_inhibitor",
-            "load",
+            "cpu",
+            "memory",
             "wireplumber",
             "backlight",
             "clock",
             "battery",
-            "tray"
+            "tray",
+            "custom/power-menu"
         ],
         // Modules configuration
         "hyprland/workspaces": {
@@ -37,34 +39,6 @@
             "format": "{title}",
             "max-length": 40,
             "all-outputs": true
-        },
-        "cava": {
-            //        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
-            "framerate": 30,
-            "autosens": 1,
-            "bars": 14,
-            "lower_cutoff_freq": 50,
-            "higher_cutoff_freq": 10000,
-            "method": "pipewire",
-            "source": "auto",
-            "stereo": true,
-            "bar_delimiter": 0,
-            "noise_reduction": 0.77,
-            "input_delay": 2,
-            "hide_on_silence": true,
-            "format-icons": [
-                "▁",
-                "▂",
-                "▃",
-                "▄",
-                "▅",
-                "▆",
-                "▇",
-                "█"
-            ],
-            "actions": {
-                "on-click-right": "mode"
-            }
         },
         "mpris": {
             "format": " {status_icon} {dynamic}",
@@ -86,8 +60,8 @@
         "idle_inhibitor": {
             "format": "{icon}",
             "format-icons": {
-                "activated": "",
-                "deactivated": ""
+                "activated": " ",
+                "deactivated": " "
             }
         },
         "hyprland/mode": {
@@ -116,11 +90,12 @@
             "format-alt": "{:%Y-%m-%d}"
         },
         "cpu": {
-            "format": "{usage}% ",
-            "tooltip": false
+            "interval": 30,
+            "format": "{usage}%  "
         },
         "memory": {
-            "format": "{}% "
+            "interval": 30,
+            "format": "{used:0.1f}G/{total:0.1f}G  "
         },
         "temperature": {
             // "thermal-zone": 2,
@@ -191,6 +166,10 @@
             },
             "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
             "on-click-middle": "pwvucontrol"
+        },
+        "custom/power-menu": {
+            "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu -theme ~/.config/rofi/gruvMinimalism.rasi",
+            "format": "⏻"
         }
     }
 ]

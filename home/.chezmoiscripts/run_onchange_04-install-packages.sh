@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# 💫 https://github.com/JaKooLit 💫 #
 # Hyprland Packages #
 
 echo "${NOTE} - Running 04-install-packages.sh"
@@ -17,9 +16,14 @@ extra_hypr=(
     # Desktop App
     vesktop-bin         # Discord!
     notion-app-electron # Notion for organizing my life lol
+    obsidian            # Famous notetaking app!
 
     # Image viewer
     eog # Eye of GNOME, an image viewer for the GNOME Desktop
+
+    # Screenshot
+    hyprshot
+    flameshot-git
 
     # Package management
     flatpak
@@ -46,6 +50,32 @@ extra_hypr=(
 
     # Browser
     firefox
+
+    # Monitoring tools
+    btop      # Resource monitor that shows usage and stats for processor, memory, disks, network and processes
+    nvtop     # An htop like monitoring tool for NVIDIA GPUs
+    fastfetch # Neofetch-like tool for displaying system information
+    inxi      # Full featured system information script (simpler than FastFetch)
+
+    # Music and audio
+    playerctl   # CLI tool to send commands to MPRIS clients (VLC, Spotify...)
+    mpc         # Command-line client for MPD (Music Player Daemon)
+    mpd         # Music Player Daemon, a flexible, powerful, server-side application for playing music
+    pamixer     # CLI tools for managing sound - compatible with pipewire!
+    pwvucontrol # Pipewire volume control - alternative to pavucontrol
+    cava        # Console-based Audio Visualizer for Alsa
+    mpv         # Media player based on MPlayer and mplayer2
+    mpv-mpris   # MPRIS plugin for mpv
+
+    # CLI Tools
+    imagemagick  # Allow to manipulate images through the CLI
+    jq           # Command-line JSON processor
+    man-db       # Utilities for reading man pages
+    age          # Encrypt file using chezmoi
+    nushell      # New type of shell that structures data in a nice and formated way!
+    exercism-bin # Awesome website with tons of exercises in programming, CLI interface to submit exercises!
+    lsd          # Better ls !
+
 )
 
 extra_cargo=(
@@ -66,44 +96,26 @@ hypr_package=(
 
     # Addons of Hyprland
     hyprpicker   # Wayland compatible color picker
-    wl-clipboard # Wayland clipboard utilities (dependency for )
+    wl-clipboard # Wayland clipboard utilities
+    cliphist     # Clipboard manager based on wl-clipboard that support images and texts
     wlogout      # wlogout is a logout menu for wayland environment
     waybar       # The famous waybar :sunglasses:
     swww-git     # Change wallpaper for wayland but with style :)
+    waypaper     # GUI app for changing wallpaper that uses swww as backend!
 
     # Themes
     bibata-cursor-git     # Bibata cursor ! :)
     gruvbox-gtk-theme-git # GTK theme using gruvbox, nice!
 
     # CLI tools
-    curl        # Classic GNU tool for transferring data :)
-    wget2       # GNU Wget2 is the successor of GNU Wget, a file and recursive website downloader
-    imagemagick # Allow to manipulate images through the CLI
-    nano        # Classic nano text editor
-    vim         # Plain-old vim :)
-    neovim-git  # The cooler vim :sunglasses:
-    jq          # Command-line JSON processor
-    man-db      # Utilities for reading man pages
-    age         # Encrypt file using chezmoi
+    curl       # Classic GNU tool for transferring data :)
+    wget2      # GNU Wget2 is the successor of GNU Wget, a file and recursive website downloader
+    nano       # Classic nano text editor
+    vim        # Plain-old vim :)
+    neovim-git # The cooler vim :sunglasses:
 
     # Rofi modules
     rofi-power-menu # Allow to display a power menu with rofi!!
-
-    # Monitoring tools
-    btop      # Resource monitor that shows usage and stats for processor, memory, disks, network and processes
-    nvtop     # An htop like monitoring tool for NVIDIA GPUs
-    fastfetch # Neofetch-like tool for displaying system information
-    inxi      # Full featured system information script (simpler than FastFetch)
-
-    # Music and audio
-    playerctl   # CLI tool to send commands to MPRIS clients (VLC, Spotify...)
-    mpc         # Command-line client for MPD (Music Player Daemon)
-    mpd         # Music Player Daemon, a flexible, powerful, server-side application for playing music
-    pamixer     # CLI tools for managing sound - compatible with pipewire!
-    pwvucontrol # Pipewire volume control - alternative to pavucontrol
-    cava        # Console-based Audio Visualizer for Alsa
-    mpv         # Media player based on MPlayer and mplayer2
-    mpv-mpris   # MPRIS plugin for mpv
 
     # Customization apps
     kvantum                # App to style Qt applications
@@ -116,14 +128,14 @@ hypr_package=(
     # Files manager dependencies
     gvfs          # Virtual filesystem implementation for GIO
     gvfs-afc      # Virtual filesystem implementation for GIO - AFC backend (Apple mobile devices)
-    gcfs-dnssd    # Virtual filesystem implementation for GIO - DNS-SD and WebDAV backend (macOS file sharing)
+    gvfs-dnssd    # Virtual filesystem implementation for GIO - DNS-SD and WebDAV backend (macOS file sharing)
     gvfs-gphoto2  # Virtual filesystem implementation for GIO - gphoto2 backend (PTP camera, MTP media player)
     gvfs-mtp      # Virtual filesystem implementation for GIO - MTP backend (Android, media player)
     gvfs-nfs      # Virtual filesystem implementation for GIO - NFS backend
     gvfs-onedrive # Virtual filesystem implementation for GIO - Microsoft OneDrive backend
     gvfs-smb      # Virtual filesystem implementation for GIO - SMB/CIFS backend (Windows file sharing)
     gvfs-wsdd     # Virtual filesystem implementation for GIO - Web Services Dynamic Discovery backend (Windows discovery)
-    cfis-utils    # Library and tools for package installs and system configuration
+    cifs-utils    # Library and tools for package installs and system configuration
 
     # Libraries
     python-requests
@@ -131,12 +143,14 @@ hypr_package=(
     yad
     qt5ct
     qt6ct
-    gtk3
+    gtk3 # Required for theming but also apps
     gtk-layer-shell
     gtk-engine-murrine
     gnome-shell
     libfido2 # Allow my yubikey to be used for SSH authentification
     libnotify
+    webkit2gtk-4.1 # Required for Keymapp for my voyager keyboard
+    libusb         # Required for Keymapp for my voyager keyboard
 )
 
 # List of packages to uninstall as it conflicts with swaync or causing swaync to not function properly
@@ -218,5 +232,3 @@ for PKG3 in "${uninstall_cargo[@]}"; do
         exit 1
     fi
 done
-
-clear

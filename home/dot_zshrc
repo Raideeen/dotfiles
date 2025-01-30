@@ -43,24 +43,44 @@ autoload -Uz compinit && compinit
 # =================
 # Custom Functions
 # =================
-czed() {
-  if [ $# -eq 0 ]; then
-    chezmoi edit
-    chezmoi apply
-  else
-    setopt local_options EXTENDED_GLOB
-    chezmoi edit "$@"
-    chezmoi apply
-  fi
+function ls() {
+	lsd "$@"
 }
-compdef _chezmoi czed
+
+function nvim() {
+	$HOME/.config/hypr/scripts/kitty_nvim.sh "$@"
+}
+
+function cze() {
+    if [ $# -eq 0 ]; then
+        chezmoi edit
+    else
+        setopt local_options EXTENDED_GLOB
+        chezmoi edit "$@"
+    fi
+}
+
+function cza() {
+    if [ $# -eq 0 ]; then
+        chezmoi apply
+    else
+        setopt local_options EXTENDED_GLOB
+        chezmoi apply
+    fi
+}
+
+# CheZmoi EditConf
+function czec() {
+    nvim $HOME/.local/share/chezmoi/home/.chezmoiscripts/run_onchange_04-install-packages.sh
+}
+
+compdef _chezmoi cze
+compdef _chezmoi cza
+compdef _chezmoi czec
 
 # =================
 # Aliases
 # =================
-alias cze=czed
-alias nvim="$HOME/.config/hypr/scripts/kitty_nvim.sh"
-alias ls='lsd'
 # Additional useful aliases
 alias ll='lsd -l'
 alias la='lsd -la'

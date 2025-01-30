@@ -21,7 +21,7 @@ fonts=(
     noto-fonts-cjk
     otf-font-awesome
     ttf-droid
-    ttf-fira-code
+    ttf-firacode-nerd
     ttf-jetbrains-mono
     ttf-jetbrains-mono-nerd
     ttf-iosevka-nerd

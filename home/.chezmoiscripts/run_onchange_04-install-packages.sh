@@ -84,7 +84,7 @@ extra_cargo=(
 
 hypr_package=(
     # Hyprland requirements
-    mako         # Notification daemon that can be easily styled!
+    dunst        # Notification daemon that can be easily styled!
     kitty        # Default terminal for Hyprland
     rofi-wayland # Rofi but wayland
     qt5-wayland  # Dependency
@@ -116,6 +116,7 @@ hypr_package=(
 
     # Rofi modules
     rofi-power-menu # Allow to display a power menu with rofi!!
+    rofi-emoji-git  # Emoji picker!
 
     # Customization apps
     kvantum                # App to style Qt applications

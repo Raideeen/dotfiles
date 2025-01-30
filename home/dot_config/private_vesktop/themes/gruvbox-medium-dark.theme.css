@@ -1,0 +1,168 @@
+/**
+ * @name Gruvbox Dark Medium
+ * @description Gruvbox Darm Medium color scheme for Discord.
+ * @version 1.0.0
+ * @author bonitoflakesss
+ */
+
+.theme-dark,
+.theme-light {
+  --header-primary: #ebdbb2;
+  --header-secondary: #a89984;
+  --text-normal: #ebdbb2;
+  --text-muted: #928374;
+  --text-link: #458588;
+  --channels-default: #fbf1c7;
+  --interactive-normal: #d5c4a1;
+  --interactive-hover: #83a598;
+  --interactive-active: #83a598;
+  --interactive-muted: #bdae93;
+  --background-primary: #282828;
+  --background-secondary: #282828;
+  --background-secondary-alt: #32302f;
+  --background-tertiary: #1d2021;
+  --background-accent: #1d2021;
+  --background-floating: #18191c;
+  --background-mobile-primary: #36393f;
+  --background-mobile-secondary: #2f3136;
+  --background-modifier-hover: rgba(79, 84, 92, 0.16);
+  --background-modifier-active: rgba(79, 84, 92, 0.24);
+  --background-modifier-selected: rgba(79, 84, 92, 0.32);
+  --background-modifier-accent: hsla(0, 0%, 100%, 0.06);
+  --background-mentioned: rgba(250, 166, 26, 0.05);
+  --background-mentioned-hover: rgba(250, 166, 26, 0.08);
+  --background-message-hover: rgba(4, 4, 5, 0.07);
+  --background-help-warning: rgba(250, 166, 26, 0.1);
+  --background-help-info: rgba(0, 176, 244, 0.1);
+  --scrollbar-thin-thumb: #202225;
+  --scrollbar-thin-track: transparent;
+  --scrollbar-auto-thumb: #1d2021;
+  --scrollbar-auto-track: #3c3836;
+  --scrollbar-auto-scrollbar-color-thumb: #202225;
+  --scrollbar-auto-scrollbar-color-track: #2f3136;
+  --elevation-stroke: 0 0 0 1px rgba(4, 4, 5, 0.15);
+  --elevation-low: 0 1px 0 rgba(4, 4, 5, 0.2), 0 1.5px 0 rgba(6, 6, 7, 0.05),
+    0 2px 0 rgba(4, 4, 5, 0.05);
+  --elevation-medium: 0 4px 4px rgba(0, 0, 0, 0.16);
+  --elevation-high: 0 8px 16px rgba(0, 0, 0, 0.24);
+  --logo-primary: #fff;
+  --focus-primary: #00b0f4;
+  --radio-group-dot-foreground: #000000;
+  --guild-header-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  --channeltextarea-background: #3c3836;
+  --activity-card-background: #202225;
+  --textbox-markdown-syntax: #8e9297;
+  --deprecated-card-bg: rgba(32, 34, 37, 0.6);
+  --deprecated-card-editable-bg: rgba(32, 34, 37, 0.3);
+  --deprecated-store-bg: #36393f;
+  --deprecated-quickswitcher-input-background: #3c3836;
+  --deprecated-quickswitcher-input-placeholder: hsla(0, 0%, 100%, 0.3);
+  --deprecated-text-input-bg: rgba(0, 0, 0, 0.1);
+  --deprecated-text-input-border: rgba(0, 0, 0, 0.3);
+  --deprecated-text-input-border-hover: #040405;
+  --deprecated-text-input-border-disabled: #202225;
+  --deprecated-text-input-prefix: #dcddde;
+  --red-faded: #fb4934;
+  --red-intense: #cc241d;
+  --rs-online-color: #689d6a;
+  --rs-idle-color: #d79921;
+  --rs-dnd-color: #cc241d;
+  --rs-streaming-color: #b16286;
+  --rs-offline-color: #504945;
+  --rs-invisible-color: #1d2021;
+}
+
+.lookFilled-1Gx00P.colorBrand-3pXr91 {
+  color: var(--text-normal);
+  background-color: var(--background-floating); /* settings buttons */
+}
+
+.lookFilled-1Gx00P.colorRed-1TFJan {
+  color: var(--text-normal);
+  background-color: var(--red-faded); /* disable account */
+}
+
+.lookOutlined-3sRXeN.colorRed-1TFJan {
+  color: var(--red-intense);
+  border-color: var(--red-intense); /* 2fa delete account */
+}
+
+.lookFilled-1Gx00P.colorGrey-2DXtkV {
+  color: var(--text-normal);
+  background-color: var(--background-floating); /* edit buttons */
+}
+
+.wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9,
+.wrapper-1BJsBx:hover .childWrapper-anI2G9 {
+  color: var(--text-normal);
+  background-color: var(--background-floating); /* discord logo */
+}
+
+.colorDefault-2K3EoJ.focused-3afm-j {
+  background-color: #282828;
+  color: var(--text-normal); /* right-click menu */
+}
+
+#friends,
+.appMount-3VJmYg,
+.applicationStore-1pNvnv,
+.article-3kb3qm,
+.body-3ND3kc,
+.body-3iLsc4,
+.channels-Ie2l6A,
+.chat-3bRxxu,
+.chat-3bRxxu form,
+.container-1D34oG,
+.container-1UB9sr,
+.container-2Thooq,
+.container-3ayLPN,
+.container-PNkimc,
+.content-yTz4x3,
+.da-itemCard,
+.da-nowPlayingScroller,
+.da-peopleList,
+.enabled-1t_Gxm:hover,
+.footer-1fjuF6,
+.gameLibrary-TTDw4Y,
+.guildsWrapper-5TJh6A,
+.header-2o-2hj,
+.header-39GIC8,
+.headerBar-UHpsPw,
+.memberListItem-31QoHj:not(.popoutDisabled-2RK7MF):hover,
+.members-1998pB,
+.messagesWrapper-3lZDfY,
+.nowPlayingColumn-2sl4cE,
+.peopleList-3c4jOR,
+.root-1BQpZw,
+.root-26DmKJ,
+.title-3qD0b-,
+.typeWindows-1za-n7,
+.video-1FfuMD {
+  background-color: var(--background-primary) !important;
+}
+
+.circleIconButton-jET_ig {
+  color: #fe8019;
+  background-color: var(--background-primary); /*  add/search servers */
+}
+
+.circleIconButton-jET_ig.selected-ugP_am {
+  color: #d65d0e;
+  background-color: var(
+    --background-floating
+  ); /* add/search servers selected */
+}
+
+.theme-dark .root-1gCeng {
+  background-color: var(--background-accent); /* screen share menu */
+}
+
+.theme-dark .footer-2gL1pp {
+  background-color: var(--background-floating);
+}
+
+.ml2-deleted .markup-2BOw-j,
+.ml2-deleted .markup-2BOw-j .hljs,
+.ml2-deleted .container-1ov-mD * {
+  color: var(--red-faded) !important;
+}

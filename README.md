@@ -13,7 +13,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply Raideeen
 ## Features
 
 - [x] Zsh with [Antidote](https://getantidote.github.io/) for managing zsh plugins
-- [ ] [Mangal](https://github.com/metafates/mangal) as manga reader
+- [x] [Mangal](https://github.com/metafates/mangal) as manga reader
 
 ## Note
 
@@ -27,6 +27,8 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply Raideeen
 - [x] Configure waybar to be pretty and functional
 - [x] Clipboard manager (cliphist)
 - [x] Screenshot manager (flameshot, hyprshot)
+- [x] Emoji picker (rofi)
+- [x] Color picker (hyprpicker)  
 
 ## How to customize
 
@@ -38,7 +40,7 @@ You can add plugins to your zsh setup using [Antidode](https://getantidote.githu
 
 - [Chezmoi](https://www.chezmoi.io/) for making it possible to maintain my dotfiles configuration in a proper way.
 - [JaKooLi](https://github.com/JaKooLit/Arch-Hyprland/tree/main) for the hyprland installation script that I totally re-used for my own needs (and modified a bit.. I admit! 😊) and also the dotfiles.
+- [savar95x](https://github.com/savar95x/dotfiles) for the absolute banger of MacOS style gruvbox rice.
 - [AnthonyBAC](https://github.com/AnthonyBAC/rofi-gruv-minmalism?tab=readme-ov-file) for the Rofi theme :)
-- [mooncoffee1](https://github.com/mooncoffee1/MyHyprBackup/tree/main) for the dotfiles that also inspired me heavily to create my own dotfiles. Thank you!
 - [plasmoduck](https://github.com/plasmoduck/hypr-dots/tree/main/dope) for the waybar configuration and this clean look that I totally borrowed for my own setup. Thank you! 🙏
 - [Antidode](https://github.com/mattmc3/antidote) for managing my zsh plugins easily and blazingly fast ([link to documentation](https://getantidote.github.io/))! 🚀

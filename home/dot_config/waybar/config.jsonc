@@ -1,0 +1,101 @@
+{
+    "layer": "top",
+    "height": 30,
+    // Make the bar "float"
+    "margin-left": 25,
+    "margin-right": 25,
+    "margin-top": 10,
+    "reload_style_on_change": 1,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        // "hyprland/window",
+        "clock"
+    ],
+    "modules-right": [
+        "wireplumber",
+        "cpu",
+        "memory",
+        "hyprland/language",
+        "tray",
+        "custom/power-menu"
+    ],
+    "hyprland/window": {
+        "max-length": 50
+    },
+    // --------------
+    // Left modules
+    // --------------
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "enable-bar-scroll": true,
+        "disable-scroll-wraparound": true
+    },
+    // --------------
+    // Middle modules
+    // --------------
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%d-%m-%Y}",
+        "interval": 60,
+        "tooltip": false
+    },
+    // --------------
+    // Right modules
+    // --------------
+    "wireplumber": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% ",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-middle": "pwvucontrol"
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "cpu": {
+        "interval": 10,
+        "on-click": "kitty -T btop btop",
+        "format": " {usage}%"
+    },
+    "memory": {
+        "interval": 10,
+        "on-click": "kitty -T btop btop",
+        "format": "  {used:0.1f}G/{total:0.1f}G"
+    },
+    "hyprland/language": {
+        "format": "󰌌  {short}"
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    },
+    "custom/power-menu": {
+        "on-click": "rofi -show power-menu -modi \"power-menu:rofi-power-menu --choices=shutdown/reboot/suspend/lockscreen\" -theme ~/.config/rofi/gruvMinimalism.rasi",
+        "format": "⏻"
+    }
+}

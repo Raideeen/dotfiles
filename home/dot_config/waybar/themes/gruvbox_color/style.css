@@ -1,0 +1,165 @@
+* {
+    font-size: 15px;
+    border-radius: 0px;
+}
+
+window#waybar {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: 'FiraCode Nerd Font', 'otf-font-awesome', monospace;
+    background-color: #282828;
+    /* background-color: transparent; */
+    border-bottom: 0px;
+    color: #ebdbb2;
+    /* transition-property: background-color; */
+    /* transition-duration: .5s; */
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    /* box-shadow: inset 0 -3px transparent; */
+    border: none;
+}
+
+#workspaces {
+    background-color: #282828;
+}
+
+#workspaces button {
+    background: transparent;
+    color: #ebdbb2;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    /* Active AND focused state */
+    background: #d79921;
+    color: #282828;
+}
+
+#workspaces button:hover {
+    /* Hover state */
+    background: rgba(215, 153, 33, 0.2);
+    box-shadow: inherit;
+}
+
+#workspaces button.urgent {
+    background-color: #b16286;
+}
+
+#idle_inhibitor,
+#scratchpad,
+#mode,
+#cpu,
+#memory,
+#custom-power-menu,
+#window,
+#clock,
+#battery,
+#backlight,
+#wireplumber,
+#tray,
+#mpris,
+#load {
+    padding: 0 10px;
+    /* background-color: #282828; */
+    color: #ebdbb2;
+}
+
+#mode {
+    background-color: #689d6a;
+    color: #282828;
+    /* box-shadow: inset 0 -3px #ffffff; */
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left>widget:first-child>#workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right>widget:last-child>#workspaces {
+    margin-right: 0;
+}
+
+#battery.charging,
+#battery.plugged {
+    background-color: #98971a;
+    color: #282828;
+}
+
+@keyframes blink {
+    to {
+        background-color: #282828;
+        color: #ebdbb2;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: #cc241d;
+    color: #ebdbb2;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#wireplumber {
+    background-color: #458588;
+}
+
+#idle_inhibitor {
+    background-color: #a89984;
+}
+
+#cpu {
+    background-color: #98971a;
+}
+
+#memory {
+    background-color: #d79921;
+}
+
+#clock {
+    background-color: #b16286;
+}
+
+#custom-power-menu {
+    padding-right: 20px;
+}
+
+#tray>.passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#mpris.playing {
+    background-color: #fb4934;
+    color: #282828;
+}
+
+#tray menu {
+    font-family: sans-serif;
+}
+
+#scratchpad.empty {
+    background: transparent;
+}

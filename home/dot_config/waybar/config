@@ -2,12 +2,12 @@
 [
     {
         "position": "top", // Waybar position (top|bottom|left|right)
-        "layer": "top", // Waybar layer (top|bottom|left|right)
+        "layer": "top", // Waybar layer (top|bottom|overlay)
         "reload_style_on_change": 1,
-        "height": 24, // Waybar height (to be removed for auto height)
+        "height": 24, // Waybar height (remove for auto height)
         "spacing": 0, // Gaps between modules
         "modules-left": [
-            "hyprland/workspaces",
+            "hyprland/workspaces"
         ],
         "modules-center": [
             "hyprland/window"
@@ -24,12 +24,12 @@
             "tray",
             "custom/power-menu"
         ],
-        // Modules configuration
+        // Modules Configuration
         "hyprland/workspaces": {
             "all-outputs": true,
             "warp-on-scroll": false,
             "enable-bar-scroll": true,
-            "disable-scroll-wraparound": true,
+            "disable-scroll-wraparound": true
         },
         "hyprland/window": {
             "format": "{title}",
@@ -48,10 +48,8 @@
             "dynamic-order": [
                 "title",
                 "artist"
-            ],
-            // "ignored-players": [
-            //     "firefox"
-            // ]
+            ]
+            // "ignored-players": ["firefox"]
         },
         "idle_inhibitor": {
             "format": "{icon}",
@@ -60,57 +58,13 @@
                 "deactivated": " "
             }
         },
-        "tray": {
-            "icon-size": 14,
-            "spacing": 10
-        },
-        "clock": {
-            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-            "format-alt": "{:%Y-%m-%d}"
-        },
         "cpu": {
-            "interval": 30,
+            "interval": 10,
             "format": "{usage}%  "
         },
         "memory": {
-            "interval": 30,
+            "interval": 10,
             "format": "{used:0.1f}G/{total:0.1f}G  "
-        },
-        "backlight": {
-            // "device": "acpi_video1",
-            "format": "{icon} {percent}%",
-            "format-icons": [
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
-            ]
-        },
-        "battery": {
-            "states": {
-                // "good": 95,
-                "warning": 30,
-                "critical": 15
-            },
-            "format": "{icon} {capacity}%",
-            "format-full": "{icon} {capacity}%",
-            "format-charging": " {capacity}%",
-            "format-plugged": " {capacity}%",
-            "format-alt": "{icon} {time}",
-            // "format-good": "", // An empty format will hide the module
-            // "format-full": "",
-            "format-icons": [
-                "",
-                "",
-                "",
-                "",
-                ""
-            ]
         },
         "wireplumber": {
             "scroll-step": 5, // %, can be a float
@@ -133,6 +87,47 @@
             },
             "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
             "on-click-middle": "pwvucontrol"
+        },
+        "backlight": {
+            // "device": "acpi_video1",
+            "format": "{icon} {percent}%",
+            "format-icons": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "clock": {
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+            "format-alt": "{:%Y-%m-%d}"
+        },
+        "battery": {
+            "states": {
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{icon} {capacity}%",
+            "format-full": "{icon} {capacity}%",
+            "format-charging": " {capacity}%",
+            "format-plugged": " {capacity}%",
+            "format-alt": "{icon} {time}",
+            "format-icons": [
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "tray": {
+            "icon-size": 14,
+            "spacing": 10
         },
         "custom/power-menu": {
             "on-click": "rofi -show power-menu -modi \"power-menu:rofi-power-menu --choices=shutdown/reboot/suspend/lockscreen\" -theme ~/.config/rofi/gruvMinimalism.rasi",

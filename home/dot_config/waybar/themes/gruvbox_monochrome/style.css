@@ -29,9 +29,10 @@ window#waybar {
     font-weight: normal;
 }
 
+#workspaces button.active,
 #workspaces button.focused {
-    color: #ebdbb2;
     background: #655c54;
+    color: #ebdbb2;
 }
 
 #workspaces button.urgent {
@@ -40,6 +41,7 @@ window#waybar {
 }
 
 #clock,
+#custom-emoji,
 #wireplumber,
 #cpu,
 #memory,
@@ -51,6 +53,11 @@ window#waybar {
     padding: 2px 5px;
     background: #3c3836;
     color: #ebdbb2;
+}
+
+#custom-emoji {
+    /* internal "width" of the module of color #3c3836 */
+    padding: 0px 10px;
 }
 
 #wireplumber {

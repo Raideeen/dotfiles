@@ -11,7 +11,8 @@
     ],
     "modules-center": [
         // "hyprland/window",
-        "clock"
+        "clock",
+        "custom/emoji"
     ],
     "modules-right": [
         "wireplumber",
@@ -41,6 +42,12 @@
         "format-alt": "{:%d-%m-%Y}",
         "interval": 60,
         "tooltip": false
+    },
+    "custom/emoji": {
+        "exec": "~/.conda/envs/waybar/bin/python ~/.config/waybar/scripts/random-emoji.py",
+        "interval": 60,
+        "return-type": "json",
+        "format": "{}"
     },
     // --------------
     // Right modules

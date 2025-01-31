@@ -40,9 +40,9 @@ extra_hypr=(
     visual-studio-code-bin # Yes proprietary ...
 
     # Entertainment
-    mangal  # Manga reader for Linux
-    zathura # Nice and minimal PDF reader
-    yt-dlp  # A youtube-dl fork with additional features and fixes
+    mangal # Manga reader for Linux
+    sioyek # Nice and minimal PDF reader
+    yt-dlp # A youtube-dl fork with additional features and fixes
 
     # Files manager
     yazi     # Blazingly fast CLI file manager

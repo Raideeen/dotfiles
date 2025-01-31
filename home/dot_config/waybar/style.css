@@ -29,9 +29,10 @@ window#waybar {
     font-weight: normal;
 }
 
+#workspaces button.active,
 #workspaces button.focused {
-    color: #ebdbb2;
     background: #655c54;
+    color: #ebdbb2;
 }
 
 #workspaces button.urgent {

@@ -38,6 +38,7 @@ extra_hypr=(
 
     # Development tools
     visual-studio-code-bin # Yes proprietary ...
+    miniconda3 # Miniconda ftw
 
     # Entertainment
     mangal # Manga reader for Linux
@@ -75,7 +76,7 @@ extra_hypr=(
     nushell      # New type of shell that structures data in a nice and formated way!
     exercism-bin # Awesome website with tons of exercises in programming, CLI interface to submit exercises!
     lsd          # Better ls !
-
+    exa          # Better ls .. but in rust!
 )
 
 extra_cargo=(
@@ -152,6 +153,7 @@ hypr_package=(
     libnotify
     webkit2gtk-4.1 # Required for Keymapp for my voyager keyboard
     libusb         # Required for Keymapp for my voyager keyboard
+    ripgrep        # Dependency for quickstart nvim!
 )
 
 # List of packages to uninstall as it conflicts with swaync or causing swaync to not function properly

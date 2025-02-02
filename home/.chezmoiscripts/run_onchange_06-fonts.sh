@@ -16,14 +16,17 @@ source "$HOME/.local/share/chezmoi/home/.chezmoiscripts/run_00-helper.sh"
 # TODO : Adapt the script to be ran with the correct sourcing of the global functions
 
 fonts=(
+    fontpreview
     adobe-source-code-pro-fonts
     noto-fonts-emoji
     noto-fonts-cjk
     otf-font-awesome
+    otf-ibm-plex
     ttf-droid
     ttf-firacode-nerd
     ttf-jetbrains-mono
     ttf-jetbrains-mono-nerd
+    ttf-blex-nerd-font-git
     ttf-iosevka-nerd
     ttf-nerd-fonts-symbols
     ttc-iosevka

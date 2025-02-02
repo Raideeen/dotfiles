@@ -4,11 +4,15 @@
 # History
 HISTFILE=~/.histfile
 HISTSIZE=10000
+HISTDUP=erase
 SAVEHIST=10000
 setopt HIST_IGNORE_DUPS   # Don't record duplicated commands
 setopt HIST_REDUCE_BLANKS # Remove unnecessary blanks
 setopt INC_APPEND_HISTORY # Add commands to history immediately
 setopt EXTENDED_HISTORY   # Record command start time
+setopt SHAREHISTORY       # Share history between shells
+setopt HIST_IGNORE_ALL_DUPS # Pretty much self explanatory...
+setopt HIST_FIND_NO_DUPS
 
 # General
 unsetopt beep
@@ -26,6 +30,8 @@ bindkey '^[[B' history-beginning-search-forward  # Down arrow
 bindkey '^[[H' beginning-of-line                 # Home key
 bindkey '^[[F' end-of-line                       # End key
 bindkey '^[[3~' delete-char                      # Delete key
+bindkey '^p' history-search-backward             # Search history for the related command backward
+bindkey '^n' history-search-forward              # Search history for the related command forward
 
 # =================
 # Completion System
@@ -44,7 +50,7 @@ autoload -Uz compinit && compinit
 # Custom Functions
 # =================
 function ls() {
-	lsd "$@"
+	eza -i "$@"
 }
 
 function nvim() {
@@ -82,8 +88,8 @@ compdef _chezmoi czec
 # Aliases
 # =================
 # Additional useful aliases
-alias ll='lsd -l'
-alias la='lsd -la'
+alias ll='eza -l -i'
+alias la='eza -la -i'
 alias grep='grep --color=auto'
 alias mkdir='mkdir -p'
 alias cp='cp -i' # Confirm before overwriting
@@ -93,9 +99,11 @@ alias rm='rm -i' # Confirm before removing
 # =================
 # Environment
 # =================
+
 export EDITOR="$HOME/.config/hypr/scripts/kitty_nvim.sh"
 export PATH="$PATH:$HOME/.config/zsh/.antidote:$HOME/.local/bin"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 
 # =================
 # Tool Integration
@@ -111,5 +119,9 @@ zstyle ':antidote:bundle' file "$HOME/.config/antidote/.zsh_plugins.txt"
 source "$HOME/.config/antidote/antidote.zsh"
 antidote load "${ZDOTDIR:-$HOME/.config/antidote}/.zsh_plugins.txt"
 
+# Initialize conda
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
 # Initialize starship prompt (load last to ensure proper prompt initialization)
 eval "$(starship init zsh)"
+

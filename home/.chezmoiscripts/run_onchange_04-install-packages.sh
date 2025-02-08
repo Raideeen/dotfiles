@@ -18,6 +18,11 @@ extra_hypr=(
     notion-app-electron # Notion for organizing my life lol
     obsidian            # Famous notetaking app!
 
+    # Display manager
+    greetd
+    greetd-tuigreet # Minimal display manager to use uwsm generated entry !
+    uwsm            # Recommended way to login into hyprland!! Make it behave just like a DE.
+
     # Image viewer
     eog # Eye of GNOME, an image viewer for the GNOME Desktop
 
@@ -38,7 +43,7 @@ extra_hypr=(
 
     # Development tools
     visual-studio-code-bin # Yes proprietary ...
-    miniconda3 # Miniconda ftw
+    miniconda3             # Miniconda ftw
 
     # Entertainment
     mangal # Manga reader for Linux
@@ -79,6 +84,11 @@ extra_hypr=(
     exa          # Better ls .. but in rust!
 )
 
+# To know what is the value for the corresponding key, do "hyprpm list"
+declare -A extra_hyprland_plugins=(
+    ["https://github.com/outfoxxed/hy3"]="hy3" # I3 like tiling in hyprland!!!
+)
+
 extra_cargo=(
 
 )
@@ -105,8 +115,8 @@ hypr_package=(
     waypaper     # GUI app for changing wallpaper that uses swww as backend!
 
     # Themes
-    bibata-cursor-git     # Bibata cursor ! :)
-    gruvbox-gtk-theme-git # GTK theme using gruvbox, nice!
+    bibata-cursor-theme-bin # Bibata cursor ! :)
+    gruvbox-gtk-theme-git   # GTK theme using gruvbox, nice!
 
     # CLI tools
     curl       # Classic GNU tool for transferring data :)
@@ -190,6 +200,27 @@ for PKG1 in "${hypr_package[@]}" "${extra_hypr[@]}"; do
     install_package "$PKG1" 2>&1 | tee -a "$LOG"
     if [ $? -ne 0 ]; then
         echo -e "\e[1A\e[K${ERROR} - $PKG1 Package installation failed, Please check the installation logs"
+        exit 1
+    fi
+done
+
+# Install and enable Hyprland plugins
+printf "\n%s - Installing and enabling Hyprland plugins...\n" "${NOTE}"
+for url in "${!extra_hyprland_plugins[@]}"; do
+    plugin_name="${extra_hyprland_plugins[$url]}"
+    printf "%s - Installing plugin: %s from %s\n" "${NOTE}" "$plugin_name" "$url"
+
+    # Download and enable the plugin
+    hyprpm add "$url" 2>&1 | tee -a "$LOG"
+    if [ $? -ne 0 ]; then
+        echo -e "\e[1A\e[K${ERROR} - Failed to download plugin: $plugin_name from $url"
+        exit 1
+    fi
+
+    # Enable the plugin
+    hyprpm enable "$plugin_name" 2>&1 | tee -a "$LOG"
+    if [ $? -ne 0 ]; then
+        echo -e "\e[1A\e[K${ERROR} - Failed to enable plugin: $plugin_name"
         exit 1
     fi
 done

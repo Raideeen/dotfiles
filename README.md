@@ -34,7 +34,15 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply Raideeen
 
 ### Edit files
 
-To leverage the powerful dotfiles management features of `chezmoi`, we have to use the `chezmoi add` and `chezmoi edit` command. I've created a function in my `.zshrc` called `cze` used as follow `cze /path/to/file` that modify first the file in `~/.local/chezmoi` and then we commit the changes using `cza` command. The `cza` command also run the ansible playbook `maintain.yml` which execute the roles `packages`, `plymouth` and `nas`. I'll add different execution with variables later.
+To leverage the powerful dotfiles management features of `chezmoi`, we have to use the `chezmoi add` and `chezmoi edit` command. I've created a function in my `.zshrc` called `cze` used as follow `cze /path/to/file` that modify first the file in `~/.local/chezmoi` and then we commit the changes using `cza` command. The `cza` command also run the ansible playbook `maintain.yml` which execute the roles `packages`, `plymouth` and `nas`.
+
+###  Running the playbook
+
+If you want to run a specific `role`, you have to execute the following command. This will ask for your `sudo` password.
+
+```zsh
+ansible-playbook $HOME/.local/share/chezmoi/ansible/setup.yml --tags ROLE_YOU_WANT_TO_EXECUTE --ask-become-pass
+```
 
 ### Zsh plugins
 

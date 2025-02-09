@@ -51,6 +51,16 @@
     mode: "0644"
   become: true
 
+- name: Update greetd configuration file
+  ansible.builtin.template:
+    src: greetd.conf.j2
+    dest: /etc/greetd/config.toml
+    backup: false
+    owner: root
+    group: root
+    mode: "445"
+  become: true
+
 - name: Start systemd service - systemd-boot-update.service
   ansible.builtin.systemd:
     name: systemd-boot-update.service

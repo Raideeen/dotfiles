@@ -13,4 +13,14 @@
       </metadata>
     </info>
   </bookmark>
+  <bookmark href="smb://192.168.10.52/18to/Adrien" added="2025-02-09T14:13:13.568899Z" modified="2025-02-09T14:13:13.568911Z" visited="2025-02-09T14:13:13.568901Z">
+    <title>Adrien</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2025-02-09T14:13:13.568905Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
 </xbel>

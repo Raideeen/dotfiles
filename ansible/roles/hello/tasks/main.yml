@@ -1,0 +1,9 @@
+---
+- name: Hello! :D
+  ansible.builtin.debug:
+    msg:
+      - Welcome to Raiden d(⌒-⌒) ansible-chezmoi dotfiles setup!
+      - ATTENTION: Run a full system update and Reboot first!! (Highly Recommended)
+      - NOTE: For this do "sudo pacman -Syu" and then "sudo reboot
+      - NOTE: It is a good idea to create a backup of your system using Timeshift before proceeding!
+      - NOTE: If you are installing on a VM, ensure to enable 3D acceleration else Hyprland wont start!

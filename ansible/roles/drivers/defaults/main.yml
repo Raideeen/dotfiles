@@ -1,0 +1,27 @@
+---
+nvidia_packages:
+  official:
+    - nvidia-dkms
+    - nvidia-settings
+    - nvidia-utils
+    - libva
+  aur:
+    - libva-nvidia-driver-git
+    - egl-wayland
+
+nvidia_modules:
+  - nvidia
+  - nvidia_modeset
+  - nvidia_uvm
+  - nvidia_drm
+
+nvidia_modeset_options:
+  - nvidia-drm.modeset=1
+
+# Enable persistent logging (useful for debugging)
+nvidia_persist_daemon: true
+
+# Configuration paths
+nvidia_modprobe_conf: /etc/modprobe.d/nvidia.conf
+mkinitcpio_conf: /etc/mkinitcpio.conf
+grub_config: /etc/default/grub

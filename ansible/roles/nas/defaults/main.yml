@@ -1,0 +1,18 @@
+---
+# NAS Configuration
+nas_mount_point: /mnt/nas
+nas_share_path: //192.168.10.52/18To/Adrien
+nas_credentials_dir: "{{ ansible_user_dir }}/.config/creds"
+nas_credentials_file: "{{ nas_credentials_dir }}/smb_credentials"
+
+# Required packages
+nas_required_packages:
+  - cifs-utils
+
+# Permissions
+nas_dir_mode: "0755"
+nas_credentials_mode: "0600"
+
+# fstab configuration
+nas_add_to_fstab: true # Set to false to disable fstab management
+nas_mount_options: "iocharset=utf8,rw,uid={{ ansible_user_id }},gid={{ ansible_user_id }},file_mode=0644,dir_mode=0755,nofail"

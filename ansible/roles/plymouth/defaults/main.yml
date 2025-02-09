@@ -1,0 +1,15 @@
+---
+# Default Plymouth theme to install
+plymouth_theme: "hexagon-dots-alt"
+
+# Configuration files
+plymouth_mkinitcpio_conf: /etc/mkinitcpio.conf
+plymouth_grub_conf: /etc/default/grub
+
+# GRUB configuration
+plymouth_kernel_params: "quiet splash"
+
+# Required fonts
+plymouth_required_fonts:
+  - cantarell-fonts
+  - ttf-dejavu

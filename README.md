@@ -32,6 +32,10 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply Raideeen
 
 ## How to customize
 
+### Edit files
+
+To leverage the powerful dotfiles management features of `chezmoi`, we have to use the `chezmoi add` and `chezmoi edit` command. I've created a function in my `.zshrc` called `cze` used as follow `cze /path/to/file` that modify first the file in `~/.local/chezmoi` and then we commit the changes using `cza` command. The `cza` command also run the ansible playbook `maintain.yml` which execute the roles `packages`, `plymouth` and `nas`. I'll add different execution with variables later.
+
 ### Zsh plugins
 
 You can add plugins to your zsh setup using [Antidode](https://getantidote.github.io/) by editing `~/.config/zsh/.zsh_plugins.txt` and adding either the Github URL repo or the name of plugin. You can add plugins from *oh-my-zsh* individually using this syntax `ohmyzsh/ohmyzsh path:plugins/NameOfThePlugin`. You can find the list all the plugins of `oh-my-zsh` [here](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins)
@@ -39,7 +43,8 @@ You can add plugins to your zsh setup using [Antidode](https://getantidote.githu
 ## Thanks to
 
 - [Chezmoi](https://www.chezmoi.io/) for making it possible to maintain my dotfiles configuration in a proper way.
-- [JaKooLi](https://github.com/JaKooLit/Arch-Hyprland/tree/main) for the hyprland installation script that I totally re-used for my own needs (and modified a bit.. I admit! 😊) and also the dotfiles.
+- [JaKooLi](https://github.com/JaKooLit/Arch-Hyprland/tree/main) for the hyprland installation script that I totally re-used at first for my own needs (and modified a bit.. I admit! 😊) and also the dotfiles.
+- [loganmarchione](https://github.com/loganmarchione/ansible-arch-linux) for your awesome Arch Linux installation using Ansible. Supercharged my installation from using bash scripts to using a powerful automation engine. :D
 - [savar95x](https://github.com/savar95x/dotfiles) for the absolute banger of MacOS style gruvbox rice.
 - [vidy007](https://github.com/vidy007/dotfiles?tab=readme-ov-file) for their gruvbox polybar theme that I adapted to waybar. The result is totally sleek. Hell yeah! 🤘
 - [AnthonyBAC](https://github.com/AnthonyBAC/rofi-gruv-minmalism?tab=readme-ov-file) for the Rofi theme :)

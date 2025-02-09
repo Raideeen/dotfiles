@@ -1,0 +1,7 @@
+---
+# Optional Hyprland plugins
+# Format: { "repository_url": "plugin_name" }
+hyprland_plugins:
+  {}
+  # Example:
+  # "https://github.com/example/plugin": "plugin-name"

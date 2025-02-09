@@ -1,0 +1,31 @@
+---
+- name: Update package cache
+  community.general.pacman:
+    update_cache: true
+  become: true
+
+- name: Install pacman packages
+  community.general.pacman:
+    name: "{{ packages.pacman }}"
+    state: present
+  become: true
+
+- name: Install aur packages
+  kewlfft.aur.aur:
+    name: "{{ packages.aur }}"
+    state: present
+  become: true
+  become_user: aur_builder
+
+- name: Install zsh pacman packages
+  community.general.pacman:
+    name: "{{ packages.zsh.pacman }}"
+    state: present
+  become: true
+
+- name: Install zsh aur packages
+  kewlfft.aur.aur:
+    name: "{{ packages.zsh.aur }}"
+    state: present
+  become: true
+  become_user: aur_builder

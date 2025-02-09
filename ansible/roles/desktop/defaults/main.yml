@@ -1,0 +1,15 @@
+---
+# Base Hyprland packages
+hyprland_packages:
+  - hyprland
+  - hyprcursor
+  - xdg-desktop-portal-hyprland
+  - xdg-desktop-portal-gtk
+
+display_manager:
+  - greetd
+  - greetd-tuigreet # Minimal display manager to use uwsm generated entry !
+  - uwsm # Recommended way to login into hyprland!! Make it behave just like a DE.
+
+# Configuration options
+hyprland_config_dir: "{{ ansible_user_home }}/.config/hypr"

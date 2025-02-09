@@ -1,0 +1,30 @@
+---
+- name: Maintenance playbook after setup
+  hosts: localhost
+  vars_files:
+    - ../group_vars/all.yml
+
+  pre_tasks:
+    # Always run this check, even in check mode
+    - name: Check distribution is supported
+      ansible.builtin.assert:
+        that: ansible_distribution == "Archlinux"
+        fail_msg: "Distribution '{{ ansible_distribution }}' is not supported."
+        success_msg: "I run Arch, btw"
+
+    - name: Create log directory
+      file:
+        path: "{{ ansible_user_dir }}/.dotfiles/logs"
+        state: directory
+        mode: "0755"
+
+  roles:
+    # These will run in order
+    - role: packages
+      tags: ["packages"]
+
+    - role: plymouth
+      tags: ["plymouth"]
+
+    - role: nas
+      tags: ["nas"]

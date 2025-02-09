@@ -6,11 +6,11 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 HISTDUP=erase
 SAVEHIST=10000
-setopt HIST_IGNORE_DUPS   # Don't record duplicated commands
-setopt HIST_REDUCE_BLANKS # Remove unnecessary blanks
-setopt INC_APPEND_HISTORY # Add commands to history immediately
-setopt EXTENDED_HISTORY   # Record command start time
-setopt SHAREHISTORY       # Share history between shells
+setopt HIST_IGNORE_DUPS     # Don't record duplicated commands
+setopt HIST_REDUCE_BLANKS   # Remove unnecessary blanks
+setopt INC_APPEND_HISTORY   # Add commands to history immediately
+setopt EXTENDED_HISTORY     # Record command start time
+setopt SHAREHISTORY         # Share history between shells
 setopt HIST_IGNORE_ALL_DUPS # Pretty much self explanatory...
 setopt HIST_FIND_NO_DUPS
 
@@ -50,11 +50,11 @@ autoload -Uz compinit && compinit
 # Custom Functions
 # =================
 function ls() {
-	eza -i "$@" --icons=auto
+    eza -i "$@" --icons=auto
 }
 
 function nvim() {
-	$HOME/.config/hypr/scripts/kitty_nvim.sh "$@"
+    $HOME/.config/hypr/scripts/kitty_nvim.sh "$@"
 }
 
 function cze() {
@@ -77,7 +77,7 @@ function cza() {
 
 # CheZmoi EditConf
 function czec() {
-    nvim $HOME/.local/share/chezmoi/home/.chezmoiscripts/run_onchange_04-install-packages.sh
+    nvim $HOME/.local/share/chezmoi/ansible/group_vars/all.yml
 }
 
 compdef _chezmoi cze
@@ -131,4 +131,3 @@ fi
 
 # Initialize starship prompt (load last to ensure proper prompt initialization)
 eval "$(starship init zsh)"
-

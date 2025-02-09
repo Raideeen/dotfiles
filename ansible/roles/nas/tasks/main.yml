@@ -1,0 +1,103 @@
+---
+# Ensure required packages are installed
+- name: Install required packages
+  ansible.builtin.package:
+    name: cifs-utils
+    state: present
+  become: true
+
+# Create mount point directory
+- name: Ensure NAS mount point exists
+  ansible.builtin.file:
+    path: "{{ nas_mount_point }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+  become: true
+
+# Check and configure credentials file
+- name: Ensure credentials directory exists
+  ansible.builtin.file:
+    path: "{{ nas_credentials_dir }}"
+    state: directory
+    mode: "0700"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+
+- name: Check if credentials file exists
+  ansible.builtin.stat:
+    path: "{{ nas_credentials_file }}"
+  register: creds_file
+
+- name: Set proper permissions on credentials file
+  ansible.builtin.file:
+    path: "{{ nas_credentials_file }}"
+    mode: "0600"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+  become: true
+  when: creds_file.stat.exists
+
+- name: Fail if credentials file doesn't exist
+  ansible.builtin.fail:
+    msg: "Credentials file not found at {{ nas_credentials_file }}"
+  when: not creds_file.stat.exists
+
+# Mount NAS
+- name: Get mount information
+  ansible.builtin.command: mount
+  register: mount_info
+  changed_when: false
+
+- name: Mount NAS share
+  ansible.builtin.mount:
+    path: "{{ nas_mount_point }}"
+    src: "{{ nas_share_path }}"
+    fstype: cifs
+    opts: "credentials={{ nas_credentials_file }},{{ nas_mount_options | default('') }}"
+    state: mounted
+  become: true
+  when: nas_mount_point not in mount_info.stdout
+
+# Verify mount
+- name: Verify NAS mount
+  ansible.builtin.stat:
+    path: "{{ nas_mount_point }}"
+  register: mount_check
+
+- name: Display mount status
+  ansible.builtin.debug:
+    msg: "NAS mounted successfully at {{ nas_mount_point }}"
+  when: mount_check.stat.exists
+
+- name: Remove old fstab entries for NAS
+  ansible.builtin.lineinfile:
+    path: /etc/fstab
+    regexp: "^.*{{ nas_mount_point | regex_escape }}.*$"
+    state: absent
+  become: true
+  when: nas_add_to_fstab | default(true)
+  register: fstab_clean
+
+- name: Add NAS mount to fstab
+  ansible.builtin.mount:
+    path: "{{ nas_mount_point }}"
+    src: "{{ nas_share_path }}"
+    fstype: cifs
+    opts: "credentials={{ nas_credentials_file }},{{ nas_mount_options | default('') }}"
+    state: present
+  become: true
+  when: nas_add_to_fstab | default(true)
+  register: fstab_update
+
+- name: Verify fstab entry
+  ansible.builtin.command: findmnt --verify
+  become: true
+  when: fstab_update.changed
+  register: fstab_verify
+
+- name: Display fstab update status
+  ansible.builtin.debug:
+    msg: "fstab entry {{ 'updated successfully' if fstab_verify.rc == 0 else 'verification failed' }}"
+  when: fstab_update.changed

@@ -1,0 +1,6 @@
+#!/bin/bash
+# This hash will change when your Ansible configuration changes:
+# {{ include "../ansible/group_vars/all.yml" | sha256sum }}
+
+# Run the Ansible playbook
+ansible-playbook $HOME/.local/share/chezmoi/ansible/maintain.yml --diff -vv --ask-become-pass

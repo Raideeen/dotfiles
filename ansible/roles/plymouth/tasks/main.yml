@@ -1,0 +1,51 @@
+---
+# Install required fonts
+- name: Install required fonts
+  ansible.builtin.package:
+    name:
+      - cantarell-fonts
+      - ttf-dejavu
+    state: present
+  become: true
+
+# Install Plymouth
+- name: Install Plymouth
+  ansible.builtin.package:
+    name: plymouth
+    state: present
+  become: true
+
+# Configure Plymouth
+- name: Enable Plymouth in mkinitcpio.conf
+  ansible.builtin.replace:
+    path: /etc/mkinitcpio.conf
+    regexp: 'HOOKS=\((base\s+)(?!plymouth\s+)([^)]*)\)'
+    replace: 'HOOKS=(\1plymouth \2)'
+  become: true
+  register: mkinitcpio_conf
+
+# Install Plymouth theme
+- name: Install Plymouth theme
+  kewlfft.aur.aur:
+    name: "plymouth-theme-{{ plymouth_theme }}-git"
+    state: present
+  become: true
+  become_user: aur_builder
+  register: theme_install
+
+- name: Set Plymouth theme
+  ansible.builtin.command:
+    cmd: "plymouth-set-default-theme -R {{ plymouth_theme | replace('-', '_') }}"
+  become: true
+  when: theme_install.changed
+  register: set_theme
+
+# Regenerate configurations when needed
+- name: Regenerate initramfs
+  ansible.builtin.command: mkinitcpio -P
+  become: true
+  when: mkinitcpio_conf.changed or theme_install.changed
+  notify: update grub
+
+- name: Force handlers to run
+  meta: flush_handlers

@@ -1,0 +1,16 @@
+---
+- name: Install bluetooth packages
+  community.general.pacman:
+    name:
+      - bluez # Provide the Bluetooth protocol stack.
+      - bluez-utils # Provide the "bluetoothctl" utility
+      - blueman # Provide a full fledged GTK app for managing Bluetooth
+    state: present
+  become: true
+
+- name: Start systemd service - bluetooth.service
+  ansible.builtin.systemd:
+    name: bluetooth.service
+    state: started
+    enbaled: true
+  become: true

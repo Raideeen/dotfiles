@@ -1,0 +1,246 @@
+---
+#
+# User configuration
+#
+user:
+  name: raiden
+  full_name: "Adrien Djebar"
+  primary_group: users
+  additional_groups: docker,wheel,render,input
+  shell: /bin/zsh
+  # See country list by running `reflector --list-countries`
+  country: "France"
+
+git:
+  name: "{{ user['full_name'] }}"
+  # Obfuscated a little bit so bots won't find it :O
+  email_b64: "cmFpZGVlZW5AcHJvdG9uLm1l"
+  # Can be "cache", "store", "osxkeychain", or "manager"
+  helper: "cache"
+  # can be "true" or "false"
+  rebase: true
+  # see this https://git-scm.com/docs/git-diff#Documentation/git-diff.txt---color-movedltmodegt
+  colorMoved: "zebra"
+
+#
+# Miscellaneous
+#
+
+# NAS configuration
+nas_mount_point: /mnt/nas
+nas_share_path: //192.168.10.52/18To/Adrien
+nas_mount_options: "uid={{ ansible_user_id }},gid={{ ansible_user_id }}"
+
+# How many parallel downloads to run at once
+pacman:
+  parallel_downloads: 10
+
+# Set AUR Helper
+# supported helpers are here https://github.com/kewlfft/ansible-aur#kewlfftauraur-module
+aur_helper: paru
+
+# Set NVIDIA option
+nvidia_gpu: true
+
+#
+# Packages
+#
+
+packages:
+  # Packages we know are in official repos
+  pacman:
+    # Browser
+    - firefox
+
+    - lolcat # Shit n giggles lol
+
+    # Hyprland requirements
+    - dunst # Notification daemon that can be easily styled!
+    - kitty # Default terminal for Hyprland
+    - rofi-wayland # Rofi but wayland
+    - qt5-wayland # Dependency
+    - qt6-wayland # Dependency
+    - grim # To take screenshots
+    - polkit-gnome # Authentication agent
+    - waybar # The famous waybar :sunglasses:
+    - network-manager-applet # Provide a system-tray button for managing the network
+
+    # Addons of Hyprland
+    - hyprpicker # Wayland compatible color picker
+    - wl-clipboard # Wayland clipboard utilities
+    - swappy # Post-capture screenshot editing and drawing too
+    - slurp # External chooser to select the shared monitor
+    - cliphist # Clipboard manager based on wl-clipboard that support images and texts
+
+    # Files manager
+    - yazi # Blazingly fast CLI file manager
+    - nautilus # Default GNOME file manager
+
+    # Package management
+    - flatpak
+
+    # Customization apps
+    - kvantum # App to style Qt applications
+    - nwg-look # GTK theme switcher for sway and other wlroots-based compositors
+
+    # Image viewer
+    - eog # Eye of GNOME, an image viewer for the GNOME Desktop
+
+    # Monitoring tools
+    - btop # Resource monitor that shows usage and stats for processor, memory, disks, network and processes
+    - nvtop # An htop like monitoring tool for NVIDIA GPUs
+    - fastfetch # Neofetch-like tool for displaying system information
+    - inxi # Full featured system information script (simpler than FastFetch)
+
+    # Music and audio
+    - playerctl # CLI tool to send commands to MPRIS clients (VLC, Spotify...)
+    - mpc # Command-line client for MPD (Music Player Daemon)
+    - mpd # Music Player Daemon, a flexible, powerful, server-side application for playing music
+    - pamixer # CLI tools for managing sound - compatible with pipewire!
+    - mpv # Media player based on MPlayer and mplayer2
+    - mpv-mpris # MPRIS plugin for mpv
+
+    # CLI Tools
+    - curl # Classic GNU tool for transferring data :)
+    - imagemagick # Allow to manipulate images through the CLI
+    - jq # Command-line JSON processor
+    - man-db # Utilities for reading man pages
+    - age # Encrypt file using chezmoi
+    - nushell # New type of shell that structures data in a nice and formated way!
+    - lsd # Better ls !
+
+    # Files manager dependencies
+    - gvfs # Virtual filesystem implementation for GIO
+    - gvfs-afc # Virtual filesystem implementation for GIO - AFC backend (Apple mobile devices)
+    - gvfs-dnssd # Virtual filesystem implementation for GIO - DNS-SD and WebDAV backend (macOS file sharing)
+    - gvfs-gphoto2 # Virtual filesystem implementation for GIO - gphoto2 backend (PTP camera, MTP media player)
+    - gvfs-mtp # Virtual filesystem implementation for GIO - MTP backend (Android, media player)
+    - gvfs-nfs # Virtual filesystem implementation for GIO - NFS backend
+    - gvfs-onedrive # Virtual filesystem implementation for GIO - Microsoft OneDrive backend
+    - gvfs-smb # Virtual filesystem implementation for GIO - SMB/CIFS backend (Windows file sharing)
+    - gvfs-wsdd # Virtual filesystem implementation for GIO - Web Services Dynamic Discovery backend (Windows discovery)
+    - cifs-utils # Library and tools for package installs and system configuration
+
+    # Libraries
+    - python-requests
+    - python-pyquery
+    - yad
+    - qt5ct
+    - qt6ct
+    - gtk3 # Required for theming but also apps
+    - gtk-layer-shell
+    - gtk-engine-murrine
+    - gnome-shell
+    - libfido2 # Allow my yubikey to be used for SSH authentification
+    - libnotify
+    - webkit2gtk-4.1 # Required for Keymapp for my voyager keyboard
+    - libusb # Required for Keymapp for my voyager keyboard
+    - ripgrep # Dependency for quickstart nvim!
+    - gnome-keyring # For VSCode Keyring
+
+    # Fonts
+    - adobe-source-code-pro-fonts
+    - noto-fonts-emoji
+    - noto-fonts-cjk
+    - otf-font-awesome
+    - ttf-droid
+    - ttf-firacode-nerd
+    - ttf-jetbrains-mono
+    - ttf-jetbrains-mono-nerd
+    - ttf-iosevka-nerd
+    - ttf-nerd-fonts-symbols
+    - ttc-iosevka
+
+    # Languages
+    - go # The Go programming language
+
+  # Packages we know are in AUR
+  aur:
+    # Desktop App
+    - vesktop-bin # Discord!
+    - notion-app-electron # Notion for organizing my life lol
+    - obsidian # Famous notetaking app!
+
+    # Addons of Hyprland
+    - swww-git # Change wallpaper for wayland but with style :)
+    - waypaper # GUI app for changing wallpaper that uses swww as backend
+    - sioyek # Nice and minimal PDF reader
+
+    # Development tools
+    - visual-studio-code-bin # Yes proprietary ...
+    - miniconda3 # Miniconda ftw
+
+    # Screenshot
+    - hyprshot
+    - flameshot-git
+
+    # Themes
+    - bibata-cursor-theme-bin # Bibata cursor ! :)
+    - gruvbox-gtk-theme-git # GTK theme using gruvbox, nice
+
+    # CLI Tools
+    - neovim-git # The cooler vim :sunglasses
+    - exercism-bin # Awesome website with tons of exercises in programming, CLI interface to submit exercises!
+    - exa # Better ls .. but in rust!
+    - fontpreview # Preview your font... directly in the CLI !! :O
+
+    # Password management
+    - proton-pass # My password manager but you can change !
+
+    # Mailing
+    - proton-mail
+
+    # Entertainment
+    - mangal # Manga reader for Linux
+    - yt-dlp # A youtube-dl fork with additional features and fixes
+
+    # Music and audio
+    - pwvucontrol # Pipewire volume control - alternative to pavucontrol
+    - cava # Console-based Audio Visualizer for Alsa
+
+    # Fonts
+    - otf-ibm-plex
+    - ttf-blex-nerd-font-git
+    - apple-fonts
+
+    # Rofi modules
+    - rofi-power-menu # Allow to display a power menu with rofi!!
+    - rofi-emoji-git # Emoji picker
+
+  zsh:
+    pacman:
+      # Base plugin
+      - zsh
+
+      # Shell prompt (cannot be installed with zsh-antidote)
+      - starship
+
+      # Better and smarter cd command
+      - zoxide
+
+      # Plugins that cannot be installed with zsh-antidote
+      - thefuck # Allow to autocorrect a command
+      - bat # Replace "cat" command with a more modern one
+      - tmux
+
+    aur:
+      # Plugin manager
+      - zsh-antidote
+
+  audio:
+    - pipewire
+    - wireplumber
+    - pipewire-audio
+    - pipewire-alsa
+    - pipewire-pulse
+
+# Format: { "repository_url": "plugin_name" }
+# Example:
+# "https://github.com/example/plugin": "plugin-name"
+hyprland_plugins:
+  "https://github.com/outfoxxed/hy3": "hy3"
+
+display_manager:
+  - greetd
+  - greetd-tuigreet # Minimal display manager to use uwsm generated entry !
+  - uwsm # Recommended way to login into hyprland!! Make it behave just like a DE.

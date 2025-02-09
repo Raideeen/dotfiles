@@ -1,0 +1,55 @@
+---
+- name: System Setup
+  hosts: localhost
+  vars_files:
+    - ../group_vars/all.yml
+
+  pre_tasks:
+    # Always run this check, even in check mode
+    - name: Check distribution is supported
+      ansible.builtin.assert:
+        that: ansible_distribution == "Archlinux"
+        fail_msg: "Distribution '{{ ansible_distribution }}' is not supported."
+        success_msg: "I run Arch, btw"
+
+    - name: Create log directory
+      file:
+        path: "{{ ansible_user_dir }}/.dotfiles/logs"
+        state: directory
+        mode: "0755"
+
+  roles:
+    # These will run in order
+    - role: hello
+      tags: ["hello"]
+
+    - role: base
+      tags: ["base"]
+
+    - role: drivers
+      tags: ["drivers"]
+      when: nvidia_gpu
+
+    - role: desktop
+      tags: ["desktop"]
+
+    - role: audio
+      tags: ["audio"]
+
+    - role: packages
+      tags: ["packages"]
+
+    - role: users
+      tags: ["users"]
+
+    - role: bluetooth
+      tags: ["bluetooth"]
+
+    - role: time
+      tags: ["time"]
+
+    - role: plymouth
+      tags: ["plymouth"]
+
+    - role: nas
+      tags: ["nas"]

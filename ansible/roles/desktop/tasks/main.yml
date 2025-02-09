@@ -1,0 +1,45 @@
+---
+- name: Install Hyprland as WM
+  block:
+    # First remove any conflicting Hyprland packages
+    - name: Remove conflicting Hyprland packages
+      ansible.builtin.package:
+        name:
+          - hyprland-git
+          - hyprland-nvidia
+          - hyprland-nvidia-git
+          - hyprland-nvidia-hidpi-git
+        state: absent
+      become: true
+
+    # Install Hyprland packages
+    - name: Install Hyprland packages
+      community.general.pacman:
+        name: "{{ hyprland_packages }}"
+        state: present
+      become: true
+
+    # Install display manager
+    - name: Install display manager for Hyprland
+      community.general.pacman:
+        name: "{{ display_manager }}"
+        state: present
+      become: true
+
+    - name: Start systemd service - greetd.service
+      ansible.builtin.systemd:
+        name: greetd.service
+        enbaled: true
+      become: true
+
+    - name: Check Hyprland installation
+      ansible.builtin.command: which Hyprland
+      register: hyprland_check
+      changed_when: false
+      failed_when: false
+      check_mode: false
+
+    - name: Verify Hyprland installation
+      ansible.builtin.fail:
+        msg: "Hyprland installation failed. Please check the logs."
+      when: hyprland_check.rc != 0

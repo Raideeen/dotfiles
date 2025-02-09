@@ -1,0 +1,26 @@
+---
+- name: Install audio packages
+  ansible.builtin.pacman:
+    name: "{{ packages.audio }}"
+    state: present
+  become: true
+
+- name: Start systemd socket - pipewire.socket
+  ansible.builtin.systemd:
+    name: pipewire.socket
+  become: true
+
+- name: Start systemd service - pipewire.service
+  ansible.builtin.systemd:
+    name: pipewire.service
+  become: true
+
+- name: Start systemd socket - pipewire-pulse.socket
+  ansible.builtin.systemd:
+    name: pipewire-pulse.socket
+  become: true
+
+- name: Start systemd service - wireplumber.service
+  ansible.builtin.systemd:
+    name: wireplumber.service
+  become: true

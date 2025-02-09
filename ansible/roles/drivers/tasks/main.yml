@@ -1,0 +1,107 @@
+---
+# First, we'll handle package cleanup to avoid conflicts
+- name: Remove conflicting Hyprland packages
+  ansible.builtin.package:
+    name:
+      - hyprland-git
+      - hyprland-nvidia
+      - hyprland-nvidia-git
+      - hyprland-nvidia-hidpi-git
+    state: absent
+  become: true
+
+# Get kernel information for headers installation
+- name: Get kernel modules directory
+  ansible.builtin.find:
+    paths: /usr/lib/modules
+    file_type: directory
+    recurse: false
+  register: kernel_dirs
+  check_mode: false # Run even in check mode
+  become: true
+
+- name: Read kernel package base
+  ansible.builtin.slurp:
+    src: "/usr/lib/modules/{{ item.path | basename }}/pkgbase"
+  register: kernel_pkgbase_content
+  with_items: "{{ kernel_dirs.files }}"
+  become: true
+  check_mode: false
+  when: kernel_dirs.files | length > 0
+
+- name: Set kernel package base fact
+  ansible.builtin.set_fact:
+    kernel_pkgbase: "{{ kernel_pkgbase_content.results[0].content | b64decode | trim }}"
+  when: kernel_pkgbase_content.results is defined and kernel_pkgbase_content.results | length > 0
+
+- name: Print kernel package base
+  ansible.builtin.debug:
+    msg: "Kernel package base: {{ kernel_pkgbase }}"
+  when: kernel_pkgbase is defined
+
+# Install kernel headers and NVIDIA packages
+- name: Install kernel headers
+  ansible.builtin.package:
+    name: "{{ kernel_pkgbase }}-headers"
+    state: present
+  become: true
+
+- name: Install NVIDIA packages
+  kewlfft.aur.aur:
+    name:
+      - nvidia-dkms # Provides the NVIDIA kernel modules built using DKMS (Dynamic Kernel Module Support)
+      - nvidia-settings # Utility to configure NVIDIA graphics driver settings
+      - nvidia-utils # Essential utilities for the NVIDIA driver, including OpenGL libraries
+      - libva # Video Acceleration (VA) API for Linux, providing access to hardware-accelerated video processing
+      - libva-nvidia-driver-git # NVIDIA-specific VA-API driver for hardware-accelerated video decoding
+      - egl-wayland # EGLStream-based Wayland external platform library for NVIDIA drivers
+    state: present
+  become: true
+  become_user: aur_builder
+
+# Configure mkinitcpio
+- name: Ensure NVIDIA modules in mkinitcpio.conf
+  ansible.builtin.replace:
+    path: /etc/mkinitcpio.conf
+    regexp: '^MODULES=\((.*?)\)$'
+    replace: 'MODULES=(\1 nvidia nvidia_modeset nvidia_uvm nvidia_drm)'
+    before: '^MODULES=\((.*nvidia.*)\)$'
+  become: true
+  register: mkinitcpio_conf
+
+- name: Regenerate initramfs if mkinitcpio.conf changed
+  ansible.builtin.command: mkinitcpio -P
+  become: true
+  when: mkinitcpio_conf.changed
+
+# Configure NVIDIA options
+- name: Ensure NVIDIA modeset is enabled
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/nvidia.conf
+    line: "options nvidia-drm modeset=1"
+    create: true
+    mode: "0644"
+  become: true
+
+# Configure GRUB
+- name: Add NVIDIA modeset parameter to GRUB
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    regexp: "^GRUB_CMDLINE_LINUX_DEFAULT="
+    line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia-drm.modeset=1"'
+    state: present
+  become: true
+  register: grub_config
+
+- name: Update GRUB configuration
+  ansible.builtin.command: grub-mkconfig -o /boot/grub/grub.cfg
+  become: true
+  when: grub_config.changed
+
+# Ensure NVIDIA services are enabled
+- name: Enable NVIDIA persistence daemon
+  ansible.builtin.systemd:
+    name: nvidia-persistenced
+    enabled: true
+    state: started
+  become: true

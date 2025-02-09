@@ -29,7 +29,7 @@
     - name: Start systemd service - greetd.service
       ansible.builtin.systemd:
         name: greetd.service
-        enbaled: true
+        enabled: true
       become: true
 
     - name: Check Hyprland installation

@@ -12,5 +12,5 @@
   ansible.builtin.systemd:
     name: bluetooth.service
     state: started
-    enbaled: true
+    enabled: true
   become: true

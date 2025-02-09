@@ -28,7 +28,7 @@
   ansible.builtin.systemd:
     name: paccache.timer
     state: started
-    enbaled: true
+    enabled: true
   become: true
 
 - name: Update reflector configuration file
@@ -65,7 +65,7 @@
   ansible.builtin.systemd:
     name: systemd-boot-update.service
     state: started
-    enbaled: true
+    enabled: true
   become: true
 
 - name: Update pacman cache

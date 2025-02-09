@@ -1,5 +1,6 @@
 #!/bin/bash
-# This hash will change when your Ansible configuration changes:
+# This hash will change everytime we modify the corresponding file
+# triggering the "onchange" of chezmoi
 # {{ include "../ansible/group_vars/all.yml" | sha256sum }}
 
 # Run the Ansible playbook

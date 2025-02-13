@@ -23,8 +23,3 @@
     - role: packages
       tags: ["packages"]
 
-    - role: plymouth
-      tags: ["plymouth"]
-
-    - role: nas
-      tags: ["nas"]

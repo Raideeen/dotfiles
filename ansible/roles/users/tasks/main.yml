@@ -28,3 +28,10 @@
     name: diff.colorMoved
     scope: global
     value: "{{ git.colorMoved }}"
+
+- name: Add user to 'docker' group
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: true
+  become: true

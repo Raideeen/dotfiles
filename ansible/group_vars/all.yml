@@ -108,6 +108,8 @@ packages:
     - age # Encrypt file using chezmoi
     - nushell # New type of shell that structures data in a nice and formated way!
     - lsd # Better ls !
+    - docker-compose # Sweet sweet docker compose
+    - lazygit # What if ... git TUI? :sunglasses:
 
     # Files manager dependencies
     - gvfs # Virtual filesystem implementation for GIO
@@ -183,7 +185,8 @@ packages:
     - exercism-bin # Awesome website with tons of exercises in programming, CLI interface to submit exercises!
     - exa # Better ls .. but in rust!
     - fontpreview # Preview your font... directly in the CLI !! :O
-
+    - docker-git # Sweet sweet docker
+    
     # Password management
     - proton-pass # My password manager but you can change !
 

@@ -2,6 +2,8 @@
 # This hash will change everytime we modify the corresponding file
 # triggering the "onchange" of chezmoi
 # {{ include "../ansible/group_vars/all.yml" | sha256sum }}
+# {{ include "../ansible/roles/packages/tasks/main.yml" | sha256sum }}
+# {{ include "../ansible/roles/users/tasks/main.yml" | sha256sum }}
 
 # Run the Ansible playbook
 ansible-playbook $HOME/.local/share/chezmoi/ansible/maintain.yml --diff -vv --ask-become-pass

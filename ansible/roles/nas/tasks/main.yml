@@ -25,24 +25,48 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
 
+# Check and configure credentials file
 - name: Check if credentials file exists
   ansible.builtin.stat:
     path: "{{ nas_credentials_file }}"
   register: creds_file
 
-- name: Set proper permissions on credentials file
+- name: Ensure credentials directory exists
   ansible.builtin.file:
-    path: "{{ nas_credentials_file }}"
+    path: "{{ nas_credentials_dir }}"
+    state: directory
+    mode: "0700"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+  when: not creds_file.stat.exists
+
+- name: Prompt for SMB username
+  ansible.builtin.pause:
+    prompt: "Enter SMB username"
+  register: smb_username
+  when: not creds_file.stat.exists
+  no_log: true
+
+- name: Prompt for SMB password
+  ansible.builtin.pause:
+    prompt: "Enter SMB password"
+    echo: false
+  register: smb_password
+  when: not creds_file.stat.exists
+  no_log: true
+
+- name: Create SMB credentials file
+  ansible.builtin.copy:
+    content: |
+      username={{ smb_username.user_input }}
+      password={{ smb_password.user_input }}
+    dest: "{{ nas_credentials_file }}"
     mode: "0600"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
   become: true
-  when: creds_file.stat.exists
-
-- name: Fail if credentials file doesn't exist
-  ansible.builtin.fail:
-    msg: "Credentials file not found at {{ nas_credentials_file }}"
   when: not creds_file.stat.exists
+  no_log: true
 
 # Mount NAS
 - name: Get mount information

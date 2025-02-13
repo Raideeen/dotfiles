@@ -31,6 +31,6 @@ esac
 ansible-galaxy install -r $HOME/.local/share/chezmoi/ansible/requirements.yml
 
 # Run all the roles to setup the system :)
-ansible-playbook $HOME/.local/share/chezmoi/ansible/setup.yml --diff --ask-become-pass
+ansible-playbook $HOME/.local/share/chezmoi/ansible/setup.yml --diff --ask-become-pass 
 
 echo "Ansible installation complete."

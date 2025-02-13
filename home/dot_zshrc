@@ -57,6 +57,10 @@ function nvim() {
     $HOME/.config/hypr/scripts/kitty_nvim.sh "$@"
 }
 
+function open() {
+    xdg-open "$@"
+}
+
 function cze() {
     if [ $# -eq 0 ]; then
         chezmoi edit

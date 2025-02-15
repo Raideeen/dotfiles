@@ -171,6 +171,7 @@ packages:
     # Development tools
     - visual-studio-code-bin # Yes proprietary ...
     - miniconda3 # Miniconda ftw
+    - jetbrains-toolbox # Jetbrains toolbox to install latest versions of nice IDEs :)
 
     # Screenshot
     - hyprshot

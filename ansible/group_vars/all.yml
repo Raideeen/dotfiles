@@ -211,6 +211,9 @@ packages:
     - rofi-power-menu # Allow to display a power menu with rofi!!
     - rofi-emoji-git # Emoji picker
 
+    # Drivers for hardware
+    - xp-pen-tablet # XPPen driver for my Wireless Shortcut Remote :)
+
   zsh:
     pacman:
       # Base plugin

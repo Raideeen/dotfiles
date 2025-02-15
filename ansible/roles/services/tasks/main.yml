@@ -1,0 +1,7 @@
+---
+- name: Start systemd service - xppentablet.service
+  ansible.builtin.systemd:
+    name: xppentablet.service
+    state: "restarted"
+    scope: "user"
+    enabled: true

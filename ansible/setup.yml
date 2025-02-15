@@ -38,6 +38,9 @@
 
     - role: packages
       tags: ["packages"]
+    
+    - role: services
+      tags: ["services"]
 
     - role: users
       tags: ["users"]

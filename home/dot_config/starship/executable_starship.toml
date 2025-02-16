@@ -1,6 +1,6 @@
-# Work around to have right prompt in PowerShell
 format = "$all"
 right_format = "$memory_usage$cmd_duration"
+
 # Inserts a blank line between shell prompts
 add_newline = true
 

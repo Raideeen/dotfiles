@@ -97,6 +97,8 @@ compdef _chezmoi cze
 compdef _chezmoi cza
 compdef _chezmoi czec
 
+[ -f ~/.zshrc_private.zsh ] && source ~/.zshrc_private.zsh
+
 # =================
 # Aliases
 # =================

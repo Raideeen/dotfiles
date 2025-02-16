@@ -110,6 +110,7 @@ packages:
     - lsd # Better ls !
     - docker-compose # Sweet sweet docker compose
     - lazygit # What if ... git TUI? :sunglasses:
+    - rclone # SyncFiles CLI for Proton Drive
 
     # Files manager dependencies
     - gvfs # Virtual filesystem implementation for GIO
@@ -152,6 +153,7 @@ packages:
     - ttf-iosevka-nerd
     - ttf-nerd-fonts-symbols
     - ttc-iosevka
+    - ttf-dejavu-nerd
 
     # Languages
     - go # The Go programming language
@@ -162,6 +164,7 @@ packages:
     - vesktop-bin # Discord!
     - notion-app-electron # Notion for organizing my life lol
     - obsidian # Famous notetaking app!
+    - celeste # GUI app for rsync :)
 
     # Addons of Hyprland
     - swww-git # Change wallpaper for wayland but with style :)

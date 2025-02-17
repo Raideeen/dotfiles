@@ -1,8 +1,4 @@
 ---
-- name: Import AUR builder setup
-  ansible.builtin.import_tasks: aur_setup.yml
-  tags: ["packages", "aur_setup"]
-
 - name: Import packages download task
   ansible.builtin.import_tasks: packages.yml
   tags: ["packages", "install_package"]

@@ -157,8 +157,11 @@ packages:
 
     # Languages
     - go # The Go programming language
-
-  # Packages we know are in AUR
+    - dotnet-host
+    - dotnet-sdk
+    - dotnet-runtime
+  
+    # Packages we know are in AUR
   aur:
     # Desktop App
     - vesktop-bin # Discord!
@@ -216,6 +219,9 @@ packages:
 
     # Drivers for hardware
     - xp-pen-tablet # XPPen driver for my Wireless Shortcut Remote :)
+    
+    # Tmux
+    - tmux-plugin-manager
 
   zsh:
     pacman:

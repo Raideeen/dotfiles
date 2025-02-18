@@ -111,6 +111,7 @@ packages:
     - docker-compose # Sweet sweet docker compose
     - lazygit # What if ... git TUI? :sunglasses:
     - rclone # SyncFiles CLI for Proton Drive
+    - hexyl # Hex viewer in the terminal :)
 
     # Files manager dependencies
     - gvfs # Virtual filesystem implementation for GIO
@@ -255,6 +256,12 @@ packages:
 # "https://github.com/example/plugin": "plugin-name"
 hyprland_plugins:
   "https://github.com/outfoxxed/hy3": "hy3"
+
+yazi_plugins:
+  - bennyyip/gruvbox-dark # Gruvbox flavor (theme) ! :)
+  - dedukun/relative-motions # VIM motions in yazi :sunglasses:
+  # - Reledia/hexyl # Yazi plugin to use hexyl in binary preview, currently commented out until pullrequest goes through
+  - Raideeen/hexyl # Fork I've made to fix issues 
 
 display_manager:
   - greetd

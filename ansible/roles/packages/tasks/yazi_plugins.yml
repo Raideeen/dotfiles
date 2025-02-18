@@ -1,0 +1,13 @@
+---
+- name: Install Yazi plugins
+  ansible.builtin.command:
+    cmd: "ya pack -a {{ item }}"
+  register: ya_result
+  failed_when: 
+    - ya_result.rc != 0 
+    - '"already exists in package.toml" not in ya_result.stderr'
+  changed_when: 
+    - ya_result.rc == 0 
+    - '"Deploying package" in ya_result.stdout'
+  loop: "{{ yazi_plugins }}"
+  when: yazi_plugins is defined

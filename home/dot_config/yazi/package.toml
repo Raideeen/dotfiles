@@ -1,0 +1,19 @@
+[[plugin.deps]]
+use = "orhnk/system-clipboard"
+rev = "7775a80"
+hash = "9b8f2573da54334b04747e51556040cc"
+
+[[plugin.deps]]
+use = "Raideeen/relative-motions"
+rev = "41da6f7"
+hash = "7ebeead2d6ca2042c728a8ac1f690d99"
+
+[[plugin.deps]]
+use = "Raideeen/hexyl"
+rev = "96dfaa8"
+hash = "7cb2582da511796910915dd07ff005ee"
+
+[[flavor.deps]]
+use = "bennyyip/gruvbox-dark"
+rev = "b4cc9f2"
+hash = "f44c42bcbed3c8564100e45e2fe3649a"

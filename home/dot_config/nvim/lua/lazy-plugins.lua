@@ -45,11 +45,21 @@ require('lazy').setup({
 
   require 'custom/plugins/vim-tmux-navigator',
 
-  require 'custom/plugins/gruvbox',
+  require 'custom/plugins/gruvbox-colorscheme',
+
+  require 'custom/plugins/base16-colorscheme',
 
   require 'custom/plugins/oil',
 
   require 'custom/plugins/alpha',
+
+  require 'custom/plugins/yazi',
+
+  require 'custom/plugins/nvim-colorizer',
+
+  require 'custom/plugins/nvim-notify',
+
+  require 'custom/plugins/bufferline',
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.

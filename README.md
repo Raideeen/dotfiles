@@ -58,3 +58,4 @@ You can add plugins to your zsh setup using [Antidode](https://getantidote.githu
 - [AnthonyBAC](https://github.com/AnthonyBAC/rofi-gruv-minmalism?tab=readme-ov-file) for the Rofi theme :)
 - [plasmoduck](https://github.com/plasmoduck/hypr-dots/tree/main/dope) for the waybar configuration and this clean look that I totally borrowed for my own setup. Thank you! 🙏
 - [Antidode](https://github.com/mattmc3/antidote) for managing my zsh plugins easily and blazingly fast ([link to documentation](https://getantidote.github.io/))! 🚀
+- [nxtkofi](https://github.com/nxtkofi/LightningNvim) for his LightningNvim setup and with his fork of [img2art](https://github.com/Asthestarsfalll/img2art) to use it with the [alpha.nvim](https://github.com/goolord/alpha-nvim) plugin. 

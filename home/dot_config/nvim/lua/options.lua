@@ -61,4 +61,10 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Enables 24-bit RGB color in the |TUI|
+vim.opt.termguicolors = true
+
+-- Enable notify vim API to use nvim-notify plugin
+vim.notify = require 'custom/plugins/nvim-notify'
+
 -- vim: ts=2 sts=2 sw=2 et

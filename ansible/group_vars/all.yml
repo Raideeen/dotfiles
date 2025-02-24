@@ -112,6 +112,12 @@ packages:
     - lazygit # What if ... git TUI? :sunglasses:
     - rclone # SyncFiles CLI for Proton Drive
     - hexyl # Hex viewer in the terminal :)
+    
+    # Virtual Machines
+    - libvirt # Nice library to work with virtual machines :)
+    - qemu-full # QEMU ofc!
+    - dnsmasq # For the default NAT/DHCP networking
+    - virt-manager # Client to use libvirt
 
     # Files manager dependencies
     - gvfs # Virtual filesystem implementation for GIO
@@ -124,6 +130,7 @@ packages:
     - gvfs-smb # Virtual filesystem implementation for GIO - SMB/CIFS backend (Windows file sharing)
     - gvfs-wsdd # Virtual filesystem implementation for GIO - Web Services Dynamic Discovery backend (Windows discovery)
     - cifs-utils # Library and tools for package installs and system configuration
+    - nfs-utils # Allow to mount my NAS using NFS instead of SMB (CIFS)
 
     # Libraries
     - python-requests
@@ -141,6 +148,7 @@ packages:
     - libusb # Required for Keymapp for my voyager keyboard
     - ripgrep # Dependency for quickstart nvim!
     - gnome-keyring # For VSCode Keyring
+    - fcitx5-config-qt
 
     # Fonts
     - adobe-source-code-pro-fonts
@@ -165,11 +173,12 @@ packages:
     # Packages we know are in AUR
   aur:
     # Desktop App
-    - vesktop-bin # Discord!
+    - vesktop  # Discord!
     - notion-app-electron # Notion for organizing my life lol
     - obsidian # Famous notetaking app!
     - celeste # GUI app for rsync :)
     - zen-browser-bin # Firefox but looks like Arc !
+    - vlc-git # Build from source, bro the UI looks goooood
 
     # Addons of Hyprland
     - swww-git # Change wallpaper for wayland but with style :)

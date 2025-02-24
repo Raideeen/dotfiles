@@ -5,3 +5,15 @@
     state: "restarted"
     scope: "user"
     enabled: true
+
+- name: Start systemd service - libvirtd.service
+  ansible.builtin.systemd:
+    name: libvirtd.service
+    state: "restarted"
+    enabled: true
+
+- name: Start systemd service - virtlogd.service
+  ansible.builtin.systemd:
+    name: virtlogd.service
+    state: "restarted"
+    enabled: true

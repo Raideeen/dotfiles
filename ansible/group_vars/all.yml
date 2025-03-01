@@ -149,6 +149,13 @@ packages:
     - ripgrep # Dependency for quickstart nvim!
     - gnome-keyring # For VSCode Keyring
     - fcitx5-config-qt
+    
+    # Encryption
+    - cryptsetup # Provide the LUKS encryption tools needed!
+    - yubikey-full-disk-encryption # Use YubiKey to unlock a LUKS partition
+    - yubikey-personalization # Harder Yubikey CLI tool but more powerful!
+    - yubikey-personalization-gui # Who doesn't love a good GUI when dealing with encryption ? :D
+    - yubikey-manager # Easier way to maintain a Yubikey :)
 
     # Fonts
     - adobe-source-code-pro-fonts
@@ -179,7 +186,8 @@ packages:
     - celeste # GUI app for rsync :)
     - zen-browser-bin # Firefox but looks like Arc !
     - vlc-git # Build from source, bro the UI looks goooood
-
+    - localsend # Allow to transfer files with devices on the same network
+    
     # Addons of Hyprland
     - swww-git # Change wallpaper for wayland but with style :)
     - waypaper # GUI app for changing wallpaper that uses swww as backend

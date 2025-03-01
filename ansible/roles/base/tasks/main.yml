@@ -4,7 +4,7 @@
     name:
       - base-devel
       - git # Damn Torvald cooked with this one fr
-      - wget2 # GNU Wget2 is the successor of GNU Wget, a file and recursive website downloader
+      - wget # GNU Wget2 is the successor of GNU Wget, a file and recursive website downloader
       - nano # Classic nano text editor
       - vim # Plain-old vim :)
       - reflector
@@ -49,6 +49,15 @@
     owner: root
     group: root
     mode: "0644"
+  become: true
+
+- name: Ensure /etc/greetd directory exists
+  ansible.builtin.file:
+    path: /etc/greetd
+    state: directory
+    mode: "0755"
+    owner: root
+    group: root
   become: true
 
 - name: Update greetd configuration file

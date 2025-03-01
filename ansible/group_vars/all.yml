@@ -183,10 +183,10 @@ packages:
     - vesktop  # Discord!
     - notion-app-electron # Notion for organizing my life lol
     - obsidian # Famous notetaking app!
-    - celeste # GUI app for rsync :)
+    - celeste-client-bin # GUI app for rsync :)
     - zen-browser-bin # Firefox but looks like Arc !
     - vlc-git # Build from source, bro the UI looks goooood
-    - localsend # Allow to transfer files with devices on the same network
+    # - localsend # Allow to transfer files with devices on the same network
     
     # Addons of Hyprland
     - swww-git # Change wallpaper for wayland but with style :)
@@ -214,7 +214,7 @@ packages:
     - docker-git # Sweet sweet docker
     
     # Password management
-    - proton-pass # My password manager but you can change !
+    - proton-pass-bin # My password manager but you can change !
 
     # Mailing
     - proton-mail

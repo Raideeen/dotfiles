@@ -60,12 +60,20 @@
   become_user: aur_builder
 
 # Configure mkinitcpio
-- name: Ensure NVIDIA modules in mkinitcpio.conf
+- name: Check if NVIDIA modules exist in mkinitcpio.conf
+  ansible.builtin.shell: grep -E "MODULES=\(.*nvidia.*\)" /etc/mkinitcpio.conf || true
+  register: nvidia_check
+  changed_when: false
+  check_mode: no
+  become: true
+
+- name: Add NVIDIA modules to mkinitcpio.conf if not present
   ansible.builtin.replace:
     path: /etc/mkinitcpio.conf
     regexp: '^MODULES=\((.*?)\)$'
     replace: 'MODULES=(\1 nvidia nvidia_modeset nvidia_uvm nvidia_drm)'
-    before: '^MODULES=\((.*nvidia.*)\)$'
+    backup: yes
+  when: nvidia_check.stdout == ""
   become: true
   register: mkinitcpio_conf
 
@@ -99,9 +107,9 @@
   when: grub_config.changed
 
 # Ensure NVIDIA services are enabled
-- name: Enable NVIDIA persistence daemon
-  ansible.builtin.systemd:
-    name: nvidia-persistenced
-    enabled: true
-    state: started
-  become: true
+# - name: Enable NVIDIA persistence daemon
+#   ansible.builtin.systemd:
+#     name: nvidia-persistenced
+#     enabled: true
+#     state: started
+#   become: true

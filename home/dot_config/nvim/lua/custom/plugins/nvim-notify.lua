@@ -18,4 +18,8 @@ return {
       TRACE = '',
     },
   },
+  config = function()
+    -- Enable notify vim API to use nvim-notify plugin
+    vim.notify = require 'custom/plugins/nvim-notify'
+  end,
 }

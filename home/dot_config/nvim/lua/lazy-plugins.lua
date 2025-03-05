@@ -57,7 +57,7 @@ require('lazy').setup({
 
   require 'custom/plugins/nvim-colorizer',
 
-  require 'custom/plugins/nvim-notify',
+  -- require 'custom/plugins/nvim-notify',
 
   require 'custom/plugins/bufferline',
 

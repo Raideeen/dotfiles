@@ -52,7 +52,8 @@ packages:
     # Browser
     - firefox
 
-    - lolcat # Shit n giggles lol
+    # Desktop apps
+    - proton-vpn-gtk-app
 
     # Hyprland requirements
     - dunst # Notification daemon that can be easily styled!
@@ -112,6 +113,7 @@ packages:
     - lazygit # What if ... git TUI? :sunglasses:
     - rclone # SyncFiles CLI for Proton Drive
     - hexyl # Hex viewer in the terminal :)
+    - lolcat # Shit n giggles lol
     
     # Virtual Machines
     - libvirt # Nice library to work with virtual machines :)
@@ -131,6 +133,7 @@ packages:
     - gvfs-wsdd # Virtual filesystem implementation for GIO - Web Services Dynamic Discovery backend (Windows discovery)
     - cifs-utils # Library and tools for package installs and system configuration
     - nfs-utils # Allow to mount my NAS using NFS instead of SMB (CIFS)
+    - xfsprogs # Allow to format disks using the XFS fileformat system
 
     # Libraries
     - python-requests
@@ -217,7 +220,7 @@ packages:
     - proton-pass-bin # My password manager but you can change !
 
     # Mailing
-    - proton-mail
+    - proton-mail-bin
 
     # Entertainment
     - mangal # Manga reader for Linux
@@ -230,6 +233,7 @@ packages:
     # Fonts
     - otf-ibm-plex
     - ttf-blex-nerd-font-git
+    - sxiv
     - apple-fonts
 
     # Rofi modules

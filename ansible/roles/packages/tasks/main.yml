@@ -7,9 +7,9 @@
   ansible.builtin.import_tasks: services.yml
   tags: ["packages", "services"]
 
-- name: Install Yazi plugins
-  ansible.builtin.import_tasks: yazi_plugins.yml
-  tags: ["packages", "yazi", "plugins"]
+# - name: Install Yazi plugins
+#   ansible.builtin.import_tasks: yazi_plugins.yml
+#   tags: ["packages", "yazi", "plugins"]
 
 # Install Hyprland plugins if configured
 # - name: Import Hyprland plugins download task

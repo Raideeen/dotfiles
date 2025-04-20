@@ -53,7 +53,7 @@ packages:
     - firefox
 
     # Desktop apps
-    - proton-vpn-gtk-app
+    - qbittorrent # Torrent downloading app!
 
     # Hyprland requirements
     - dunst # Notification daemon that can be easily styled!
@@ -65,6 +65,7 @@ packages:
     - polkit-gnome # Authentication agent
     - waybar # The famous waybar :sunglasses:
     - network-manager-applet # Provide a system-tray button for managing the network
+    - hyprlock # Hope it isn't bugged on NVIDIA like before :skull:
 
     # Addons of Hyprland
     - hyprpicker # Wayland compatible color picker
@@ -114,6 +115,10 @@ packages:
     - rclone # SyncFiles CLI for Proton Drive
     - hexyl # Hex viewer in the terminal :)
     - lolcat # Shit n giggles lol
+    - openvpn # VPN for torrenting
+    - wireguard-tools # Same...!
+    - unzip
+    - wine
     
     # Virtual Machines
     - libvirt # Nice library to work with virtual machines :)
@@ -190,6 +195,7 @@ packages:
     - zen-browser-bin # Firefox but looks like Arc !
     - vlc-git # Build from source, bro the UI looks goooood
     # - localsend # Allow to transfer files with devices on the same network
+    - imgbrd-grabber-bin
     
     # Addons of Hyprland
     - swww-git # Change wallpaper for wayland but with style :)
@@ -199,6 +205,7 @@ packages:
     # Development tools
     - visual-studio-code-bin # Yes proprietary ...
     - miniconda3 # Miniconda ftw
+    - protonvpn-cli-community # The GTK app sucks, let's go for the CLI
     - jetbrains-toolbox # Jetbrains toolbox to install latest versions of nice IDEs :)
 
     # Screenshot
@@ -210,11 +217,13 @@ packages:
     - gruvbox-gtk-theme-git # GTK theme using gruvbox, nice
 
     # CLI Tools
-    - neovim-git # The cooler vim :sunglasses
+    - neovim-nightly-bin  # The cooler vim :sunglasses
     - exercism-bin # Awesome website with tons of exercises in programming, CLI interface to submit exercises!
     - exa # Better ls .. but in rust!
     - fontpreview # Preview your font... directly in the CLI !! :O
     - docker-git # Sweet sweet docker
+    - sagemath # Math calc in the CLI ?? It's all fun and games until someone loses an i.
+    - aurutils # utils pretty neat to manage packages on arch present on the AUR!
     
     # Password management
     - proton-pass-bin # My password manager but you can change !
@@ -245,6 +254,9 @@ packages:
     
     # Tmux
     - tmux-plugin-manager
+
+    # VPN
+    - systemd-resolvconf # See https://wiki.archlinux.org/title/ProtonVPN#OpenVPN_setup
 
   zsh:
     pacman:

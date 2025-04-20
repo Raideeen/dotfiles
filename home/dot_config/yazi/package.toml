@@ -4,14 +4,14 @@ rev = "7775a80"
 hash = "9b8f2573da54334b04747e51556040cc"
 
 [[plugin.deps]]
-use = "Raideeen/relative-motions"
-rev = "41da6f7"
-hash = "7ebeead2d6ca2042c728a8ac1f690d99"
-
-[[plugin.deps]]
 use = "Raideeen/hexyl"
 rev = "96dfaa8"
 hash = "7cb2582da511796910915dd07ff005ee"
+
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "61ae795"
+hash = "65d576a76597aac2a428dc7ec0eda2ce"
 
 [[flavor.deps]]
 use = "bennyyip/gruvbox-dark"

@@ -119,6 +119,8 @@ export EDITOR="$HOME/.config/hypr/scripts/kitty_nvim.sh"
 export PATH="$PATH:$HOME/.config/zsh/.antidote:$HOME/.local/bin"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+export AUR_PAGER='yazi'
+export MANPAGER='nvim +Man!'
 
 # =================
 # Tool Integration
@@ -128,6 +130,9 @@ eval "$(zoxide init zsh --cmd cd)"
 
 # Initialize thefuck (command correction)
 eval "$(thefuck --alias)"
+
+# Initialize fzf
+source <(fzf --zsh)
 
 # Load antidote package manager
 zstyle ':antidote:bundle' file "$HOME/.config/antidote/.zsh_plugins.txt"

@@ -1,0 +1,45 @@
+#environment-variables
+# export XDG_SESSION_DESKTOP=Hyprland
+export CLUTTER_BACKEND=wayland
+export GDK_BACKEND=wayland,x11
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_QPA_PLATFORM="wayland"
+export QT_QPA_PLATFORMTHEME=qt5ct # change to qt6ct if you have that
+export QT_SCALE_FACTOR=1
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export XCURSOR_SIZE=$mouse_cursor_size
+export XCURSOR_THEME=$mouse_cursor_theme
+export HYPRCURSOR_SIZE=$mouse_cursor_size
+export HYPRCURSOR_THEME=$mouse_cursor_theme
+export XDG_CURRENT_DESKTOP=Hyprland
+export MANPAGER="nvim +Man!"
+
+# Vulkan
+#export WLR_RENDERER=vulkan
+
+# Firefox
+export MOZ_ENABLE_WAYLAND=1
+
+# NVIDIA
+# This is from Hyprland Wiki. As a start, WLR_NO_HARDWARE_CURSORS 1 will be activated if nvidia gpu detected
+#export __NV_PRIME_RENDER_OFFLOAD=1 # Enable this if you have a laptop with a integrated graphic card (CPU) and a discrete GPU (NVIDIA)
+#export __VK_LAYER_NV_optimus=NVIDIA_only
+#export WLR_DRM_NO_ATOMIC=1
+export __GL_GSYNC_ALLOWED=1
+export __GL_MaxFramesAllowed=1
+export __GL_VRR_ALLOWED=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export GBM_BACKEND=nvidia-drm
+export LIBVA_DRIVER_NAME=nvidia
+export NVD_BACKEND=direct
+export SDL_VIDEODRIVER=wayland
+export XDG_SESSION_TYPE=wayland
+
+# FOR VM and POSSIBLY NVIDIA
+#export WLR_RENDERER_ALLOW_SOFTWARE=1
+
+# Nvidia firefox (for hardware acceleration on FF)?
+# check this post https://github.com/elFarto/nvidia-vaapi-driver#configuration
+#export MOZ_DISABLE_RDD_SANDBOX=1
+#export NVD_BACKEND=direct
+#export EGL_PLATFORM=wayland

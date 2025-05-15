@@ -51,9 +51,11 @@ packages:
   pacman:
     # Browser
     - firefox
+    - qutebrowser # vim like browser !!
 
     # Desktop apps
     - qbittorrent # Torrent downloading app!
+    - krita # Drawing software to be used with my XP pen tablet :)
 
     # Hyprland requirements
     - dunst # Notification daemon that can be easily styled!
@@ -193,9 +195,8 @@ packages:
     - obsidian # Famous notetaking app!
     - celeste-client-bin # GUI app for rsync :)
     - zen-browser-bin # Firefox but looks like Arc !
-    - vlc-git # Build from source, bro the UI looks goooood
+    # - vlc-git # Build from source, bro the UI looks goooood
     # - localsend # Allow to transfer files with devices on the same network
-    - imgbrd-grabber-bin
     
     # Addons of Hyprland
     - swww-git # Change wallpaper for wayland but with style :)
@@ -215,6 +216,8 @@ packages:
     # Themes
     - bibata-cursor-theme-bin # Bibata cursor ! :)
     - gruvbox-gtk-theme-git # GTK theme using gruvbox, nice
+    - adwaita-qt6-git
+    - adwaita-qt5-git
 
     # CLI Tools
     - neovim-nightly-bin  # The cooler vim :sunglasses

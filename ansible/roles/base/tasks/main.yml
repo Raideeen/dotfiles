@@ -51,6 +51,16 @@
     mode: "0644"
   become: true
 
+- name: Update pacman configuration file
+  ansible.builtin.template:
+    src: makepkg.conf.j2
+    dest: /etc/makepkg.conf
+    backup: false
+    owner: root
+    group: root
+    mode: "0644"
+  become: true
+  
 - name: Ensure /etc/greetd directory exists
   ansible.builtin.file:
     path: /etc/greetd

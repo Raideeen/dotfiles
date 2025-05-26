@@ -1,2 +1,1 @@
-0000000000000000000000000000000000000000 15e019cf58a2518787c4514580acaccb3f144102 Adrien Djebar <raideeen@proton.me> 1739908640 +0100	clone: from https://github.com/dam9000/kickstart-modular.nvim.git
-15e019cf58a2518787c4514580acaccb3f144102 8209c2c98b1aaa1915e663d6ea9aa2f6edf6edfd Adrien Djebar <raideeen@proton.me> 1741206552 +0100	commit: fix: disable nvim-notify for the moment (bugged)
+0000000000000000000000000000000000000000 61e8b304e55c428ec5fa66af7ea33917304ddd9c Adrien Djebar <raideeen@proton.me> 1748296121 +0200	clone: from https://github.com/dam9000/kickstart-modular.nvim.git

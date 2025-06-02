@@ -76,6 +76,7 @@ packages:
     - swappy # Post-capture screenshot editing and drawing too
     - slurp # External chooser to select the shared monitor
     - cliphist # Clipboard manager based on wl-clipboard that support images and texts
+    - wtype # xdotool wayland implementatioon to simulate keyboard/mouse activity for rofi!
 
     # Files manager
     - yazi # Blazingly fast CLI file manager
@@ -142,6 +143,9 @@ packages:
     - cifs-utils # Library and tools for package installs and system configuration
     - nfs-utils # Allow to mount my NAS using NFS instead of SMB (CIFS)
     - xfsprogs # Allow to format disks using the XFS fileformat system
+    - ffmpegthumbnailer # Allow nautilus to generate thumbnails for videos, see https://wiki.archlinux.org/title/File_manager_functionality#Thumbnail_previews
+    - gst-libav
+    - gst-plugins-ugly
 
     # Libraries
     - python-requests

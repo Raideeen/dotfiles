@@ -123,6 +123,8 @@ packages:
     - wireguard-tools # Same...!
     - unzip
     - wine
+    - fd # Better find utility!
+    - luarocks # Lua package manager!
     
     # Virtual Machines
     - libvirt # Nice library to work with virtual machines :)
@@ -164,6 +166,7 @@ packages:
     - ripgrep # Dependency for quickstart nvim!
     - gnome-keyring # For VSCode Keyring
     - fcitx5-config-qt
+    - tree-sitter # For nvim
     
     # Encryption
     - cryptsetup # Provide the LUKS encryption tools needed!

@@ -43,6 +43,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/treesitter',
 
+  require 'custom/plugins/snacks',
+
   require 'custom/plugins/vim-tmux-navigator',
 
   require 'custom/plugins/gruvbox-colorscheme',

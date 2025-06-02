@@ -80,6 +80,16 @@
     mode: "445"
   become: true
 
+- name: Update 75-twemoji configuration file
+  ansible.builtin.template:
+    src: 75-twemoji.conf.j2
+    dest: /etc/fonts/conf.d/75-twemoji.conf
+    backup: false
+    owner: root
+    group: root
+    mode: "777"
+  become: true
+
 - name: Start systemd service - systemd-boot-update.service
   ansible.builtin.systemd:
     name: systemd-boot-update.service

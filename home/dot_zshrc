@@ -61,14 +61,15 @@ function open() {
     xdg-open "$@"
 }
 
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
+# function y() {
+#     local tmp
+#     tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+#     yazi "$@" --cwd-file="$tmp"
+#     if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+#         builtin cd -- "$cwd"
+#     fi
+#     rm -f -- "$tmp"
+# }
 
 function cze() {
     if [ $# -eq 0 ]; then
@@ -110,6 +111,7 @@ alias mkdir='mkdir -p'
 alias cp='cp -i' # Confirm before overwriting
 alias mv='mv -i' # Confirm before overwriting
 alias rm='rm -i' # Confirm before removing
+alias y='yazi'
 
 # =================
 # Environment

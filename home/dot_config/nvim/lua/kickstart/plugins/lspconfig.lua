@@ -214,18 +214,7 @@ return {
             fallbackFlags = { '-std=c++17' },
           },
         },
-        -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
-        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
-        -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
-        --
-
+        pyright = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -241,6 +230,24 @@ return {
           },
         },
         markdownlint = {},
+        bashls = {
+          filetypes = {
+            'sh',
+            'bash',
+            'zsh',
+          },
+        },
+        -- gopls = {},
+        -- pyright = {},
+        -- rust_analyzer = {},
+        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
+        --
+        -- Some languages (like typescript) have entire language plugins that can be useful:
+        --    https://github.com/pmizio/typescript-tools.nvim
+        --
+        -- But for many setups, the LSP (`ts_ls`) will work just fine
+        -- ts_ls = {},
+        --
       }
 
       -- Ensure the servers and tools above are installed
@@ -258,7 +265,14 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
+        'bashls',
+        'clangd',
+        'clang-format',
+        'cpplint',
+        'lua_ls',
+        'markdownlint',
         'stylua', -- Used to format Lua code
+        'beautysh',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

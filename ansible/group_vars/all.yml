@@ -125,6 +125,8 @@ packages:
     - wine
     - fd # Better find utility!
     - luarocks # Lua package manager!
+    - tree-sitter-cli # Need to install for installing certain gramars (latex for example) in tree-sitter
+    - man-pages # Yeeess, C documentation from the CLI !
     
     # Virtual Machines
     - libvirt # Nice library to work with virtual machines :)
@@ -149,6 +151,11 @@ packages:
     - gst-libav
     - gst-plugins-ugly
 
+    # Nvim dependencies
+    - ripgrep # Dependency for quickstart nvim!
+    - tree-sitter # For nvim
+    - shellcheck # For bash linting !!
+
     # Libraries
     - python-requests
     - python-pyquery
@@ -163,10 +170,8 @@ packages:
     - libnotify
     - webkit2gtk-4.1 # Required for Keymapp for my voyager keyboard
     - libusb # Required for Keymapp for my voyager keyboard
-    - ripgrep # Dependency for quickstart nvim!
     - gnome-keyring # For VSCode Keyring
     - fcitx5-config-qt
-    - tree-sitter # For nvim
     
     # Encryption
     - cryptsetup # Provide the LUKS encryption tools needed!
@@ -195,6 +200,7 @@ packages:
     - dotnet-host
     - dotnet-sdk
     - dotnet-runtime
+    - uv # Python package and project manager written in Rust
   
     # Packages we know are in AUR
   aur:
@@ -236,6 +242,7 @@ packages:
     - docker-git # Sweet sweet docker
     - sagemath # Math calc in the CLI ?? It's all fun and games until someone loses an i.
     - aurutils # utils pretty neat to manage packages on arch present on the AUR!
+    - micromamba-bin # Replace conda
     
     # Password management
     - proton-pass-bin # My password manager but you can change !

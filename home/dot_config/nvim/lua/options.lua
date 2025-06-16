@@ -29,6 +29,7 @@ vim.o.breakindent = true
 -- Set auto indent
 vim.o.autoindent = true
 
+-- Convert tab to spaces
 vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2

@@ -192,6 +192,19 @@ return {
         },
       }
 
+      -- Fix for clangd AST errors after file saves
+      vim.api.nvim_create_autocmd('BufWritePost', {
+        pattern = { '*.c', '*.cpp', '*.h', '*.hpp' },
+        group = vim.api.nvim_create_augroup('clangd-reload-fix', { clear = true }),
+        callback = function()
+          -- Only reload if clangd is attached to this buffer
+          local clients = vim.lsp.get_clients { bufnr = 0, name = 'clangd' }
+          if #clients > 0 then
+            vim.cmd 'silent! edit'
+          end
+        end,
+      })
+
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
       --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
@@ -208,8 +221,21 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
+        -- clangd = {},
+        -- gopls = {},
+        -- pyright = {},
+        -- rust_analyzer = {},
+        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
+        --
+        -- Some languages (like typescript) have entire language plugins that can be useful:
+        --    https://github.com/pmizio/typescript-tools.nvim
+        --
+        -- But for many setups, the LSP (`ts_ls`) will work just fine
+        -- ts_ls = {},
+        --
+
         clangd = {
-          cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose' },
+          cmd = { 'clangd', '--background-index', '--clang-tidy', '--enable-config', '--log=verbose' },
           init_options = {
             fallbackFlags = { '-std=c++17' },
           },
@@ -237,17 +263,6 @@ return {
             'zsh',
           },
         },
-        -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
-        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
-        -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
-        --
       }
 
       -- Ensure the servers and tools above are installed

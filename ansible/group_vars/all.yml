@@ -226,7 +226,6 @@ packages:
 
     # Screenshot
     - hyprshot
-    - flameshot-git
 
     # Themes
     - bibata-cursor-theme-bin # Bibata cursor ! :)

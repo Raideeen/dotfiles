@@ -4,11 +4,6 @@ rev = "efb8f03"
 hash = "9b8f2573da54334b04747e51556040cc"
 
 [[plugin.deps]]
-use = "Raideeen/hexyl"
-rev = "96dfaa8"
-hash = "7cb2582da511796910915dd07ff005ee"
-
-[[plugin.deps]]
 use = "dedukun/relative-motions"
 rev = "2e3b617"
 hash = "b67ee12053113983273e9118a7d1272b"

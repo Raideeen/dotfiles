@@ -82,6 +82,10 @@ packages:
     - yazi # Blazingly fast CLI file manager
     - nautilus # Default GNOME file manager
 
+    # Yazi dependencies
+    - ueberzugpp
+    
+
     # Package management
     - flatpak
 
@@ -127,6 +131,9 @@ packages:
     - luarocks # Lua package manager!
     - tree-sitter-cli # Need to install for installing certain gramars (latex for example) in tree-sitter
     - man-pages # Yeeess, C documentation from the CLI !
+    - fd
+    - 7zip
+    - duf # Better df for seeing space on my drives !
     
     # Virtual Machines
     - libvirt # Nice library to work with virtual machines :)
@@ -242,7 +249,9 @@ packages:
     - sagemath # Math calc in the CLI ?? It's all fun and games until someone loses an i.
     - aurutils # utils pretty neat to manage packages on arch present on the AUR!
     - micromamba-bin # Replace conda
-    
+    - resvg
+    - rar # Even on Linux, WinRAR will follow me :eyes:
+
     # Password management
     - proton-pass-bin # My password manager but you can change !
 

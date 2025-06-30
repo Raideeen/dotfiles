@@ -9,3 +9,5 @@
 	rebase = True
 [diff]
 	colorMoved = zebra
+[includeIf "gitdir:~/Documents/Programming/Projects/Active/Anonymous/**"]
+  path = ~/.gitconfig-anon

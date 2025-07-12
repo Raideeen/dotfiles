@@ -109,13 +109,15 @@ alias mkdir='mkdir -p'
 alias cp='cp -i' # Confirm before overwriting
 alias mv='mv -i' # Confirm before overwriting
 alias rm='rm -i' # Confirm before removing
+alias ytdl='yt-dlp --write-description --add-chapters --config-location ~/.config/yt-dlp/'
+alias move='rsync -aP --remove-source-files'
 
 # =================
 # Environment
 # =================
 
 export EDITOR="$HOME/.config/hypr/scripts/kitty_nvim.sh"
-export PATH="$PATH:$HOME/.config/zsh/.antidote:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.config/zsh/.antidote:$HOME/.local/bin:$HOME/.cargo/bin/"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 export AUR_PAGER='yazi'
@@ -124,11 +126,6 @@ export MANPAGER='nvim +Man!'
 # =================
 # Tool Integration
 # =================
-# Initialize zoxide (smarter cd)
-eval "$(zoxide init zsh --cmd cd)"
-
-# Initialize thefuck (command correction)
-eval "$(thefuck --alias)"
 
 # Initialize fzf
 source <(fzf --zsh)
@@ -147,6 +144,12 @@ if [ "$(tty)" = "/dev/tty1" ]; then
         exec systemd-cat -t uwsm_start uwsm start default
     fi
 fi
+
+# Initialize zoxide (smarter cd)
+eval "$(zoxide init zsh --cmd cd)"
+
+# Initialize thefuck (command correction)
+eval "$(thefuck --alias)"
 
 # Initialize starship prompt (load last to ensure proper prompt initialization)
 eval "$(starship init zsh)"

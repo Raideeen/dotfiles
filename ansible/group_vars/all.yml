@@ -134,6 +134,8 @@ packages:
     - fd
     - 7zip
     - duf # Better df for seeing space on my drives !
+    - typst # Contender to LaTex! It's really good!
+    - pdf2svg # Pretty much self-explanatory lol
     
     # Virtual Machines
     - libvirt # Nice library to work with virtual machines :)
@@ -179,6 +181,7 @@ packages:
     - libusb # Required for Keymapp for my voyager keyboard
     - gnome-keyring # For VSCode Keyring
     - fcitx5-config-qt
+    - python-poetry
     
     # Encryption
     - cryptsetup # Provide the LUKS encryption tools needed!
@@ -251,6 +254,7 @@ packages:
     - micromamba-bin # Replace conda
     - resvg
     - rar # Even on Linux, WinRAR will follow me :eyes:
+    - tmsu # Tool to tag files in a Unix file system that is pretty solid but abandonned
 
     # Password management
     - proton-pass-bin # My password manager but you can change !

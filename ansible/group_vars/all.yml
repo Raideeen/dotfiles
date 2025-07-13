@@ -136,6 +136,7 @@ packages:
     - duf # Better df for seeing space on my drives !
     - typst # Contender to LaTex! It's really good!
     - pdf2svg # Pretty much self-explanatory lol
+    - ollama-cuda # NVIDIA gpu go brrrrrrrrrrrrrrr
     
     # Virtual Machines
     - libvirt # Nice library to work with virtual machines :)
@@ -255,6 +256,7 @@ packages:
     - resvg
     - rar # Even on Linux, WinRAR will follow me :eyes:
     - tmsu # Tool to tag files in a Unix file system that is pretty solid but abandonned
+    - rmpc-git # Music player in the terminal, thanks @Bread on Penguins!
 
     # Password management
     - proton-pass-bin # My password manager but you can change !

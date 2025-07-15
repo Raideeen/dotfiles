@@ -110,6 +110,7 @@ alias cp='cp -i' # Confirm before overwriting
 alias mv='mv -i' # Confirm before overwriting
 alias rm='rm -i' # Confirm before removing
 alias ytdl='yt-dlp --write-description --add-chapters --config-location ~/.config/yt-dlp/'
+alias ytdl-music='yt-dlp --write-description --add-chapters --extract-audio --audio-format aac --config-location ~/.config/yt-dlp/ --embed-thumbnail'
 alias move='rsync -aP --remove-source-files'
 
 # =================
@@ -135,9 +136,6 @@ zstyle ':antidote:bundle' file "$HOME/.config/antidote/.zsh_plugins.txt"
 source "$HOME/.config/antidote/antidote.zsh"
 antidote load "${ZDOTDIR:-$HOME/.config/antidote}/.zsh_plugins.txt"
 
-# Initialize conda
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
-
 # Start uwsm at tty1 for login
 if [ "$(tty)" = "/dev/tty1" ]; then
     if uwsm check may-start && uwsm select; then
@@ -153,3 +151,18 @@ eval "$(thefuck --alias)"
 
 # Initialize starship prompt (load last to ensure proper prompt initialization)
 eval "$(starship init zsh)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

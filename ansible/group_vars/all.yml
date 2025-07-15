@@ -57,6 +57,7 @@ packages:
     # Desktop apps
     - qbittorrent # Torrent downloading app!
     - krita # Drawing software to be used with my XP pen tablet :)
+    - blender
 
     # Hyprland requirements
     - dunst # Notification daemon that can be easily styled!
@@ -172,6 +173,10 @@ packages:
     - yad
     - qt5ct
     - qt6ct
+    - qt6-svg # support for SVG image loading (bundled with most packages)
+    - qt6-imageformats # support for WEBP images as well as some less common ones
+    - qt6-multimedia # support for playing videos, audio, etc
+    - qt6-5compat # extra visual effects, notably gaussian blur. MultiEffect is usually preferable
     - gtk3 # Required for theming but also apps
     - gtk-layer-shell
     - gtk-engine-murrine
@@ -231,9 +236,11 @@ packages:
 
     # Development tools
     - visual-studio-code-bin # Yes proprietary ...
-    - miniconda3 # Miniconda ftw
     - protonvpn-cli-community # The GTK app sucks, let's go for the CLI
     - jetbrains-toolbox # Jetbrains toolbox to install latest versions of nice IDEs :)
+
+    # Desktop Components
+    - quickshell-git
 
     # Screenshot
     - hyprshot
@@ -252,11 +259,14 @@ packages:
     - docker-git # Sweet sweet docker
     - sagemath # Math calc in the CLI ?? It's all fun and games until someone loses an i.
     - aurutils # utils pretty neat to manage packages on arch present on the AUR!
-    - micromamba-bin # Replace conda
+    - miniconda3 # Replace conda
     - resvg
     - rar # Even on Linux, WinRAR will follow me :eyes:
     - tmsu # Tool to tag files in a Unix file system that is pretty solid but abandonned
     - rmpc-git # Music player in the terminal, thanks @Bread on Penguins!
+
+    # Copilot NVIM
+    - luajit-tiktoken-bin # For accurate token counting
 
     # Password management
     - proton-pass-bin # My password manager but you can change !

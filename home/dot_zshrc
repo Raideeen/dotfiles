@@ -49,6 +49,10 @@ autoload -Uz compinit && compinit
 # =================
 # Custom Functions
 # =================
+
+function wiki() {
+    firefox --new-tab https://wiki.archlinux.org/title/Special:Search/"$@"
+}
 function ls() {
     eza -i "$@" --icons=auto
 }
@@ -59,6 +63,14 @@ function nvim() {
 
 function open() {
     xdg-open "$@"
+}
+
+function open-background() {
+    "$@" &>/dev/null & disown
+}
+
+function runc() {
+    gcc -Wall "$@" -o bin/file.o && ./bin/file.o
 }
 
 function y() {
@@ -102,6 +114,7 @@ compdef _chezmoi czec
 # Aliases
 # =================
 # Additional useful aliases
+alias l='eza -l -i --icons=auto --git'
 alias ll='eza -l -i --icons=auto'
 alias la='eza -la -i --icons=auto'
 alias grep='grep --color=auto'
@@ -112,6 +125,7 @@ alias rm='rm -i' # Confirm before removing
 alias ytdl='yt-dlp --write-description --add-chapters --config-location ~/.config/yt-dlp/'
 alias ytdl-music='yt-dlp --write-description --add-chapters --extract-audio --audio-format aac --config-location ~/.config/yt-dlp/ --embed-thumbnail'
 alias move='rsync -aP --remove-source-files'
+alias bb='nvim ~/Documents/Programming/Toolbox/cheatsheet/pure-bash-bible/README.md'
 
 # =================
 # Environment

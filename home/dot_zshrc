@@ -61,6 +61,10 @@ function nvim() {
     $HOME/.config/hypr/scripts/kitty_nvim.sh "$@"
 }
 
+function sioyek() {
+    $HOME/.config/hypr/scripts/sioyek-xcb.sh "$@"
+}
+
 function open() {
     xdg-open "$@"
 }
@@ -70,7 +74,7 @@ function open-background() {
 }
 
 function runc() {
-    gcc -Wall "$@" -o bin/file.o && ./bin/file.o
+    gcc -g -Wall "$@" -o bin/file.o && ./bin/file.o
 }
 
 function y() {

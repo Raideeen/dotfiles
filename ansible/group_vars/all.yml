@@ -85,7 +85,6 @@ packages:
 
     # Yazi dependencies
     - ueberzugpp
-    
 
     # Package management
     - flatpak
@@ -226,7 +225,7 @@ packages:
     - celeste-client-bin # GUI app for rsync :)
     - zen-browser-bin # Firefox but looks like Arc !
     - linux-wallpaperengine-git
-    - sioyek # Nice pdf viewer :) If broken! do "paru -S sioyek --rebuild"
+    - sioyek-git # Nice pdf viewer :) If broken! do "paru -S sioyek --rebuild"
     # - vlc-git # Build from source, bro the UI looks goooood
     # - localsend # Allow to transfer files with devices on the same network
     

@@ -197,7 +197,7 @@ packages:
 
     # Fonts
     - adobe-source-code-pro-fonts
-    - ttf-font-awesome
+    - woff2-font-awesome
     - noto-fonts-emoji
     - noto-fonts-cjk
     - otf-font-awesome
@@ -263,6 +263,7 @@ packages:
     - rar # Even on Linux, WinRAR will follow me :eyes:
     - tmsu # Tool to tag files in a Unix file system that is pretty solid but abandonned
     - rmpc-git # Music player in the terminal, thanks @Bread on Penguins!
+    - claude-code # An agentic coding tool that lives in your terminal
 
     # Copilot NVIM
     - luajit-tiktoken-bin # For accurate token counting

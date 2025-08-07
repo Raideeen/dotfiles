@@ -232,8 +232,9 @@ return {
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
-        --
 
+        rust_analyzer = {},
+        omnisharp = {},
         clangd = {
           cmd = { 'clangd', '--background-index', '--clang-tidy', '--enable-config', '--log=verbose' },
           init_options = {
@@ -300,6 +301,8 @@ return {
         'beautysh',
         'tinymist',
         'qmlls',
+        'rust_analyzer',
+        'omnisharp', -- C# lsp
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

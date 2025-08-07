@@ -74,7 +74,7 @@ function open-background() {
 }
 
 function runc() {
-    gcc -g -Wall "$@" -o bin/file.o && ./bin/file.o
+    gcc -g -Wall -O "$@" -o bin/file.o && ./bin/file.o
 }
 
 function y() {

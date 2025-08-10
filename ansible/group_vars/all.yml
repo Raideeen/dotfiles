@@ -264,6 +264,8 @@ packages:
     - tmsu # Tool to tag files in a Unix file system that is pretty solid but abandonned
     - rmpc-git # Music player in the terminal, thanks @Bread on Penguins!
     - claude-code # An agentic coding tool that lives in your terminal
+    - opencode-bin # Open source version of the above that can work with open source models!
+    - glslviewer #  CLI-based shadertoy-style uniforms, instant reload on save viewer :)
 
     # Copilot NVIM
     - luajit-tiktoken-bin # For accurate token counting

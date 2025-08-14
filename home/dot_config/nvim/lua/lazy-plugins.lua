@@ -32,8 +32,9 @@ require('lazy').setup({
   require 'kickstart/plugins/mini',
   require 'kickstart/plugins/treesitter',
 
-  -- Debugging
+  -- Debugging & Compilation
   require 'kickstart.plugins.debug',
+  require 'custom.plugins.vim-dispatch',
 
   -- Linting & Formatting
   require 'kickstart.plugins.lint',

@@ -58,6 +58,7 @@ packages:
     - qbittorrent # Torrent downloading app!
     - krita # Drawing software to be used with my XP pen tablet :)
     - blender
+    - gimp
 
     # Hyprland requirements
     - dunst # Notification daemon that can be easily styled!
@@ -137,6 +138,7 @@ packages:
     - typst # Contender to LaTex! It's really good!
     - pdf2svg # Pretty much self-explanatory lol
     - ollama-cuda # NVIDIA gpu go brrrrrrrrrrrrrrr
+    - scrcpy
     
     # Virtual Machines
     - libvirt # Nice library to work with virtual machines :)
@@ -226,6 +228,9 @@ packages:
     - zen-browser-bin # Firefox but looks like Arc !
     - linux-wallpaperengine-git
     - sioyek-git # Nice pdf viewer :) If broken! do "paru -S sioyek --rebuild"
+    - radarr-bin # Movie organizer/manager for usenet and torrent users alike ! :)
+    - bazarr # Subtitle management for the above :)
+    - youtube-music-bin # The guy who wrote this app is a genius.
     # - vlc-git # Build from source, bro the UI looks goooood
     # - localsend # Allow to transfer files with devices on the same network
     

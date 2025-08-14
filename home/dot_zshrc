@@ -127,6 +127,7 @@ alias cp='cp -i' # Confirm before overwriting
 alias mv='mv -i' # Confirm before overwriting
 alias rm='rm -i' # Confirm before removing
 alias ytdl='yt-dlp --write-description --add-chapters --config-location ~/.config/yt-dlp/'
+alias ytdl-here='yt-dlp --write-description --add-chapters -o "./%(uploader)s/%(title)s.%(ext)s"'
 alias ytdl-music='yt-dlp --write-description --add-chapters --extract-audio --audio-format aac --config-location ~/.config/yt-dlp/ --embed-thumbnail'
 alias move='rsync -aP --remove-source-files'
 alias bb='nvim ~/Documents/Programming/Toolbox/cheatsheet/pure-bash-bible/README.md'

@@ -212,8 +212,10 @@ packages:
     # Fonts
     - adobe-source-code-pro-fonts
     - woff2-font-awesome
-    - noto-fonts-emoji
+    - noto-fonts
     - noto-fonts-cjk
+    - noto-fonts-emoji
+    - noto-fonts-extra
     - otf-font-awesome
     - ttf-droid
     - ttf-firacode-nerd
@@ -286,6 +288,7 @@ packages:
     - glslviewer #  CLI-based shadertoy-style uniforms, instant reload on save viewer :)
     - pandoc-bin
     - pipes.sh
+    - gallery-dl # Gotta rip rip rip, gotta rip rip rip 🎺
 
     # Copilot NVIM
     - luajit-tiktoken-bin # For accurate token counting

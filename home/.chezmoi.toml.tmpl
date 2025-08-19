@@ -1,30 +1,5 @@
 encryption = "age"
 
-{{- writeToStdout "Hi !\n\nYou are probably running chezmoi for the first time. Chezmoi allows to easily manage dotfiles at the cost of a little learning curve.\n" -}}
-{{- writeToStdout "For the installation of this dotfiles setup, there is a preset file called .chezmoidata.toml that contains all the variables that will be used to run certain scripts.\n"}}
-{{- writeToStdout "If you mess up the series of question during this initialization or want to change the variables later, you can always use 'chezmoi init'\n\n" -}}
-{{- writeToStdout "See the documentation at https://www.chezmoi.io/reference/ and https://www.chezmoi.io/user-guide/templating/ for more information.\n" -}}
-
-{{- $email := "" -}}
-{{- if hasKey . "email" -}}
-{{-   $email = .email -}}
-{{- else -}}
-{{-   $email = promptString "Github Email address" -}}
-{{- end -}}
-
-{{- $usePreset := promptString "Have you edited the preset file? (yes/no)" -}}
-{{- if eq $usePreset "no" -}}
-{{-   writeToStdout "You have not yet edited the preset file. Be sure to edit '.chezmoidata.toml' to add the variables you want to use!\n" -}}
-{{- else if eq $usePreset "yes" -}}
-{{-   writeToStdout "You have edited the preset file located at '.chezmoidata.toml'. Nice!\nContinue..." -}}
-{{- else -}}
-{{-   writeToStdout "Invalid input. Please enter 'yes' or 'no'." -}}
-{{- end }}
-
-[data]
-email = {{ $email | quote }}
-example_variable = "hey!"
-
 [age]
 identity = "~/.config/age/key.txt"
 recipient = "age15nr2qmnz4fqxspfcafpc9pzje70nn7hf6rzt58wdlv7npg0suqnsu8nf57"

@@ -139,12 +139,24 @@ packages:
     - pdf2svg # Pretty much self-explanatory lol
     - ollama-cuda # NVIDIA gpu go brrrrrrrrrrrrrrr
     - scrcpy
+    - wev # Display which keys are pressed in the CLI for wayland!
     
     # Virtual Machines
     - libvirt # Nice library to work with virtual machines :)
     - qemu-full # QEMU ofc!
     - dnsmasq # For the default NAT/DHCP networking
     - virt-manager # Client to use libvirt
+
+    # Pandoc dependencies (engines)
+    - texlive-bin
+    - texlive-basic
+    - texlive-latex
+    - texlive-latexextra
+    - texlive-fontsextra
+    - texlive-fontsrecommended
+    - texlive-pictures
+    - texlive-xetex
+    - texlive-luatex
 
     # Files manager dependencies
     - gvfs # Virtual filesystem implementation for GIO
@@ -226,6 +238,7 @@ packages:
     - obsidian # Famous notetaking app!
     - celeste-client-bin # GUI app for rsync :)
     - zen-browser-bin # Firefox but looks like Arc !
+    - librewolf-bin # Firefox but sneaky
     - linux-wallpaperengine-git
     - sioyek-git # Nice pdf viewer :) If broken! do "paru -S sioyek --rebuild"
     - radarr-bin # Movie organizer/manager for usenet and torrent users alike ! :)
@@ -271,6 +284,8 @@ packages:
     - claude-code # An agentic coding tool that lives in your terminal
     - opencode-bin # Open source version of the above that can work with open source models!
     - glslviewer #  CLI-based shadertoy-style uniforms, instant reload on save viewer :)
+    - pandoc-bin
+    - pipes.sh
 
     # Copilot NVIM
     - luajit-tiktoken-bin # For accurate token counting

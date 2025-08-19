@@ -54,8 +54,8 @@ end, { desc = 'Hover definition under cursor' })
 vim.keymap.set(
   'n',
   '<leader>cp',
-  ":Start gcc -Wall -Wextra -O2 % -o %:r && ./%:r; echo 'Program finished. Press Enter...'; read; rm %:r<CR>",
-  { buffer = true, desc = '[C]ompile and run C file' }
+  ":Start gcc -Wall -Wextra -g -O2 % -o %:r && ./%:r; printf '\\nProgram finished. Press Enter...'; read; rm %:r<CR>",
+  { desc = '[C]ompile and run C file' }
 )
 
 -- [[ Basic Autocommands ]]

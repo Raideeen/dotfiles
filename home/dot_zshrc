@@ -126,10 +126,11 @@ alias mkdir='mkdir -p'
 alias cp='cp -i' # Confirm before overwriting
 alias mv='mv -i' # Confirm before overwriting
 alias rm='rm -i' # Confirm before removing
-alias ytdl='yt-dlp --write-description --add-chapters --config-location ~/.config/yt-dlp/'
-alias ytdl-here='yt-dlp --write-description --add-chapters -o "./%(uploader)s/%(title)s.%(ext)s"'
-alias ytdl-music='yt-dlp --write-description --add-chapters --extract-audio --audio-format aac --config-location ~/.config/yt-dlp/ --embed-thumbnail'
-alias move='rsync -aP --remove-source-files'
+alias ytdl='yt-dlp --write-description --embed-metadata -o "./%(uploader)s/%(title)s.%(ext)s"'
+alias ytdl-music='yt-dlp --write-description --extract-audio --audio-format opus --embed-thumbnail --embed-metadata -o "./%(uploader)s/%(title)s.%(ext)s"'
+alias ytdl-archive='yt-dlp --write-description --embed-metadata --min-sleep-interval 15 --max-sleep-interval 30 -o "./%(uploader)s/%(title)s.%(ext)s"'
+alias ytdl-music-archive='yt-dlp --write-description --min-sleep-interval 15 --max-sleep-interval 30 --extract-audio --audio-format opus --embed-thumbnail --embed-metadata -o "./%(uploader)s/%(title)s.%(ext)s"'
+alias move='sudo rsync -aP --remove-source-files'
 alias bb='nvim ~/Documents/Programming/Toolbox/cheatsheet/pure-bash-bible/README.md'
 
 # =================
@@ -142,10 +143,20 @@ export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 export AUR_PAGER='yazi'
 export MANPAGER='nvim +Man!'
+export GOPATH="$HOME/Documents/Programming/Toolbox/languages/go/packages"
 
 # =================
 # Tool Integration
 # =================
+
+# Auto-switch mimetypes based on current desktop environment
+if [ "$XDG_CURRENT_DESKTOP" = "KDE" ]; then
+    export XDG_DATA_DIRS="$HOME/.local/share/applications/kde:$XDG_DATA_DIRS"
+    [ -f ~/.config/kde/mimeapps.list ] && ln -sf ~/.config/kde/mimeapps.list ~/.config/mimeapps.list
+elif [ "$XDG_CURRENT_DESKTOP" = "Hyprland" ]; then
+    export XDG_DATA_DIRS="$HOME/.local/share/applications/hyprland:$XDG_DATA_DIRS"
+    [ -f ~/.config/hypr/configs/mimeapps.list ] && ln -sf ~/.config/hypr/configs/mimeapps.list ~/.config/mimeapps.list
+fi
 
 # Initialize fzf
 source <(fzf --zsh)
@@ -171,17 +182,16 @@ eval "$(thefuck --alias)"
 # Initialize starship prompt (load last to ensure proper prompt initialization)
 eval "$(starship init zsh)"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/opt/miniforge/bin/mamba';
+export MAMBA_ROOT_PREFIX='/opt/miniforge';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+    eval "$__mamba_setup"
 else
-    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/miniconda3/bin:$PATH"
-    fi
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
 fi
-unset __conda_setup
-# <<< conda initialize <<<
+unset __mamba_setup
+# <<< mamba initialize <<<

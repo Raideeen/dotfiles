@@ -53,17 +53,20 @@ packages:
     - firefox
     - qutebrowser # vim like browser !!
     - firefox-tridactyl # Extension to have base firefox act like vim (so with extensions!)
+    - torbrowser-launcher
 
     # Desktop apps
     - qbittorrent # Torrent downloading app!
     - krita # Drawing software to be used with my XP pen tablet :)
     - blender
     - gimp
+    - element-desktop
+    - vlc
 
     # Hyprland requirements
     - dunst # Notification daemon that can be easily styled!
     - kitty # Default terminal for Hyprland
-    - rofi-wayland # Rofi but wayland
+    - rofi # Rofi (now works natively with wayland!)
     - qt5-wayland # Dependency
     - qt6-wayland # Dependency
     - grim # To take screenshots
@@ -71,6 +74,11 @@ packages:
     - waybar # The famous waybar :sunglasses:
     - network-manager-applet # Provide a system-tray button for managing the network
     - hyprlock # Hope it isn't bugged on NVIDIA like before :skull:
+
+    # KDE requirements
+    - plasma-desktop # Hyprland + KDE ?!? Some apps are better to use with a window-based desktop
+    - kde-applications-meta # All the default KDE applications
+    - kscreen
 
     # Addons of Hyprland
     - hyprpicker # Wayland compatible color picker
@@ -140,6 +148,7 @@ packages:
     - ollama-cuda # NVIDIA gpu go brrrrrrrrrrrrrrr
     - scrcpy
     - wev # Display which keys are pressed in the CLI for wayland!
+    - nmap # To scan my local network
     
     # Virtual Machines
     - libvirt # Nice library to work with virtual machines :)
@@ -232,6 +241,13 @@ packages:
     - dotnet-sdk
     - dotnet-runtime
     - uv # Python package and project manager written in Rust
+
+    # VPN
+    - proton-vpn-gtk-app
+
+    # DDOS sucks tbh
+    - pacman-mirrorlist
+    - arch-wiki-docs # Locally retrieve the arch wiki
   
     # Packages we know are in AUR
   aur:
@@ -246,6 +262,7 @@ packages:
     - radarr-bin # Movie organizer/manager for usenet and torrent users alike ! :)
     - bazarr # Subtitle management for the above :)
     - youtube-music-bin # The guy who wrote this app is a genius.
+    - onlyoffice-bin # Better than libreoffice sometimes :eyes:
     # - vlc-git # Build from source, bro the UI looks goooood
     # - localsend # Allow to transfer files with devices on the same network
     
@@ -278,7 +295,7 @@ packages:
     - docker-git # Sweet sweet docker
     - sagemath # Math calc in the CLI ?? It's all fun and games until someone loses an i.
     - aurutils # utils pretty neat to manage packages on arch present on the AUR!
-    - miniconda3 # Replace conda
+    - miniforge # Replace conda
     - resvg
     - rar # Even on Linux, WinRAR will follow me :eyes:
     - tmsu # Tool to tag files in a Unix file system that is pretty solid but abandonned
@@ -289,6 +306,9 @@ packages:
     - pandoc-bin
     - pipes.sh
     - gallery-dl # Gotta rip rip rip, gotta rip rip rip 🎺
+    - powershell-bin # hey powershell is great but don't forget to disable telemetry !
+    - czkawka-gui-bin # Duplicate finder but GUI version!
+    - czkawka-cli # Duplicate finder but CLI version!
 
     # Copilot NVIM
     - luajit-tiktoken-bin # For accurate token counting
@@ -327,6 +347,10 @@ packages:
 
     # VPN
     - systemd-resolvconf # See https://wiki.archlinux.org/title/ProtonVPN#OpenVPN_setup
+
+    # Sync files
+    - syncthing-bin
+    - syncthingtray
 
   zsh:
     pacman:

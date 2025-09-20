@@ -80,6 +80,26 @@
     mode: "445"
   become: true
 
+- name: Add hyprland (uwsm-managed) session to uwsm 
+  ansible.builtin.template:
+    src: hyprland-uwsm.desktop.j2
+    dest: /usr/share/wayland-sessions/hyprland-uwsm.desktop
+    backup: false
+    owner: root
+    group: root
+    mode: "445"
+  become: true
+
+- name: Add plasma (uwsm-managed) session to uwsm 
+  ansible.builtin.template:
+    src: plasm-uwsm.desktop.j2
+    dest: /usr/share/wayland-sessions/plasma-uwsm.desktop
+    backup: false
+    owner: root
+    group: root
+    mode: "445"
+  become: true
+
 - name: Update 75-twemoji configuration file
   ansible.builtin.template:
     src: 75-twemoji.conf.j2

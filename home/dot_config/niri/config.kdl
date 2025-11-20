@@ -266,7 +266,7 @@ hotkey-overlay {
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
+prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -324,8 +324,8 @@ window-rule {
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
+window-rule {
+    geometry-corner-radius 6
     clip-to-geometry true
 }
 
@@ -557,12 +557,12 @@ binds {
     // * adjust width as a percentage of screen width: "-10%" or "+10%"
     // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     // set-column-width "100" will make the column occupy 200 physical screen pixels.
-    Mod+KP_Subtract { set-column-width "-10%"; }
-    Mod+KP_Add { set-column-width "+10%"; }
+    Mod+KP_Subtract hotkey-overlay-title="Decrease column width by 10%" { set-column-width "-10%"; }
+    Mod+KP_Add hotkey-overlay-title="Increase column width by 10%" { set-column-width "+10%"; }
 
     // Finer height adjustments when in column with other windows.
-    Mod+Shift+KP_Subtract { set-window-height "-10%"; }
-    Mod+Shift+KP_Add { set-window-height "+10%"; }
+    Mod+Shift+KP_Subtract hotkey-overlay-title="Decrease column height by 10%" { set-window-height "-10%"; }
+    Mod+Shift+KP_Add hotkey-overlay-title="Increase column height by 10%" { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
     Mod+B       { toggle-window-floating; }

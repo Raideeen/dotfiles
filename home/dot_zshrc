@@ -115,6 +115,20 @@ compdef _chezmoi czec
 [ -f ~/.zshrc_external_func.zsh ] && source ~/.zshrc_external_func.zsh
 
 # =================
+# Mimetype handling
+# =================
+
+if [[ $XDG_CURRENT_DESKTOP == *niri* ]]; then
+    export XDG_DATA_DIRS="$HOME/.local/share/applications/niri:$XDG_DATA_DIRS"
+    [ -f ~/.config/niri/mimeapps.list ] && ln -sf ~/.config/niri/mimeapps.list ~/.config/mimeapps.list
+fi
+
+if [[ $XDG_CURRENT_DESKTOP == *kde* ]]; then
+    export XDG_DATA_DIRS="$HOME/.local/share/applications/kde:$XDG_DATA_DIRS"
+    [ -f ~/.config/kde/mimeapps.list ] && ln -sf ~/.config/kde/mimeapps.list ~/.config/mimeapps.list
+fi
+
+# =================
 # Aliases
 # =================
 # Additional useful aliases
@@ -127,11 +141,13 @@ alias cp='cp -i' # Confirm before overwriting
 alias mv='mv -i' # Confirm before overwriting
 alias rm='rm -i' # Confirm before removing
 alias ytdl='yt-dlp --write-description --embed-metadata -o "./%(uploader)s/%(title)s.%(ext)s"'
-alias ytdl-music='yt-dlp --write-description --extract-audio --audio-format opus --embed-thumbnail --embed-metadata -o "./%(uploader)s/%(title)s.%(ext)s"'
-alias ytdl-archive='yt-dlp --write-description --embed-metadata --min-sleep-interval 15 --max-sleep-interval 30 -o "./%(uploader)s/%(title)s.%(ext)s"'
-alias ytdl-music-archive='yt-dlp --write-description --min-sleep-interval 15 --max-sleep-interval 30 --extract-audio --audio-format opus --embed-thumbnail --embed-metadata -o "./%(uploader)s/%(title)s.%(ext)s"'
+alias ytdl-music='yt-dlp --write-description --extract-audio --audio-format best --embed-thumbnail --embed-metadata -o "./%(uploader)s/%(title)s.%(ext)s"'
+alias ytdl-music-video='yt-dlp --write-description --audio-format best --embed-thumbnail --embed-metadata -o "./%(uploader)s/%(title)s.%(ext)s"'
+alias ytdl-archive='yt-dlp --download-archive "./.download_history.txt" --write-description --embed-metadata --min-sleep-interval 15 --max-sleep-interval 30 -o "./%(uploader)s/%(title)s.%(ext)s"'
+alias ytdl-music-archive='yt-dlp --download-archive "./.download_history.txt" --write-description --min-sleep-interval 15 --max-sleep-interval 30 --extract-audio --audio-format best --embed-thumbnail --embed-metadata -o "./%(uploader)s/%(title)s.%(ext)s"'
 alias move='sudo rsync -aP --remove-source-files'
 alias bb='nvim ~/Documents/Programming/Toolbox/cheatsheet/pure-bash-bible/README.md'
+alias vscode-fonts-list="fc-list | awk -F: '{print \$2}' | sort | uniq"
 
 # =================
 # Environment
@@ -144,6 +160,7 @@ export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 export AUR_PAGER='yazi'
 export MANPAGER='nvim +Man!'
 export GOPATH="$HOME/Documents/Programming/Toolbox/languages/go/packages"
+export MPD_HOST="$XDG_RUNTIME_DIR/mpd/socket" # Allows to connect to MPD server for Music
 
 # =================
 # Tool Integration
@@ -182,10 +199,25 @@ eval "$(thefuck --alias)"
 # Initialize starship prompt (load last to ensure proper prompt initialization)
 eval "$(starship init zsh)"
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/raiden/.local/share/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/raiden/.local/share/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/raiden/.local/share/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="$PATH:/home/raiden/.local/share/miniforge3/bin"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba shell init' !!
-export MAMBA_EXE='/opt/miniforge/bin/mamba';
+export MAMBA_EXE='/home/raiden/.local/share/miniforge3/bin/mamba';
 export MAMBA_ROOT_PREFIX='/opt/miniforge';
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then

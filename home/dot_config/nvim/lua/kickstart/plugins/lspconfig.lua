@@ -249,7 +249,7 @@ return {
             },
           },
         },
-        markdownlint = {},
+        markdown_oxide = {},
         bashls = {
           filetypes = {
             'sh',
@@ -265,6 +265,10 @@ return {
             enabled = true,
             when = 'onSave',
           },
+        },
+        qmlls = {
+          cmd = { 'qmlls', '-E' },
+          filetypes = { 'qml', 'qtquick' },
         },
       }
 
@@ -284,19 +288,18 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'bashls',
-        'clangd',
-        'clang-format',
-        'cpplint',
-        'lua_ls',
-        'markdownlint', -- Markdown linter (show code style errors)
-        'mdformat', -- Markdown formatter
-        'stylua', -- Used to format Lua code
         'beautysh',
-        'tinymist',
+        'clang-format',
+        'clangd',
+        'cpplint',
+        'lua_ls', -- Lua LSP
+        'markdown_oxide', -- Markdown LSP
+        'omnisharp', -- C# LSP
         'qmlls',
         'rust_analyzer',
-        'omnisharp', -- C# lsp
-        'glsl_analyzer', -- GLSL lsp
+        'stylua', -- Used to format Lua code
+        'tinymist',
+        'yamlfmt', -- YAML formatter made by Google!
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -310,7 +313,8 @@ return {
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
+            -- require('lspconfig')[server_name].setup(server)
+            vim.lsp.enable(server)
           end,
         },
       }

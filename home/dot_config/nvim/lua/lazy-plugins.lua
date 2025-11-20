@@ -23,14 +23,14 @@ require('lazy').setup({
   -- modular approach: using `require 'path/name'` will
   -- include a plugin definition from file lua/path/name.lua
 
-  require 'kickstart/plugins/gitsigns',
-  require 'kickstart/plugins/which-key',
-  require 'kickstart/plugins/lspconfig',
-  require 'kickstart/plugins/conform',
-  require 'kickstart/plugins/blink-cmp',
-  require 'kickstart/plugins/todo-comments',
-  require 'kickstart/plugins/mini',
-  require 'kickstart/plugins/treesitter',
+  require 'kickstart.plugins.gitsigns',
+  require 'kickstart.plugins.which-key',
+  require 'kickstart.plugins.conform',
+  require 'kickstart.plugins.blink-cmp',
+  require 'kickstart.plugins.todo-comments',
+  require 'kickstart.plugins.mini',
+  require 'kickstart.plugins.treesitter',
+  require 'kickstart.plugins.lspconfig',
 
   -- Debugging & Compilation
   require 'kickstart.plugins.debug',
@@ -42,32 +42,32 @@ require('lazy').setup({
   -- Editing Enhancements
   require 'kickstart.plugins.autopairs',
   require 'custom.plugins.nvim-surround',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.indent_line',
 
   -- UI Enhancements
   require 'kickstart.plugins.neo-tree',
-  require 'custom/plugins/alpha',
-  require 'custom/plugins/bufferline',
-  require 'custom/plugins/lualine',
-  require 'custom/plugins/nvim-colorizer',
-  require 'custom/plugins/snacks',
+  require 'custom.plugins.alpha',
+  require 'custom.plugins.bufferline',
+  require 'custom.plugins.lualine',
+  require 'custom.plugins.nvim-colorizer',
+  require 'custom.plugins.snacks',
 
   -- Colorschemes
-  require 'custom/plugins/colorschemes/base16-colorscheme',
-  require 'custom/plugins/colorschemes/gruvbox',
+  require 'custom.plugins.colorschemes.base16-colorscheme',
+  require 'custom.plugins.colorschemes.gruvbox',
 
   -- Navigation
-  require 'custom/plugins/follow-md-links',
-  require 'custom/plugins/oil',
-  require 'custom/plugins/vim-tmux-navigator',
+  require 'custom.plugins.follow-md-links',
+  require 'custom.plugins.oil',
+  require 'custom.plugins.vim-tmux-navigator',
 
   -- AI & Copilot
-  require 'custom/plugins/copilot',
+  require 'custom.plugins.copilot',
 
   -- Miscellaneous
-  require 'custom/plugins/comfy-line-numbers',
-  require 'custom/plugins/render-markdown',
-  require 'custom/plugins/typst-preview',
+  require 'custom.plugins.comfy-line-numbers',
+  require 'custom.plugins.render-markdown',
+  require 'custom.plugins.typst-preview',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.

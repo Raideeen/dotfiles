@@ -13,6 +13,8 @@ vim.o.relativenumber = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
 
+-- Show characters spaces between lines to allow better readability
+
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
@@ -37,7 +39,7 @@ vim.o.winborder = 'single'
 vim.o.swapfile = false
 
 -- Convert tab to spaces
-vim.o.expandtab = true
+-- vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 
@@ -70,7 +72,7 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
 vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', eol = '󱞣' }
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
@@ -88,5 +90,3 @@ vim.o.confirm = true
 
 -- Enables 24-bit RGB color in the |TUI|
 vim.o.termguicolors = true
-
--- vim: ts=2 sts=2 sw=2 et

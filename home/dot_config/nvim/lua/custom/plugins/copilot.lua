@@ -33,10 +33,6 @@ return {
       -- Performance and async settings
       auto_insert_mode = true, -- Automatically enter insert mode
       show_help = false, -- Disable help message on startup
-      question_header = '## User ',
-      answer_header = '## Copilot ',
-      error_header = '## Error ',
-      separator = ' ', -- Separator to use in chat
 
       -- Window configuration for better performance
       window = {
@@ -52,16 +48,6 @@ return {
         footer = nil, -- footer of chat window
         zindex = 1, -- determines if window is on top or below other floating windows
       },
-
-      -- Model configuration for better performance
-      model = 'gpt-4.1', -- Use faster model
-
-      -- Async and performance settings
-      clear_chat_on_new_prompt = false, -- Don't clear chat, keeps context
-      highlight_selection = true, -- Highlight the selected text
-      context = nil, -- Default context to use (can be 'buffers', 'buffer', or 'file')
-      history_path = vim.fn.stdpath 'data' .. '/copilotchat_history', -- Path to chat history
-      callback = nil, -- Callback to use when ask response is received
 
       -- Selection settings for better UX
       selection = function(source)
@@ -106,61 +92,6 @@ return {
           selection = function(source)
             return require('CopilotChat.select').visual(source) or require('CopilotChat.select').buffer(source)
           end,
-        },
-      },
-
-      -- Your existing mappings
-      mappings = {
-        complete = {
-          insert = '<Tab>',
-        },
-        close = {
-          normal = 'q',
-          insert = '<leader>qc',
-        },
-        reset = {
-          normal = '<C-l>',
-          insert = '<C-l>',
-        },
-        submit_prompt = {
-          normal = '<CR>',
-          insert = '<C-s>',
-        },
-        toggle_sticky = {
-          normal = 'grr',
-        },
-        clear_stickies = {
-          normal = 'grx',
-        },
-        accept_diff = {
-          normal = '<C-y>',
-          insert = '<C-y>',
-        },
-        jump_to_diff = {
-          normal = 'gj',
-        },
-        quickfix_answers = {
-          normal = 'gqa',
-        },
-        quickfix_diffs = {
-          normal = 'gqd',
-        },
-        yank_diff = {
-          normal = 'gy',
-          register = '"',
-        },
-        show_diff = {
-          normal = 'gd',
-          full_diff = false,
-        },
-        show_info = {
-          normal = 'gi',
-        },
-        show_context = {
-          normal = 'gc',
-        },
-        show_help = {
-          normal = 'gh',
         },
       },
     },

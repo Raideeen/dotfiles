@@ -12,13 +12,13 @@
     "modules-center": [
         // "hyprland/window",
         "clock",
+        "wlr/taskbar",
         "custom/emoji"
     ],
     "modules-right": [
         "wireplumber",
         "cpu",
         "memory",
-        "hyprland/language",
         "tray",
         "custom/power-menu"
     ],
@@ -42,6 +42,17 @@
         "format-alt": "{:%d-%m-%Y}",
         "interval": 60,
         "tooltip": false
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 14,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "rewrite": {
+            "Firefox Web Browser": "Firefox",
+            "kitty": "Terminal"
+        }
     },
     "custom/emoji": {
         "exec": "~/.conda/envs/waybar/bin/python ~/.config/waybar/scripts/random-emoji.py",
@@ -93,9 +104,6 @@
         "interval": 10,
         "on-click": "kitty -T btop btop",
         "format": "  {used:0.1f}G/{total:0.1f}G"
-    },
-    "hyprland/language": {
-        "format": "󰌌  {short}"
     },
     "tray": {
         "icon-size": 14,

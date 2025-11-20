@@ -1,43 +1,43 @@
 * {
-    font-family: "IBM Plex Mono", "Font Awesome 6 Free Solid";
-    font-size: 11pt;
-    font-weight: normal;
+	font-family: "IBM Plex Mono", "Font Awesome 6 Free Solid";
+	font-size: 11pt;
+	font-weight: normal;
 }
 
 window#waybar {
-    background: #282828;
-    border-radius: 5px;
+	background-color: rgba(40, 40, 40, 0.99);
+	border-radius: 5px;
 }
 
 #workspaces {
-    /* Distance between the left border and the [1|2|3..|n] workspace buttons*/
-    margin: 0 1px;
-    padding: 5px 5px;
+	/* Distance between the left border and the [1|2|3..|n] workspace buttons*/
+	margin: 0 1px;
+	padding: 5px 5px;
 }
 
 #workspaces button {
-    /* Basic button styling */
-    padding: 0 10px;
-    color: #ebdbb2;
-    background: #3c3836;
+	/* Basic button styling */
+	padding: 0 10px;
+	color: #ebdbb2;
+	background: #3c3836;
 
-    /* Square corners */
-    border-radius: 0px;
+	/* Square corners */
+	border-radius: 0px;
 
-    /* Text styling */
-    font-size: 10pt;
-    font-weight: normal;
+	/* Text styling */
+	font-size: 10pt;
+	font-weight: normal;
 }
 
 #workspaces button.active,
 #workspaces button.focused {
-    background: #655c54;
-    color: #ebdbb2;
+	background: #655c54;
+	color: #ebdbb2;
 }
 
 #workspaces button.urgent {
-    color: #282828;
-    background: #ebdbb2;
+	color: #282828;
+	background: #ebdbb2;
 }
 
 #clock,
@@ -50,65 +50,65 @@ window#waybar {
 #language,
 #custom-power-menu,
 #tray {
-    /* Remove the vertical margin and keep only horizontal */
-    margin: 0px 5px;
-    /* Add padding to the top and bottom to create internal space */
-    padding: 2px 5px;
-    /* Create the background with space using background-clip */
-    background: #3c3836;
-    color: #ebdbb2;
-    /* Add a small border to create space */
-    border-top: 5px solid #282828;
-    border-bottom: 5px solid #282828;
+	/* Remove the vertical margin and keep only horizontal */
+	margin: 0px 5px;
+	/* Add padding to the top and bottom to create internal space */
+	padding: 2px 5px;
+	/* Create the background with space using background-clip */
+	background: #3c3836;
+	color: #ebdbb2;
+	/* Add a small border to create space */
+	border-top: 5px solid #282828;
+	border-bottom: 5px solid #282828;
 }
 
 #custom-emoji {
-    /* internal "width" of the module of color #3c3836 */
-    padding: 0px 10px;
+	/* internal "width" of the module of color #3c3836 */
+	padding: 0px 10px;
 }
 
 #taskbar button {
-    /* wlr/taskbar has default settings that we have to overwrite to fix this
+	/* wlr/taskbar has default settings that we have to overwrite to fix this
     module taking a lot of spaces */
-    padding: 0;
-    /* Unsquish the icons */
-    padding-left: 5px;
-    padding-right: 5px
+	padding: 0;
+	/* Unsquish the icons */
+	padding-left: 5px;
+	padding-right: 5px
 }
 
 #taskbar.empty {
-    background: none;
-    border: none;
-    margin: 0;
-    padding: 0;
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
 }
 
 #wireplumber {
-    /* internal "width" of the module of color #3c3836 */
-    padding: 0px 10px;
+	/* internal "width" of the module of color #3c3836 */
+	padding: 0px 10px;
 }
 
 #cpu {
-    /* internal "width" of the module of color #3c3836 */
-    padding: 0px 10px;
+	/* internal "width" of the module of color #3c3836 */
+	padding: 0px 10px;
 }
 
 #memory {
-    /* internal "width" of the module of color #3c3836 */
-    padding: 0px 10px;
+	/* internal "width" of the module of color #3c3836 */
+	padding: 0px 10px;
 }
 
 #language {
-    /* internal "width" of the module of color #3c3836 */
-    padding: 0px 10px;
+	/* internal "width" of the module of color #3c3836 */
+	padding: 0px 10px;
 }
 
 #tray {
-    /* internal "width" of the module of color #3c3836 */
-    padding: 0px 10px;
+	/* internal "width" of the module of color #3c3836 */
+	padding: 0px 10px;
 }
 
 #custom-power-menu {
-    /* internal "width" of the module of color #3c3836 */
-    padding: 0px 10px;
+	/* internal "width" of the module of color #3c3836 */
+	padding: 0px 10px;
 }

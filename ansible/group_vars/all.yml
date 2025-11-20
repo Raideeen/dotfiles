@@ -121,7 +121,6 @@ packages:
     - man-pages # Yeeess, C documentation from the CLI !
     - nmap # To scan my local network
     - nushell # New type of shell that structures data in a nice and formated way!
-    - ollama-cuda # NVIDIA gpu go brrrrrrrrrrrrrrr
     - openvpn # VPN for torrenting
     - pdf2svg # Pretty much self-explanatory lol
     - rclone # SyncFiles CLI for Proton Drive
@@ -132,6 +131,9 @@ packages:
     - wev # Display which keys are pressed in the CLI for wayland!
     - wine
     - wireguard-tools # Same...!
+    - vulkan-tools # CLI to access if vulkan is correctly installed on my PC ;)
+    # Backups
+    - pika-backup
     # Virtual Machines
     - dnsmasq # For the default NAT/DHCP networking
     - libvirt # Nice library to work with virtual machines :)
@@ -147,8 +149,7 @@ packages:
     - texlive-luatex
     - texlive-pictures
     - texlive-xetex
-    # Files manager dependencies
-    - cifs-utils # Library and tools for package installs and system configuration
+    # Files manager dependencies - cifs-utils # Library and tools for package installs and system configuration
     - ffmpegthumbnailer # Allow nautilus to generate thumbnails for videos, see https://wiki.archlinux.org/title/File_manager_functionality#Thumbnail_previews
     - gst-libav
     - gst-plugins-ugly
@@ -220,12 +221,17 @@ packages:
     - dotnet-runtime
     - dotnet-sdk
     - go # The Go programming language
+    - rustup # The Rust programming toolchain! Note that I will have to manually update the toolchain with `rustup update`
+    - deno # Manage Javascript easily ! (kind of a dependency now for yt-dlp)
     - uv # Python package and project manager written in Rust
     # VPN
     # - proton-vpn-gtk-app # I'll wait for them to fix this package... it's so messy dude.
     # DDOS sucks tbh
     - pacman-mirrorlist
     - arch-wiki-docs # Locally retrieve the arch wiki
+    # Drivers
+    - openrazer-daemon # Driver used by polychromatic
+    - polychromatic # To finally configure my Razer headset on my Linux system!
     # Packages we know are in AUR
   aur:
     # Desktop App
@@ -235,6 +241,7 @@ packages:
     - librewolf-bin # Firefox but sneaky
     - linux-wallpaperengine-git
     - obsidian # Famous notetaking app!
+    - joplin-desktop # Yeah uh... same but FOSS
     - onlyoffice-bin # Better than libreoffice sometimes :eyes:
     - radarr-bin # Movie organizer/manager for usenet and torrent users alike ! :)
     - sioyek-git # Nice pdf viewer :) If broken! do "paru -S sioyek --rebuild"
@@ -273,7 +280,8 @@ packages:
     - exercism-bin # Awesome website with tons of exercises in programming, CLI interface to submit exercises!
     - fontpreview # Preview your font... directly in the CLI !! :O
     - gallery-dl # Gotta rip rip rip, gotta rip rip rip 🎺
-    - miniforge # Replace conda
+    - xdg-ninja-git # A shell script that checks your $HOME for unwanted files and directories... Handy!
+    # - miniforge # Replace conda
     - neovim-nightly-bin # The cooler vim :sunglasses
     - opencode-bin # Open source version of the above that can work with open source models!
     - pandoc-bin
@@ -296,6 +304,7 @@ packages:
     # Entertainment
     - mangal # Manga reader for Linux
     - yt-dlp # A youtube-dl fork with additional features and fixes
+    - yt-dlp-ejs # Mandatory package to download from Youtube
     # Music and audio
     - pwvucontrol # Pipewire volume control - alternative to pavucontrol
     - cava # Console-based Audio Visualizer for Alsa
@@ -318,6 +327,8 @@ packages:
     - systemd-resolvconf # See https://wiki.archlinux.org/title/ProtonVPN#OpenVPN_setup
     # Sync files
     - syncthing-bin
+    # Local AI
+    - llama.cpp-vulkan # Local inference on the GPU!!
   zsh:
     pacman:
       # Base plugin

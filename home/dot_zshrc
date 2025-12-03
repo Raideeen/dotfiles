@@ -2,7 +2,7 @@
 # Core Settings
 # =============
 # History
-HISTFILE=~/.histfile
+HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTSIZE=10000
 HISTDUP=erase
 SAVEHIST=10000
@@ -36,15 +36,20 @@ bindkey '^n' history-search-forward              # Search history for the relate
 # =================
 # Completion System
 # =================
-zstyle ':completion:*' menu select                        # Enable menu selection
+zstyle ':completion:*' menu no                        # Enable menu selection
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # Case insensitive completion
 zstyle ':completion:*' special-dirs true                  # Complete special directories
 zstyle ':completion:*' list-colors ''                     # Colored completion
 zstyle ':completion:*' verbose yes                        # Verbose completion messages
+zstyle ':completion:*git-checkout:*' sort false   				# Disable sort when completing `git checkout`
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} 		# Set list-colors to enable filename colorizing
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath' # Preview directory's content with eza when completing cd
+# zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup # Use tmux pop-up feature for fzf
 zstyle ':compinstall filename' '/home/raiden/.zshrc'
 
 fpath=(~/.config/zsh/completion $fpath)
 autoload -Uz compinit && compinit
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
 # =================
 # Custom Functions
@@ -61,8 +66,8 @@ function nvim() {
     $HOME/.config/hypr/scripts/kitty_nvim.sh "$@"
 }
 
-function sioyek() {
-    $HOME/.config/hypr/scripts/sioyek-xcb.sh "$@"
+function sk() {
+    QT_QPA_PLATFORM=xcb sioyek "$@"
 }
 
 function open() {
@@ -103,9 +108,15 @@ function cza() {
     fi
 }
 
-# CheZmoi EditConf
+# Chezmoi EditConf
 function czec() {
     nvim $HOME/.local/share/chezmoi/ansible/group_vars/all.yml
+}
+
+function start_tmux() {
+    if [[ "$TMUX" == "" ]]; then
+        tmux;
+    fi
 }
 
 compdef _chezmoi cze
@@ -126,6 +137,19 @@ fi
 if [[ $XDG_CURRENT_DESKTOP == *kde* ]]; then
     export XDG_DATA_DIRS="$HOME/.local/share/applications/kde:$XDG_DATA_DIRS"
     [ -f ~/.config/kde/mimeapps.list ] && ln -sf ~/.config/kde/mimeapps.list ~/.config/mimeapps.list
+fi
+
+if [[ $XDG_CURRENT_DESKTOP == *hypr* ]]; then
+    export XDG_DATA_DIRS="$HOME/.local/share/applications/hypr:$XDG_DATA_DIRS"
+    [ -f ~/.config/hypr/env/mimeapps.list ] && ln -sf ~/.config/hypr/env/mimeapps.list ~/.config/mimeapps.list
+fi
+
+# =================
+# MPD Starting
+# =================
+
+if ! [[ -d "$XDG_RUNTIME_DIR/mpd" ]]; then
+    mkdir "$XDG_RUNTIME_DIR/mpd"
 fi
 
 # =================
@@ -149,18 +173,40 @@ alias move='sudo rsync -aP --remove-source-files'
 alias bb='nvim ~/Documents/Programming/Toolbox/cheatsheet/pure-bash-bible/README.md'
 alias vscode-fonts-list="fc-list | awk -F: '{print \$2}' | sort | uniq"
 
+# Aliases handling for respecting XDG standards
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
+
 # =================
 # Environment
 # =================
 
 export EDITOR="$HOME/.config/hypr/scripts/kitty_nvim.sh"
-export PATH="$PATH:$HOME/.config/zsh/.antidote:$HOME/.local/bin:$HOME/.cargo/bin/"
+export PATH="$PATH:$HOME/.config/zsh/.antidote:$HOME/.local/bin:$HOME/.cargo/bin/:$HOME/.local/share/JetBrains/Toolbox/scripts"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 export AUR_PAGER='yazi'
 export MANPAGER='nvim +Man!'
 export GOPATH="$HOME/Documents/Programming/Toolbox/languages/go/packages"
 export MPD_HOST="$XDG_RUNTIME_DIR/mpd/socket" # Allows to connect to MPD server for Music
+
+# Environment variables to respect XDG standards
+export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
+export ANSIBLE_HOME="$XDG_DATA_HOME"/ansible
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
+export DOT_SAGE="$XDG_CONFIG_HOME"/sage
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
+export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME"/npm/config/npm-init.js
+export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR"/npm
+export NUGET_PACKAGEs="$XDG_CACHE_HOME"/NuGetPackages
+export OMNISHARPHOME="$XDG_CONFIG_HOME"/omnisharp
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export TEXMFVAR="$XDG_CACHE_HOME"/texlive/textmf-var
+export WINEPREFIX="$XDG_DATA_HOME"/wine
 
 # =================
 # Tool Integration
@@ -193,9 +239,6 @@ fi
 # Initialize zoxide (smarter cd)
 eval "$(zoxide init zsh --cmd cd)"
 
-# Initialize thefuck (command correction)
-eval "$(thefuck --alias)"
-
 # Initialize starship prompt (load last to ensure proper prompt initialization)
 eval "$(starship init zsh)"
 
@@ -227,3 +270,5 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+start_tmux

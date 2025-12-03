@@ -10,4 +10,4 @@
 [diff]
 	colorMoved = zebra
 [includeIf "gitdir:~/Documents/Programming/Projects/Active/Anonymous/**"]
-  path = ~/.gitconfig-anon
+  path = $XDG_CONFIG_HOME/git/config-anon

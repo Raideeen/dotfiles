@@ -3,7 +3,7 @@
 
 include "/home/raiden/.gtkrc-2.0.mine"
 gtk-theme-name="Gruvbox-Dark"
-gtk-icon-theme-name="Gruvbox-Dark"
+gtk-icon-theme-name="Adwaita"
 gtk-font-name="Cantarell 11"
 gtk-cursor-theme-name="Bibata-Modern-Ice"
 gtk-cursor-theme-size=24

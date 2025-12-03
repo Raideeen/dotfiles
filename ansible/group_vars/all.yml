@@ -109,6 +109,7 @@ packages:
     - curl # Classic GNU tool for transferring data :)
     - docker-compose # Sweet sweet docker compose
     - duf # Better df for seeing space on my drives !
+    - eza # Better ls .. but in rust!
     - fd # Better find utility!
     - hexyl # Hex viewer in the terminal :)
     - imagemagick # Allow to manipulate images through the CLI
@@ -121,17 +122,20 @@ packages:
     - man-pages # Yeeess, C documentation from the CLI !
     - nmap # To scan my local network
     - nushell # New type of shell that structures data in a nice and formated way!
-    - openvpn # VPN for torrenting
     - pdf2svg # Pretty much self-explanatory lol
     - rclone # SyncFiles CLI for Proton Drive
     - scrcpy
     - tree-sitter-cli # Need to install for installing certain gramars (latex for example) in tree-sitter
     - typst # Contender to LaTex! It's really good!
     - unzip
+    - vulkan-tools # CLI to access if vulkan is correctly installed on my PC ;)
     - wev # Display which keys are pressed in the CLI for wayland!
     - wine
+    - openvpn # VPN for torrenting
     - wireguard-tools # Same...!
-    - vulkan-tools # CLI to access if vulkan is correctly installed on my PC ;)
+    - sagemath # Math calc in the CLI ?? It's all fun and games until someone loses an i.
+    - yt-dlp # A youtube-dl fork with additional features and fixes
+    - yt-dlp-ejs # Mandatory package to download from Youtube
     # Backups
     - pika-backup
     # Virtual Machines
@@ -169,6 +173,8 @@ packages:
     - ripgrep # Dependency for quickstart nvim!
     - shellcheck # For bash linting !!
     - tree-sitter # For nvim
+    # Desktop Components
+    - quickshell
     # Libraries
     - fcitx5-config-qt
     - freerdp # RDP for Windows emulation!
@@ -239,9 +245,7 @@ packages:
     - celeste-client-bin # GUI app for rsync :)
     - heroic-games-launcher-bin # GOG Games!!!
     - librewolf-bin # Firefox but sneaky
-    - linux-wallpaperengine-git
     - obsidian # Famous notetaking app!
-    - joplin-desktop # Yeah uh... same but FOSS
     - onlyoffice-bin # Better than libreoffice sometimes :eyes:
     - radarr-bin # Movie organizer/manager for usenet and torrent users alike ! :)
     - sioyek-git # Nice pdf viewer :) If broken! do "paru -S sioyek --rebuild"
@@ -249,7 +253,8 @@ packages:
     - winboat-bin # Windows app emulation that looks native to Linux!
     - youtube-music-bin # The guy who wrote this app is a genius.
     - zen-browser-bin # Firefox but looks like Arc !
-    # - vlc-git # Build from source, bro the UI looks goooood
+    - picard-git # Musicbrainz tagging app for music, super cool!
+    - imgbrd-grabber
     # - localsend # Allow to transfer files with devices on the same network
 
     # KDE personalization
@@ -261,8 +266,6 @@ packages:
     # Development tools
     - visual-studio-code-bin # Yes proprietary ...
     - jetbrains-toolbox # Jetbrains toolbox to install latest versions of nice IDEs :)
-    # Desktop Components
-    - quickshell
     # Screenshot
     - hyprshot
     # Themes
@@ -273,13 +276,13 @@ packages:
     # CLI Tools
     - aurutils # utils pretty neat to manage packages on arch present on the AUR!
     - claude-code # An agentic coding tool that lives in your terminal
-    - czkawka-cli # Duplicate finder but CLI version!
+    - czkawka-cli-bin # Duplicate finder but CLI version!
     - czkawka-gui-bin # Duplicate finder but GUI version!
     - docker-git # Sweet sweet docker
-    - exa # Better ls .. but in rust!
     - exercism-bin # Awesome website with tons of exercises in programming, CLI interface to submit exercises!
     - fontpreview # Preview your font... directly in the CLI !! :O
-    - gallery-dl # Gotta rip rip rip, gotta rip rip rip 🎺
+    # - gallery-dl-bin # Gotta rip rip rip, gotta rip rip rip 🎺
+    - gallery-dl # Build it so it can use my bash version instead of a fucked up one >:(
     - xdg-ninja-git # A shell script that checks your $HOME for unwanted files and directories... Handy!
     # - miniforge # Replace conda
     - neovim-nightly-bin # The cooler vim :sunglasses
@@ -291,7 +294,6 @@ packages:
     - rar # Even on Linux, WinRAR will follow me :eyes:
     - resvg
     - rmpc-git # Music player in the terminal, thanks @Bread on Penguins!
-    - sagemath # Math calc in the CLI ?? It's all fun and games until someone loses an i.
     - tmsu # Tool to tag files in a Unix file system that is pretty solid but abandonned
     - zsa-keymapp-bin # A live visual reference for your ZSA keyboard
     - zsa-kontroll-bin # Helper cli tool for the ZSA Keymapp API
@@ -301,10 +303,6 @@ packages:
     - proton-pass-bin # My password manager but you can change !
     # Mailing
     - proton-mail-bin
-    # Entertainment
-    - mangal # Manga reader for Linux
-    - yt-dlp # A youtube-dl fork with additional features and fixes
-    - yt-dlp-ejs # Mandatory package to download from Youtube
     # Music and audio
     - pwvucontrol # Pipewire volume control - alternative to pavucontrol
     - cava # Console-based Audio Visualizer for Alsa
@@ -325,6 +323,7 @@ packages:
     - tmux-plugin-manager
     # VPN
     - systemd-resolvconf # See https://wiki.archlinux.org/title/ProtonVPN#OpenVPN_setup
+    - mullvad-vpn-bin
     # Sync files
     - syncthing-bin
     # Local AI

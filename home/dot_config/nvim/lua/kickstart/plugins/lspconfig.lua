@@ -299,7 +299,7 @@ return {
         'rust_analyzer',
         'stylua', -- Used to format Lua code
         'tinymist',
-        'yamlfmt', -- YAML formatter made by Google!
+        'yaml-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

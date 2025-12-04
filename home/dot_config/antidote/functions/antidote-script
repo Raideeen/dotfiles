@@ -4,7 +4,7 @@
 #
 # usage: antidote script [-h|--help] [-k|--kind <kind>] [-p|--path <path>]
 #                        [-c|--conditional <func>] [-b|--branch <branch>]
-#                        [--pre <func>] [--post <func>]
+#                        [--pre <func>] [--post <func>] [--skip-load-defer]
 #                        [-a|--autoload <path>] <bundle>
 # <kind>   : zsh,path,fpath,defer,clone,autoload
 # <path>   : Relative path from the bundle root
@@ -18,7 +18,7 @@
   local MATCH MBEGIN MEND; local -a match mbegin mend  # appease 'warn_create_global'
   local REPLY=
 
-  local o_help o_kind o_path o_branch o_cond o_autoload o_pre o_post o_fpath_rule
+  local -a o_help o_kind o_path o_branch o_cond o_autoload o_pre o_post o_fpath_rule o_skip_load_defer
   zparseopts $_adote_zparopt_flags -- \
     h=o_help       -help=h            \
     a:=o_autoload  -autoload:=a       \
@@ -28,6 +28,7 @@
                    -pre:=o_pre        \
                    -post:=o_post      \
                    -fpath-rule:=o_fpath_rule \
+                   -skip-load-defer=o_skip_load_defer \
     c:=o_cond      -conditional:=c    ||
     return 1
 
@@ -86,7 +87,7 @@
   if [[ "$bundle_type" == (repo|url|sshurl) ]] && [[ ! -e "$bundle_path" ]]; then
     local giturl=$(__antidote_tourl $bundle)
     print -ru2 "# antidote cloning $bundle_name..."
-    git clone --quiet --depth 1 --recurse-submodules --shallow-submodules $o_branch $giturl $bundle_path
+    git clone --quiet --recurse-submodules --shallow-submodules $o_branch $giturl $bundle_path
     [[ $? -eq 0 ]] || return 1
   fi
 
@@ -119,11 +120,13 @@
     || zsh_defer_bundle='romkatv/zsh-defer'
   if [[ "$o_kind[-1]" == "defer" ]]; then
     source_cmd="${zsh_defer} source"
-    script+=(
-      'if ! (( $+functions[zsh-defer] )); then'
-      "$(antidote-script $zsh_defer_bundle | __antidote_indent)"
-      'fi'
-    )
+    if ! (( $#o_skip_load_defer )); then
+      script+=(
+        'if ! (( $+functions[zsh-defer] )); then'
+        "$(antidote-script $zsh_defer_bundle | __antidote_indent)"
+        'fi'
+      )
+    fi
   fi
 
   # Let's make the path a little nicer to deal with
@@ -132,10 +135,10 @@
   # handle autoloading before sourcing
   if (( $#o_autoload )); then
     if [[ "$o_fpath_rule[-1]" == prepend ]]; then
-      script+=("fpath=( ${print_bundle_path}/${o_autoload[-1]} \$fpath )")
+      script+=("fpath=( \"${print_bundle_path}/${o_autoload[-1]}\" \$fpath )")
       script+=("builtin autoload -Uz \$fpath[1]/*(N.:t)")
     else
-      script+=("fpath+=( ${print_bundle_path}/${o_autoload[-1]} )")
+      script+=("fpath+=( \"${print_bundle_path}/${o_autoload[-1]}\" )")
       script+=("builtin autoload -Uz \$fpath[-1]/*(N.:t)")
     fi
   fi
@@ -144,9 +147,9 @@
   bundle_type="$(__antidote_bundle_type $bundle_path)"
   local fpath_script
   if [[ "$o_fpath_rule[-1]" == prepend ]]; then
-    fpath_script="fpath=( $print_bundle_path \$fpath )"
+    fpath_script="fpath=( \"$print_bundle_path\" \$fpath )"
   else
-    fpath_script="fpath+=( $print_bundle_path )"
+    fpath_script="fpath+=( \"$print_bundle_path\" )"
   fi
 
   if [[ "$o_kind[-1]" == fpath ]]; then
@@ -168,7 +171,7 @@
       __antidote_bundle_zcompile $bundle_path
     fi
     if [[ $bundle_type == file ]]; then
-      script+="$source_cmd $print_bundle_path"
+      script+="$source_cmd \"$print_bundle_path\""
     else
       # directory/default
       local initfile initfiles
@@ -185,7 +188,7 @@
       local print_initfile
       for initfile in $initfiles; do
         print_initfile="$(__antidote_print_path "$initfile")"
-        script+="$source_cmd $print_initfile"
+        script+="$source_cmd \"$print_initfile\""
       done
     fi
   fi

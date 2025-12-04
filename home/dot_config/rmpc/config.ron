@@ -55,7 +55,7 @@
             ":":       CommandMode,
             ",":       VolumeDown,
             "s":       Stop,
-            ".":       VolumeUp,
+            ";":       VolumeUp,
             "<Tab>":   NextTab,
             "<S-Tab>": PreviousTab,
             "1":       SwitchToTab("Queue"),

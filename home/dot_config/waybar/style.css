@@ -83,32 +83,12 @@ window#waybar {
 	padding: 0;
 }
 
+#cpu,
+#memory,
+#language,
+#tray,
+#custom-power-menu,
 #wireplumber {
-	/* internal "width" of the module of color #3c3836 */
-	padding: 0px 10px;
-}
-
-#cpu {
-	/* internal "width" of the module of color #3c3836 */
-	padding: 0px 10px;
-}
-
-#memory {
-	/* internal "width" of the module of color #3c3836 */
-	padding: 0px 10px;
-}
-
-#language {
-	/* internal "width" of the module of color #3c3836 */
-	padding: 0px 10px;
-}
-
-#tray {
-	/* internal "width" of the module of color #3c3836 */
-	padding: 0px 10px;
-}
-
-#custom-power-menu {
 	/* internal "width" of the module of color #3c3836 */
 	padding: 0px 10px;
 }

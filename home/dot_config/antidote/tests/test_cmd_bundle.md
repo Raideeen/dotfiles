@@ -3,8 +3,8 @@
 ## Setup
 
 ```zsh
-% source ./tests/_setup.zsh
-% source ./antidote.zsh
+% source ./tests/__init__.zsh
+% t_setup
 %
 ```
 
@@ -33,24 +33,52 @@ handling a single bundle, and 'antidote bundle' handling them in bulk.
 Test \|piping, \<redirection, and --args
 
 ```zsh
-% zstyle ':antidote:bundle' use-friendly-names off
-% ANTIDOTE_HOME=$HOME/.cache/antibody
+% ANTIDOTE_HOME=$HOME/.cache/antidote
 % antidote bundle foo/bar | subenv ANTIDOTE_HOME  #=> --file testdata/script-foobar.zsh
 % echo 'foo/bar' | antidote bundle | subenv ANTIDOTE_HOME  #=> --file testdata/script-foobar.zsh
-% echo 'foo/bar' >$ZDOTDIR/.zsh_plugins_simple.txt
-% antidote bundle <$ZDOTDIR/.zsh_plugins_simple.txt | subenv ANTIDOTE_HOME  #=> --file testdata/script-foobar.zsh
-% zstyle ':antidote:bundle' use-friendly-names on
+% echo 'git@github.com:foo/qux' >$ZDOTDIR/.zsh_plugins_simple.txt
+% antidote bundle <$ZDOTDIR/.zsh_plugins_simple.txt | subenv ANTIDOTE_HOME  #=> --file testdata/script-fooqux.zsh
+%
+```
+
+### Do the same thing, but with antibody mode this time
+
+Test \|piping, \<redirection, and --args
+
+```zsh
+% zstyle ':antidote:compatibility-mode' 'antibody' 'on'
+% zstyle ':antidote:bundle' use-friendly-names off
+% ANTIDOTE_HOME=$HOME/.cache/antibody
+% antidote bundle foo/bar | subenv ANTIDOTE_HOME  #=> --file testdata/antibody/script-foobar.zsh
+% echo 'foo/bar' | antidote bundle | subenv ANTIDOTE_HOME  #=> --file testdata/antibody/script-foobar.zsh
+% echo 'git@github.com:foo/qux' >$ZDOTDIR/.zsh_plugins_simple.txt
+% antidote bundle <$ZDOTDIR/.zsh_plugins_simple.txt | subenv ANTIDOTE_HOME  #=> --file testdata/antibody/script-fooqux.zsh
+% zstyle ':antidote:compatibility-mode' 'antibody' 'off'
 % ANTIDOTE_HOME=$HOME/.cache/antidote
+% zstyle ':antidote:bundle' use-friendly-names on
+%
+```
+
+Multiple defers
+
+```zsh
+% antidote bundle 'foo/bar kind:defer\nbar/baz kind:defer' 2>/dev/null | subenv ANTIDOTE_HOME
+if ! (( $+functions[zsh-defer] )); then
+  fpath+=( "$ANTIDOTE_HOME/getantidote/zsh-defer" )
+  source "$ANTIDOTE_HOME/getantidote/zsh-defer/zsh-defer.plugin.zsh"
+fi
+fpath+=( "$ANTIDOTE_HOME/foo/bar" )
+zsh-defer source "$ANTIDOTE_HOME/foo/bar/bar.plugin.zsh"
+fpath+=( "$ANTIDOTE_HOME/bar/baz" )
+zsh-defer source "$ANTIDOTE_HOME/bar/baz/baz.plugin.zsh"
 %
 ```
 
 ## Fails
 
 ```zsh
-% echo "foo/bar\nfoo/baz kind:whoops" | antidote bundle 2>&1 | subenv ANTIDOTE_HOME
+% echo "foo/bar\nfoo/baz kind:whoops" | antidote bundle 2>&1 >/dev/null
 antidote: error: unexpected kind value: 'whoops'
-fpath+=( $ANTIDOTE_HOME/foo/bar )
-source $ANTIDOTE_HOME/foo/bar/bar.plugin.zsh
 %
 ```
 

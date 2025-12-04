@@ -5,3 +5,5 @@ run_chezmoi_demonstration.sh.tmpl
 
 **/.git/   # ignore .git directory
 **/.git/** # ignore the contents of .git folder (not the folder itself)
+
+~/.config/mpd/database

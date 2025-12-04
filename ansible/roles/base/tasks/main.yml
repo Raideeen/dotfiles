@@ -60,7 +60,7 @@
     group: root
     mode: "0644"
   become: true
-  
+
 - name: Ensure /etc/greetd directory exists
   ansible.builtin.file:
     path: /etc/greetd
@@ -80,7 +80,7 @@
     mode: "445"
   become: true
 
-- name: Add hyprland (uwsm-managed) session to uwsm 
+- name: Add hyprland (uwsm-managed) session to uwsm
   ansible.builtin.template:
     src: hyprland-uwsm.desktop.j2
     dest: /usr/share/wayland-sessions/hyprland-uwsm.desktop
@@ -90,9 +90,9 @@
     mode: "445"
   become: true
 
-- name: Add plasma (uwsm-managed) session to uwsm 
+- name: Add plasma (uwsm-managed) session to uwsm
   ansible.builtin.template:
-    src: plasm-uwsm.desktop.j2
+    src: plasma-uwsm.desktop.j2
     dest: /usr/share/wayland-sessions/plasma-uwsm.desktop
     backup: false
     owner: root

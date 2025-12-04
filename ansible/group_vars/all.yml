@@ -67,6 +67,10 @@ packages:
     # Niri requirements
     - niri # A scrollable-tilling Wayland compositor
     - fuzzel # Similar to rofi but niri likes it... :thinking:
+    # Xfce requirements
+    - xfce4
+    - xfce4-goodies
+    - labwc # Xfce on wayland (kind of broken somehow)
     # KDE requirements
     - plasma-desktop # Hyprland + KDE ?!? Some apps are better to use with a window-based desktop
     - kde-applications-meta # All the default KDE applications
@@ -136,6 +140,7 @@ packages:
     - sagemath # Math calc in the CLI ?? It's all fun and games until someone loses an i.
     - yt-dlp # A youtube-dl fork with additional features and fixes
     - yt-dlp-ejs # Mandatory package to download from Youtube
+    - cpupower # Userspace utilities to assist with CPU frequency scaling!
     # Backups
     - pika-backup
     # Virtual Machines
@@ -173,8 +178,6 @@ packages:
     - ripgrep # Dependency for quickstart nvim!
     - shellcheck # For bash linting !!
     - tree-sitter # For nvim
-    # Desktop Components
-    - quickshell
     # Libraries
     - fcitx5-config-qt
     - freerdp # RDP for Windows emulation!
@@ -198,7 +201,7 @@ packages:
     - qt6-svg # support for SVG image loading (bundled with most packages)
     - qt6ct
     - webkit2gtk-4.1 # Required for Keymapp for my voyager keyboard
-    - xwayland-satellite # Allows to run X11 applications inside Wayland
+    - xwayland-satellite # Allows to run X11 applications inside Wayland with niri
     - yad
     # Encryption
     - cryptsetup # Provide the LUKS encryption tools needed!
@@ -235,9 +238,6 @@ packages:
     # DDOS sucks tbh
     - pacman-mirrorlist
     - arch-wiki-docs # Locally retrieve the arch wiki
-    # Drivers
-    - openrazer-daemon # Driver used by polychromatic
-    - polychromatic # To finally configure my Razer headset on my Linux system!
     # Packages we know are in AUR
   aur:
     # Desktop App
@@ -256,7 +256,8 @@ packages:
     - picard-git # Musicbrainz tagging app for music, super cool!
     - imgbrd-grabber
     # - localsend # Allow to transfer files with devices on the same network
-
+    # Desktop
+    - quickshell-git
     # KDE personalization
     - kwin-decoration-sierra-breeze-enhanced-git
     # Addons of Hyprland
@@ -360,6 +361,6 @@ yazi_plugins:
   # - Reledia/hexyl # Yazi plugin to use hexyl in binary preview, currently commented out until pullrequest goes through
   - Raideeen/hexyl # Fork I've made to fix issues 
 display_manager:
-  - greetd
+  - greetd # Session manager
   - greetd-tuigreet # Minimal display manager to use uwsm generated entry !
   - uwsm # Recommended way to login into hyprland!! Make it behave just like a DE.

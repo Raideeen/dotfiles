@@ -51,7 +51,7 @@
     mode: "0644"
   become: true
 
-- name: Update pacman configuration file
+- name: Update makepkg configuration file
   ansible.builtin.template:
     src: makepkg.conf.j2
     dest: /etc/makepkg.conf
@@ -65,7 +65,7 @@
   ansible.builtin.file:
     path: /etc/greetd
     state: directory
-    mode: "0755"
+    mode: "445"
     owner: root
     group: root
   become: true
@@ -77,7 +77,7 @@
     backup: false
     owner: root
     group: root
-    mode: "445"
+    mode: "0644"
   become: true
 
 - name: Add hyprland (uwsm-managed) session to uwsm
@@ -87,7 +87,7 @@
     backup: false
     owner: root
     group: root
-    mode: "445"
+    mode: "0755"
   become: true
 
 - name: Add plasma (uwsm-managed) session to uwsm
@@ -97,7 +97,7 @@
     backup: false
     owner: root
     group: root
-    mode: "445"
+    mode: "0755"
   become: true
 
 - name: Update 75-twemoji configuration file
@@ -107,7 +107,7 @@
     backup: false
     owner: root
     group: root
-    mode: "777"
+    mode: "0644"
   become: true
 
 - name: Start systemd service - systemd-boot-update.service

@@ -49,7 +49,7 @@
 - name: Install NVIDIA packages
   kewlfft.aur.aur:
     name:
-      - nvidia-dkms # Provides the NVIDIA kernel modules built using DKMS (Dynamic Kernel Module Support)
+      - nvidia-open-dkms # Provides the NVIDIA kernel modules built using DKMS (Dynamic Kernel Module Support)
       - nvidia-settings # Utility to configure NVIDIA graphics driver settings
       - nvidia-utils # Essential utilities for the NVIDIA driver, including OpenGL libraries
       - libva # Video Acceleration (VA) API for Linux, providing access to hardware-accelerated video processing
@@ -61,11 +61,13 @@
 
 # Configure mkinitcpio
 - name: Check if NVIDIA modules exist in mkinitcpio.conf
-  ansible.builtin.shell: grep -E "MODULES=\(.*nvidia.*\)" /etc/mkinitcpio.conf || true
+  ansible.builtin.lineinfile:
+    path: /etc/mkinitcpio.conf
+    regexp: '^MODULES=\(.*nvidia.*\)'
+    state: absent
+  check_mode: yes
   register: nvidia_check
   changed_when: false
-  check_mode: no
-  become: true
 
 - name: Add NVIDIA modules to mkinitcpio.conf if not present
   ansible.builtin.replace:
@@ -101,15 +103,15 @@
   become: true
   register: grub_config
 
+- name: Detect bootloader
+  ansible.builtin.stat:
+    path: /boot/grub/grub.cfg
+  register: grub_exists
+
 - name: Update GRUB configuration
   ansible.builtin.command: grub-mkconfig -o /boot/grub/grub.cfg
-  become: true
-  when: grub_config.changed
+  when: grub_config.changed and grub_exists.stat.exists
 
-# Ensure NVIDIA services are enabled
-# - name: Enable NVIDIA persistence daemon
-#   ansible.builtin.systemd:
-#     name: nvidia-persistenced
-#     enabled: true
-#     state: started
-#   become: true
+- name: Update systemd-boot configuration
+  ansible.builtin.command: bootctl update
+  when: grub_config.changed and not grub_exists.stat.exists

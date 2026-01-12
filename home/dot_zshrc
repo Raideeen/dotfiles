@@ -110,7 +110,7 @@ function cza() {
 
 # Chezmoi EditConf
 function czec() {
-    nvim $HOME/.local/share/chezmoi/ansible/group_vars/all.yml
+    nvim $XDG_DATA_HOME/chezmoi/ansible/group_vars/all.yml
 }
 
 function start_tmux() {
@@ -134,7 +134,7 @@ if [[ $XDG_CURRENT_DESKTOP == *niri* ]]; then
     [ -f ~/.config/niri/mimeapps.list ] && ln -sf ~/.config/niri/mimeapps.list ~/.config/mimeapps.list
 fi
 
-if [[ $XDG_CURRENT_DESKTOP == *kde* ]]; then
+if [[ $XDG_CURRENT_DESKTOP == *KDE* ]]; then
     export XDG_DATA_DIRS="$HOME/.local/share/applications/kde:$XDG_DATA_DIRS"
     [ -f ~/.config/kde/mimeapps.list ] && ln -sf ~/.config/kde/mimeapps.list ~/.config/mimeapps.list
 fi
@@ -207,19 +207,11 @@ export OMNISHARPHOME="$XDG_CONFIG_HOME"/omnisharp
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export TEXMFVAR="$XDG_CACHE_HOME"/texlive/textmf-var
 export WINEPREFIX="$XDG_DATA_HOME"/wine
+export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 
 # =================
 # Tool Integration
 # =================
-
-# Auto-switch mimetypes based on current desktop environment
-if [ "$XDG_CURRENT_DESKTOP" = "KDE" ]; then
-    export XDG_DATA_DIRS="$HOME/.local/share/applications/kde:$XDG_DATA_DIRS"
-    [ -f ~/.config/kde/mimeapps.list ] && ln -sf ~/.config/kde/mimeapps.list ~/.config/mimeapps.list
-elif [ "$XDG_CURRENT_DESKTOP" = "Hyprland" ]; then
-    export XDG_DATA_DIRS="$HOME/.local/share/applications/hyprland:$XDG_DATA_DIRS"
-    [ -f ~/.config/hypr/configs/mimeapps.list ] && ln -sf ~/.config/hypr/configs/mimeapps.list ~/.config/mimeapps.list
-fi
 
 # Initialize fzf
 source <(fzf --zsh)

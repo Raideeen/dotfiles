@@ -9,6 +9,7 @@ return {
         c = { 'cpplint' },
         bash = { 'shellcheck' },
         zsh = { 'zsh' },
+        go = { 'staticcheck' },
       }
       lint.linters.markdownlint.args = { '--disable', 'MD013' }
 

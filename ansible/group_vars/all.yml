@@ -53,6 +53,17 @@ packages:
     - gimp
     - element-desktop
     - vlc
+    - picard # Musicbrainz tagging app for music, super cool!
+    - obsidian # Famous notetaking app!
+    - calibre # E-books management app ! :D
+    # Desktop
+    - quickshell
+    # Moneyyy
+    - monero
+    - monero-gui
+    # Game Engine
+    - godot # Godot game engine !!
+    - godot-mono # C# support!
     # Hyprland requirements
     - dunst # Notification daemon that can be easily styled!
     - kitty # Default terminal for Hyprland
@@ -70,12 +81,16 @@ packages:
     # Xfce requirements
     - xfce4
     - xfce4-goodies
+    - xorg
     - labwc # Xfce on wayland (kind of broken somehow)
     # KDE requirements
     - plasma-desktop # Hyprland + KDE ?!? Some apps are better to use with a window-based desktop
     - kde-applications-meta # All the default KDE applications
     - kscreen
     - spectacle # KDE screenshot app
+    - papirus-icon-theme
+    # GNOMEEEE??
+    - gnome
     # Addons of Hyprland
     - hyprpicker # Wayland compatible color picker
     - wl-clipboard # Wayland clipboard utilities
@@ -109,8 +124,10 @@ packages:
     - mpv-mpris # MPRIS plugin for mpv
     # CLI Tools
     - 7zip
+    - unrar # Even on Linux, WinRAR will follow me :eyes:
     - age # Encrypt file using chezmoi
     - curl # Classic GNU tool for transferring data :)
+    - docker # Sweet sweet docker
     - docker-compose # Sweet sweet docker compose
     - duf # Better df for seeing space on my drives !
     - eza # Better ls .. but in rust!
@@ -134,13 +151,12 @@ packages:
     - unzip
     - vulkan-tools # CLI to access if vulkan is correctly installed on my PC ;)
     - wev # Display which keys are pressed in the CLI for wayland!
-    - wine
-    - openvpn # VPN for torrenting
-    - wireguard-tools # Same...!
-    - sagemath # Math calc in the CLI ?? It's all fun and games until someone loses an i.
+    - wine - openvpn # VPN for torrenting - wireguard-tools # Same...! - sagemath # Math calc in the CLI ?? It's all fun and games until someone loses an i.
     - yt-dlp # A youtube-dl fork with additional features and fixes
     - yt-dlp-ejs # Mandatory package to download from Youtube
     - cpupower # Userspace utilities to assist with CPU frequency scaling!
+    - glow # CLI markdown renderer!!!
+    - android-file-transfer # Android MTP client with minimalistic UI
     # Backups
     - pika-backup
     # Virtual Machines
@@ -179,7 +195,6 @@ packages:
     - shellcheck # For bash linting !!
     - tree-sitter # For nvim
     # Libraries
-    - fcitx5-config-qt
     - freerdp # RDP for Windows emulation!
     - gnome-keyring # For VSCode Keyring
     - gnome-shell
@@ -225,6 +240,7 @@ packages:
     - ttf-jetbrains-mono-nerd
     - ttf-nerd-fonts-symbols
     - woff2-font-awesome
+    - inter-font
     # Languages
     - dotnet-host
     - dotnet-runtime
@@ -238,35 +254,28 @@ packages:
     # DDOS sucks tbh
     - pacman-mirrorlist
     - arch-wiki-docs # Locally retrieve the arch wiki
+    # Sync files
+    - syncthing
     # Packages we know are in AUR
   aur:
     # Desktop App
-    - bazarr # Subtitle management for the above :)
-    - celeste-client-bin # GUI app for rsync :)
     - heroic-games-launcher-bin # GOG Games!!!
     - librewolf-bin # Firefox but sneaky
-    - obsidian # Famous notetaking app!
     - onlyoffice-bin # Better than libreoffice sometimes :eyes:
-    - radarr-bin # Movie organizer/manager for usenet and torrent users alike ! :)
     - sioyek-git # Nice pdf viewer :) If broken! do "paru -S sioyek --rebuild"
     - vesktop-bin # Discord!
     - winboat-bin # Windows app emulation that looks native to Linux!
-    - youtube-music-bin # The guy who wrote this app is a genius.
-    - zen-browser-bin # Firefox but looks like Arc !
-    - picard-git # Musicbrainz tagging app for music, super cool!
     - imgbrd-grabber
+    - syncthingtray-qt6
+    - vicinae-bin # A replacment for rofi??
     # - localsend # Allow to transfer files with devices on the same network
-    # Desktop
-    - quickshell-git
     # KDE personalization
-    - kwin-decoration-sierra-breeze-enhanced-git
+    - harmony2 # Sound pack that is pretty awesome!
     # Addons of Hyprland
-    - swww-git # Change wallpaper for wayland but with style :)
+    - awww-git # Change wallpaper for wayland but with style :)
     - waypaper-git # GUI app for changing wallpaper that uses swww as backend
-    - hyprshade
     # Development tools
     - visual-studio-code-bin # Yes proprietary ...
-    - jetbrains-toolbox # Jetbrains toolbox to install latest versions of nice IDEs :)
     # Screenshot
     - hyprshot
     # Themes
@@ -279,20 +288,16 @@ packages:
     - claude-code # An agentic coding tool that lives in your terminal
     - czkawka-cli-bin # Duplicate finder but CLI version!
     - czkawka-gui-bin # Duplicate finder but GUI version!
-    - docker-git # Sweet sweet docker
     - exercism-bin # Awesome website with tons of exercises in programming, CLI interface to submit exercises!
     - fontpreview # Preview your font... directly in the CLI !! :O
+    - rnr-bin # Command line tool to rename files with regular expression! :D
     # - gallery-dl-bin # Gotta rip rip rip, gotta rip rip rip 🎺
     - gallery-dl # Build it so it can use my bash version instead of a fucked up one >:(
     - xdg-ninja-git # A shell script that checks your $HOME for unwanted files and directories... Handy!
-    # - miniforge # Replace conda
     - neovim-nightly-bin # The cooler vim :sunglasses
-    - opencode-bin # Open source version of the above that can work with open source models!
     - pandoc-bin
     - pipes.sh
-    - powershell-bin # hey powershell is great but don't forget to disable telemetry !
     - quickemu-git # Setup VM super fast!
-    - rar # Even on Linux, WinRAR will follow me :eyes:
     - resvg
     - rmpc-git # Music player in the terminal, thanks @Bread on Penguins!
     - tmsu # Tool to tag files in a Unix file system that is pretty solid but abandonned
@@ -308,11 +313,9 @@ packages:
     - pwvucontrol # Pipewire volume control - alternative to pavucontrol
     - cava # Console-based Audio Visualizer for Alsa
     # Fonts
-    - otf-ibm-plex
     - ttf-blex-nerd-font-git
     - ttf-twemoji
     - ttf-symbola
-    - sxiv
     - apple-fonts
     # Rofi modules
     - rofi-power-menu # Allow to display a power menu with rofi!!
@@ -323,10 +326,7 @@ packages:
     # Tmux
     - tmux-plugin-manager
     # VPN
-    - systemd-resolvconf # See https://wiki.archlinux.org/title/ProtonVPN#OpenVPN_setup
     - mullvad-vpn-bin
-    # Sync files
-    - syncthing-bin
     # Local AI
     - llama.cpp-vulkan # Local inference on the GPU!!
   zsh:
@@ -338,7 +338,6 @@ packages:
       # Better and smarter cd command
       - zoxide
       # Plugins that cannot be installed with zsh-antidote
-      - thefuck # Allow to autocorrect a command
       - bat # Replace "cat" command with a more modern one
       - tmux
     aur:
@@ -358,8 +357,7 @@ hyprland_plugins:
 yazi_plugins:
   - bennyyip/gruvbox-dark # Gruvbox flavor (theme) ! :)
   - dedukun/relative-motions # VIM motions in yazi :sunglasses:
-  # - Reledia/hexyl # Yazi plugin to use hexyl in binary preview, currently commented out until pullrequest goes through
-  - Raideeen/hexyl # Fork I've made to fix issues 
+  - Raideeen/hexyl # Fork I've made to fix issues
 display_manager:
   - greetd # Session manager
   - greetd-tuigreet # Minimal display manager to use uwsm generated entry !

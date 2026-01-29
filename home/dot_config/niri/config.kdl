@@ -11,18 +11,10 @@ input {
     keyboard {
         repeat-delay 300
         repeat-rate 50
-        track-layout "global"
-        xkb {
-            // You can set rules, model, layout, variant and options.
-            // For more information, see xkeyboard-config(7).
-
+        // You can set rules, model, layout, variant and options. For more information, see xkeyboard-config(7).
+        xkb { 
             // For example:
             layout "fr(latin9)"
-            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
-
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
-            // localectl set-x11-keymap.
         }
 
         // Enable numlock on startup, omitting this setting disables it.
@@ -35,6 +27,10 @@ input {
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     // focus-follows-mouse max-scroll-amount="0%"
+}
+
+clipboard {
+  disable-primary // Disable middle-click paste
 }
 
 // You can configure outputs by their name, which you can find
@@ -77,10 +73,10 @@ input {
 // Disable 4K monitor
 output "HDMI-A-1" {
     // Uncomment this line to disable this output.
-    off
+    // off
 }
 
-output "DP-1" {
+output "DP-2" {
   scale 1.0
 }
 
@@ -98,6 +94,7 @@ layout {
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
     center-focused-column "never"
+    always-center-single-column
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -348,8 +345,8 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a File Manager: Files" { spawn "nautilus"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    // Alt+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/gruvMinimalism.rasi"; }
-		Alt+Space hotkey-overlay-title="Run an application: vicinae" repeat=false { spawn "vicinae" "toggle"; }
+    Alt+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/gruvMinimalism.rasi"; }
+		// Alt+Space hotkey-overlay-title="Run an application: vicinae" repeat=false { spawn "vicinae" "toggle"; }
 		Mod+semicolon hotkey-overlay-title="Run an Application: Emoji Picker" { spawn "rofi" "-show" "emoji" "-modi" "emoji" "-theme" "~/.config/rofi/gruvMinimalism.rasi"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
@@ -364,8 +361,8 @@ binds {
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
     // Using spawn-sh allows to pass multiple arguments together with the command.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 		XF86AudioPlay 			 allow-when-locked=true { spawn-sh "playerctl play-pause"; }

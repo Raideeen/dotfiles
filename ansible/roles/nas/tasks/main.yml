@@ -31,15 +31,6 @@
     path: "{{ nas_credentials_file }}"
   register: creds_file
 
-- name: Ensure credentials directory exists
-  ansible.builtin.file:
-    path: "{{ nas_credentials_dir }}"
-    state: directory
-    mode: "0700"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-  when: not creds_file.stat.exists
-
 - name: Prompt for SMB username
   ansible.builtin.pause:
     prompt: "Enter SMB username"

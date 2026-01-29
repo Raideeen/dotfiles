@@ -20,3 +20,9 @@
     scope: "user"
     state: "restarted"
     enabled: true
+- name: Start systemd service - cpupower.service
+  ansible.builtin.systemd:
+    name: cpupower.service
+    scope: "user"
+    state: "restarted"
+    enabled: true

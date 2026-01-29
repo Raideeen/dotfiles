@@ -43,127 +43,151 @@ packages:
   pacman:
     # Browser
     - firefox
-    - qutebrowser # vim like browser !!
+    - qutebrowser       # vim like browser !!
     - firefox-tridactyl # Extension to have base firefox act like vim (so with extensions!)
     - torbrowser-launcher
+
     # Desktop apps
     - qbittorrent # Torrent downloading app!
-    - krita # Drawing software to be used with my XP pen tablet :)
+    - krita       # Drawing software to be used with my XP pen tablet :)
     - blender
     - gimp
     - element-desktop
     - vlc
-    - picard # Musicbrainz tagging app for music, super cool!
-    - obsidian # Famous notetaking app!
-    - calibre # E-books management app ! :D
+    - picard      # Musicbrainz tagging app for music, super cool!
+    - obsidian    # Famous notetaking app!
+    - calibre     # E-books management app ! :D
+
     # Desktop
     - quickshell
+
     # Moneyyy
     - monero
-    - monero-gui
-    # Game Engine
-    - godot # Godot game engine !!
+    - monero-gui 
+   
+    # Game Engine 
+    - godot      # Godot game engine !!
     - godot-mono # C# support!
+
     # Hyprland requirements
-    - dunst # Notification daemon that can be easily styled!
-    - kitty # Default terminal for Hyprland
-    - rofi # Rofi (now works natively with wayland!)
-    - qt5-wayland # Dependency
-    - qt6-wayland # Dependency
-    - grim # To take screenshots
-    - polkit-gnome # Authentication agent
-    - waybar # The famous waybar :sunglasses:
+    - dunst                  # Notification daemon that can be easily styled!
+    - kitty                  # Default terminal for Hyprland
+    - rofi                   # Rofi (now works natively with wayland!)
+    - qt5-wayland            # Dependency
+    - qt6-wayland            # Dependency
+    - grim                   # To take screenshots
+    - polkit-gnome           # Authentication agent
+    - waybar                 # The famous waybar :sunglasses:
     - network-manager-applet # Provide a system-tray button for managing the network
-    - hyprlock # Hope it isn't bugged on NVIDIA like before :skull:
+    - hyprlock               # Hope it isn't bugged on NVIDIA like before :skull:
+
     # Niri requirements
-    - niri # A scrollable-tilling Wayland compositor
+    - niri   # A scrollable-tilling Wayland compositor
     - fuzzel # Similar to rofi but niri likes it... :thinking:
+
     # Xfce requirements
     - xfce4
     - xfce4-goodies
     - xorg
     - labwc # Xfce on wayland (kind of broken somehow)
+
     # KDE requirements
-    - plasma-desktop # Hyprland + KDE ?!? Some apps are better to use with a window-based desktop
+    - plasma-desktop        # Hyprland + KDE ?!? Some apps are better to use with a window-based desktop
     - kde-applications-meta # All the default KDE applications
     - kscreen
-    - spectacle # KDE screenshot app
+    - spectacle             # KDE screenshot app
     - papirus-icon-theme
+
     # GNOMEEEE??
     - gnome
+
     # Addons of Hyprland
-    - hyprpicker # Wayland compatible color picker
+    - hyprpicker   # Wayland compatible color picker
     - wl-clipboard # Wayland clipboard utilities
-    - swappy # Post-capture screenshot editing and drawing too
-    - slurp # External chooser to select the shared monitor
-    - cliphist # Clipboard manager based on wl-clipboard that support images and texts
-    - wtype # xdotool wayland implementatioon to simulate keyboard/mouse activity for rofi!
+    - swappy       # Post-capture screenshot editing and drawing too
+    - slurp        # External chooser to select the shared monitor
+    - cliphist     # Clipboard manager based on wl-clipboard that support images and texts
+    - wtype        # xdotool wayland implementatioon to simulate keyboard/mouse activity for rofi!
+
     # Files manager
-    - yazi # Blazingly fast CLI file manager
+    - yazi     # Blazingly fast CLI file manager
     - nautilus # Default GNOME file manager
+
     # Yazi dependencies
     - ueberzugpp
+
     # Package management
     - flatpak
+
     # Customization apps
-    - kvantum # App to style Qt applications
+    - kvantum  # App to style Qt applications
     - nwg-look # GTK theme switcher for sway and other wlroots-based compositors
+
     # Image viewer
     - eog # Eye of GNOME, an image viewer for the GNOME Desktop
+
     # Monitoring tools
-    - btop # Resource monitor that shows usage and stats for processor, memory, disks, network and processes
-    - nvtop # An htop like monitoring tool for NVIDIA GPUs
+    - btop      # Resource monitor that shows usage and stats for processor, memory, disks, network and processes
+    - nvtop     # An htop like monitoring tool for NVIDIA GPUs
     - fastfetch # Neofetch-like tool for displaying system information
-    - inxi # Full featured system information script (simpler than FastFetch)
+    - inxi      # Full featured system information script (simpler than FastFetch)
+
     # Music and audio
     - playerctl # CLI tool to send commands to MPRIS clients (VLC, Spotify...)
-    - mpc # Command-line client for MPD (Music Player Daemon)
-    - mpd # Music Player Daemon, a flexible, powerful, server-side application for playing music
-    - pamixer # CLI tools for managing sound - compatible with pipewire!
-    - mpv # Media player based on MPlayer and mplayer2
+    - mpc       # Command-line client for MPD (Music Player Daemon)
+    - mpd       # Music Player Daemon, a flexible, powerful, server-side application for playing music
+    - pamixer   # CLI tools for managing sound - compatible with pipewire!
+    - mpv       # Media player based on MPlayer and mplayer2
     - mpv-mpris # MPRIS plugin for mpv
+
     # CLI Tools
     - 7zip
-    - unrar # Even on Linux, WinRAR will follow me :eyes:
-    - age # Encrypt file using chezmoi
-    - curl # Classic GNU tool for transferring data :)
-    - docker # Sweet sweet docker
-    - docker-compose # Sweet sweet docker compose
-    - duf # Better df for seeing space on my drives !
-    - eza # Better ls .. but in rust!
-    - fd # Better find utility!
-    - hexyl # Hex viewer in the terminal :)
-    - imagemagick # Allow to manipulate images through the CLI
-    - jq # Command-line JSON processor
-    - lazygit # What if ... git TUI? :sunglasses:
-    - lolcat # Shit n giggles lol
-    - lsd # Better ls !
-    - luarocks # Lua package manager!
-    - man-db # Utilities for reading man pages
-    - man-pages # Yeeess, C documentation from the CLI !
-    - nmap # To scan my local network
-    - nushell # New type of shell that structures data in a nice and formated way!
-    - pdf2svg # Pretty much self-explanatory lol
-    - rclone # SyncFiles CLI for Proton Drive
+    - unrar                 # Even on Linux, WinRAR will follow me :eyes:
+    - age                   # Encrypt file using chezmoi
+    - curl                  # Classic GNU tool for transferring data :)
+    - docker                # Sweet sweet docker
+    - docker-compose        # Sweet sweet docker compose
+    - duf                   # Better df for seeing space on my drives !
+    - eza                   # Better ls .. but in rust!
+    - fd                    # Better find utility!
+    - hexyl                 # Hex viewer in the terminal :)
+    - imagemagick           # Allow to manipulate images through the CLI
+    - jq                    # Command-line JSON processor
+    - lazygit               # What if ... git TUI? :sunglasses:
+    - lolcat                # Shit n giggles lol
+    - lsd                   # Better ls !
+    - luarocks              # Lua package manager!
+    - man-db                # Utilities for reading man pages
+    - man-pages             # Yeeess, C documentation from the CLI !
+    - nmap                  # To scan my local network
+    - nushell               # New type of shell that structures data in a nice and formated way!
+    - pdf2svg               # Pretty much self-explanatory lol
+    - rclone                # SyncFiles CLI for Proton Drive
     - scrcpy
-    - tree-sitter-cli # Need to install for installing certain gramars (latex for example) in tree-sitter
-    - typst # Contender to LaTex! It's really good!
+    - tree-sitter-cli       # Need to install for installing certain gramars (latex for example) in tree-sitter
+    - typst                 # Contender to LaTex! It's really good!
     - unzip
-    - vulkan-tools # CLI to access if vulkan is correctly installed on my PC ;)
-    - wev # Display which keys are pressed in the CLI for wayland!
-    - wine - openvpn # VPN for torrenting - wireguard-tools # Same...! - sagemath # Math calc in the CLI ?? It's all fun and games until someone loses an i.
-    - yt-dlp # A youtube-dl fork with additional features and fixes
-    - yt-dlp-ejs # Mandatory package to download from Youtube
-    - cpupower # Userspace utilities to assist with CPU frequency scaling!
-    - glow # CLI markdown renderer!!!
+    - vulkan-tools          # CLI to access if vulkan is correctly installed on my PC ;)
+    - wev                   # Display which keys are pressed in the CLI for wayland!
+    - wine 
+    - openvpn        # VPN for torrenting - wireguard-tools # Same...! - sagemath # Math calc in the CLI ?? It's all fun and games until someone loses an i.
+    - yt-dlp                # A youtube-dl fork with additional features and fixes
+    - yt-dlp-ejs            # Mandatory package to download from Youtube
+    - cpupower              # Userspace utilities to assist with CPU frequency scaling!
+    - glow                  # CLI markdown renderer!!!
     - android-file-transfer # Android MTP client with minimalistic UI
+    - wikiman
+    - arch-wiki-docs # Locally retrieve the arch wiki
+
     # Backups
     - pika-backup
+
     # Virtual Machines
-    - dnsmasq # For the default NAT/DHCP networking
-    - libvirt # Nice library to work with virtual machines :)
-    - qemu-full # QEMU ofc!
+    - dnsmasq      # For the default NAT/DHCP networking
+    - libvirt      # Nice library to work with virtual machines :)
+    - qemu-full    # QEMU ofc!
     - virt-manager # Client to use libvirt
+
     # Pandoc dependencies (engines)
     - texlive-basic
     - texlive-bin
@@ -174,56 +198,64 @@ packages:
     - texlive-luatex
     - texlive-pictures
     - texlive-xetex
-    # Files manager dependencies - cifs-utils # Library and tools for package installs and system configuration
+
+    # Files manager dependencies 
+    - cifs-utils        # Library and tools for package installs and system configuration
     - ffmpegthumbnailer # Allow nautilus to generate thumbnails for videos, see https://wiki.archlinux.org/title/File_manager_functionality#Thumbnail_previews
     - gst-libav
     - gst-plugins-ugly
-    - gvfs # Virtual filesystem implementation for GIO
-    - gvfs-afc # Virtual filesystem implementation for GIO - AFC backend (Apple mobile devices)
-    - gvfs-dnssd # Virtual filesystem implementation for GIO - DNS-SD and WebDAV backend (macOS file sharing)
-    - gvfs-gphoto2 # Virtual filesystem implementation for GIO - gphoto2 backend (PTP camera, MTP media player)
-    - gvfs-mtp # Virtual filesystem implementation for GIO - MTP backend (Android, media player)
-    - gvfs-nfs # Virtual filesystem implementation for GIO - NFS backend
-    - gvfs-onedrive # Virtual filesystem implementation for GIO - Microsoft OneDrive backend
-    - gvfs-smb # Virtual filesystem implementation for GIO - SMB/CIFS backend (Windows file sharing)
-    - gvfs-wsdd # Virtual filesystem implementation for GIO - Web Services Dynamic Discovery backend (Windows discovery)
-    - nfs-utils # Allow to mount my NAS using NFS instead of SMB (CIFS)
-    - udiskie # Removable disk automounter using udisks
-    - xfsprogs # Allow to format disks using the XFS fileformat system
+    - gvfs              # Virtual filesystem implementation for GIO
+    - gvfs-afc          # Virtual filesystem implementation for GIO - AFC backend (Apple mobile devices)
+    - gvfs-dnssd        # Virtual filesystem implementation for GIO - DNS-SD and WebDAV backend (macOS file sharing)
+    - gvfs-gphoto2      # Virtual filesystem implementation for GIO - gphoto2 backend (PTP camera, MTP media player)
+    - gvfs-mtp          # Virtual filesystem implementation for GIO - MTP backend (Android, media player)
+    - gvfs-nfs          # Virtual filesystem implementation for GIO - NFS backend
+    - gvfs-onedrive     # Virtual filesystem implementation for GIO - Microsoft OneDrive backend
+    - gvfs-smb          # Virtual filesystem implementation for GIO - SMB/CIFS backend (Windows file sharing)
+    - gvfs-wsdd         # Virtual filesystem implementation for GIO - Web Services Dynamic Discovery backend (Windows discovery)
+    - nfs-utils         # Allow to mount my NAS using NFS instead of SMB (CIFS)
+    - udiskie           # Removable disk automounter using udisks
+    - xfsprogs          # Allow to format disks using the XFS fileformat system
+    - gocryptfs         # File-based encryption implemented as mountable FUSE filesystem! .. Or I got told so.
+
     # Nvim dependencies
-    - ripgrep # Dependency for quickstart nvim!
-    - shellcheck # For bash linting !!
+    - ripgrep     # Dependency for quickstart nvim!
+    - shellcheck  # For bash linting !!
     - tree-sitter # For nvim
+
     # Libraries
-    - freerdp # RDP for Windows emulation!
-    - gnome-keyring # For VSCode Keyring
+    - freerdp            # RDP for Windows emulation!
+    - gnome-keyring      # For VSCode Keyring
     - gnome-shell
     - gtk-engine-murrine
     - gtk-layer-shell
-    - gtk3 # Required for theming but also apps
-    - libfido2 # Allow my yubikey to be used for SSH authentification
+    - gtk3               # Required for theming but also apps
+    - libfido2           # Allow my yubikey to be used for SSH authentification
     - libnotify
-    - libusb # Required for Keymapp for my voyager keyboard
+    - libusb             # Required for Keymapp for my voyager keyboard
     - python-poetry
     - python-pyquery
     - python-requests
     - qt5ct
-    - qt6-5compat # extra visual effects, notably gaussian blur. MultiEffect is usually preferable
-    - qt6-base # contains the "glm" binary to compile QT UI directly from the CLI!
+    - qt6-5compat        # extra visual effects, notably gaussian blur. MultiEffect is usually preferable
+    - qt6-base           # contains the "glm" binary to compile QT UI directly from the CLI!
     - qt6-doc
-    - qt6-imageformats # support for WEBP images as well as some less common ones
-    - qt6-multimedia # support for playing videos, audio, etc
-    - qt6-svg # support for SVG image loading (bundled with most packages)
+    - qt6-imageformats   # support for WEBP images as well as some less common ones
+    - qt6-multimedia     # support for playing videos, audio, etc
+    - qt6-svg            # support for SVG image loading (bundled with most packages)
     - qt6ct
-    - webkit2gtk-4.1 # Required for Keymapp for my voyager keyboard
+    - webkit2gtk-4.1     # Required for Keymapp for my voyager keyboard
     - xwayland-satellite # Allows to run X11 applications inside Wayland with niri
     - yad
+    - timidity++         # Dependency of mpd I guess? I have an error without it
+
     # Encryption
-    - cryptsetup # Provide the LUKS encryption tools needed!
+    - cryptsetup                   # Provide the LUKS encryption tools needed!
     - yubikey-full-disk-encryption # Use YubiKey to unlock a LUKS partition
-    - yubikey-personalization # Harder Yubikey CLI tool but more powerful!
-    - yubikey-personalization-gui # Who doesn't love a good GUI when dealing with encryption ? :D
-    - yubikey-manager # Easier way to maintain a Yubikey :)
+    - yubikey-personalization      # Harder Yubikey CLI tool but more powerful!
+    - yubikey-personalization-gui  # Who doesn't love a good GUI when dealing with encryption ? :D
+    - yubikey-manager              # Easier way to maintain a Yubikey :)
+    
     # Fonts
     - adobe-source-code-pro-fonts
     - noto-fonts
@@ -239,104 +271,132 @@ packages:
     - ttf-jetbrains-mono
     - ttf-jetbrains-mono-nerd
     - ttf-nerd-fonts-symbols
+    - otf-commit-mono-nerd
     - woff2-font-awesome
     - inter-font
+
     # Languages
     - dotnet-host
     - dotnet-runtime
     - dotnet-sdk
-    - go # The Go programming language
+    - go     # The Go programming language
     - rustup # The Rust programming toolchain! Note that I will have to manually update the toolchain with `rustup update`
-    - deno # Manage Javascript easily ! (kind of a dependency now for yt-dlp)
-    - uv # Python package and project manager written in Rust
-    # VPN
-    # - proton-vpn-gtk-app # I'll wait for them to fix this package... it's so messy dude.
+    - deno   # Manage Javascript easily ! (kind of a dependency now for yt-dlp)
+    - uv     # Python package and project manager written in Rust
+
     # DDOS sucks tbh
     - pacman-mirrorlist
-    - arch-wiki-docs # Locally retrieve the arch wiki
+
     # Sync files
     - syncthing
-    # Packages we know are in AUR
+
+    # Input Methods
+    - fcitx5
+    - fcitx5-configtool
+    - fcitx5-qt
+
+  # Packages we know are in AUR
   aur:
     # Desktop App
     - heroic-games-launcher-bin # GOG Games!!!
-    - librewolf-bin # Firefox but sneaky
-    - onlyoffice-bin # Better than libreoffice sometimes :eyes:
-    - sioyek-git # Nice pdf viewer :) If broken! do "paru -S sioyek --rebuild"
-    - vesktop-bin # Discord!
-    - winboat-bin # Windows app emulation that looks native to Linux!
+    - librewolf-bin             # Firefox but sneaky
+    - onlyoffice-bin            # Better than libreoffice sometimes :eyes:
+    - sioyek-git                # Nice pdf viewer :) If broken! do "paru -S sioyek --rebuild"
+    - vesktop-bin               # Discord!
+    - winboat-bin               # Windows app emulation that looks native to Linux!
     - imgbrd-grabber
     - syncthingtray-qt6
-    - vicinae-bin # A replacment for rofi??
+    - vicinae-bin               # A replacment for rofi??
+    - freetube-bin
     # - localsend # Allow to transfer files with devices on the same network
+    
     # KDE personalization
     - harmony2 # Sound pack that is pretty awesome!
+
     # Addons of Hyprland
-    - awww-git # Change wallpaper for wayland but with style :)
+    - awww-git     # Change wallpaper for wayland but with style :)
     - waypaper-git # GUI app for changing wallpaper that uses swww as backend
+
     # Development tools
     - visual-studio-code-bin # Yes proprietary ...
+
     # Screenshot
     - hyprshot
+
     # Themes
     - bibata-cursor-theme-bin # Bibata cursor ! :)
-    - gruvbox-gtk-theme-git # GTK theme using gruvbox, nice
+    - gruvbox-gtk-theme-git   # GTK theme using gruvbox, nice
     - adwaita-qt6-git
     - adwaita-qt5-git
+
     # CLI Tools
-    - aurutils # utils pretty neat to manage packages on arch present on the AUR!
-    - claude-code # An agentic coding tool that lives in your terminal
-    - czkawka-cli-bin # Duplicate finder but CLI version!
-    - czkawka-gui-bin # Duplicate finder but GUI version!
-    - exercism-bin # Awesome website with tons of exercises in programming, CLI interface to submit exercises!
-    - fontpreview # Preview your font... directly in the CLI !! :O
-    - rnr-bin # Command line tool to rename files with regular expression! :D
-    # - gallery-dl-bin # Gotta rip rip rip, gotta rip rip rip 🎺
-    - gallery-dl # Build it so it can use my bash version instead of a fucked up one >:(
-    - xdg-ninja-git # A shell script that checks your $HOME for unwanted files and directories... Handy!
+    - aurutils           # utils pretty neat to manage packages on arch present on the AUR!
+    - claude-code        # An agentic coding tool that lives in your terminal
+    - czkawka-cli-bin    # Duplicate finder but CLI version!
+    - czkawka-gui-bin    # Duplicate finder but GUI version!
+    - exercism-bin       # Awesome website with tons of exercises in programming, CLI interface to submit exercises!
+    - fontpreview        # Preview your font... directly in the CLI !! :O
+    - gallery-dl         # Build it so it can use my bash version instead of a fucked up one >:(
     - neovim-nightly-bin # The cooler vim :sunglasses
     - pandoc-bin
+    - patool             # Patool is a portable archive file manager for the CLI !
     - pipes.sh
-    - quickemu-git # Setup VM super fast!
+    - quickemu-git       # Setup VM super fast!
     - resvg
-    - rmpc-git # Music player in the terminal, thanks @Bread on Penguins!
-    - tmsu # Tool to tag files in a Unix file system that is pretty solid but abandonned
-    - zsa-keymapp-bin # A live visual reference for your ZSA keyboard
-    - zsa-kontroll-bin # Helper cli tool for the ZSA Keymapp API
+    - rmpc-git           # Music player in the terminal, thanks @Bread on Penguins!
+    - rnr-bin            # Command line tool to rename files with regular expression! :D
+    - tmsu               # Tool to tag files in a Unix file system that is pretty solid but abandonned
+    - xdg-ninja-git      # A shell script that checks your $HOME for unwanted files and directories... Handy!
+    - zsa-keymapp-bin    # A live visual reference for your ZSA keyboard
+    - zsa-kontroll-bin   # Helper cli tool for the ZSA Keymapp API
+    - tealdeer           # Really nice alternative to tldr (written in python so slow!)
+
     # Copilot NVIM
     - luajit-tiktoken-bin # For accurate token counting
+
     # Password management
     - proton-pass-bin # My password manager but you can change !
+
     # Mailing
     - proton-mail-bin
+
     # Music and audio
     - pwvucontrol # Pipewire volume control - alternative to pavucontrol
-    - cava # Console-based Audio Visualizer for Alsa
+    - cava        # Console-based Audio Visualizer for Alsa
+
     # Fonts
     - ttf-blex-nerd-font-git
     - ttf-twemoji
     - ttf-symbola
     - apple-fonts
+
     # Rofi modules
     - rofi-power-menu # Allow to display a power menu with rofi!!
-    - rofi-emoji-git # Emoji picker
-    - rofi-calc # Calculator in rofi!
+    - rofi-emoji-git  # Emoji picker
+    - rofi-calc       # Calculator in rofi!
+
     # Drivers for hardware
     - xp-pen-tablet # XPPen driver for my Wireless Shortcut Remote :)
+
     # Tmux
     - tmux-plugin-manager
+
     # VPN
     - mullvad-vpn-bin
+
     # Local AI
     - llama.cpp-vulkan # Local inference on the GPU!!
   zsh:
     pacman:
       # Base plugin
       - zsh
+
       # Shell prompt (cannot be installed with zsh-antidote)
       - starship
+
       # Better and smarter cd command
       - zoxide
+
       # Plugins that cannot be installed with zsh-antidote
       - bat # Replace "cat" command with a more modern one
       - tmux

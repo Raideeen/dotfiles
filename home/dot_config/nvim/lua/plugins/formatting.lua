@@ -35,7 +35,7 @@ return {
         bash = { 'beautysh' },
         zsh = { 'beautysh' },
         markdown = { 'mdformat' },
-        yaml = { 'yamlfmt' },
+        json = { 'biome' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

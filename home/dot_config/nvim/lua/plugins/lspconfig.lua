@@ -301,9 +301,10 @@ return {
         'rust_analyzer',
         'stylua', -- Used to format Lua code
         'tinymist',
-        'yaml-language-server',
+        -- 'yaml-language-server',
         'mdformat', -- Markdown formatter
         'markdownlint', -- Markdown linter
+        'biome', -- JSON formatter
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
